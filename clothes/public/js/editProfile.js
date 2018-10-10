@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#editProfile").click(function(){
+	$("#editProfile")[0].click(function(){
 		$('#editForm').css("display", "block");
 	});
-}
+});

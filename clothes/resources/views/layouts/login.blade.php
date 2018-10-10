@@ -13,7 +13,7 @@
 						</h4>
 					@else
 						<div class="alert alert-success" id="myModalLabel">
-						{{$mes_success}}
+						{{$success('mes_success')}}
 						</div>
 					@endif
 				@else
@@ -153,9 +153,16 @@
 								<a class="btn btn-primary" href="/logout">Log out</a>
 								<button class="btn btn-primary" id="editProfile">Edit</button>
 								<a class="btn btn-primary" href="/change_password/{{session('user_id')}}">Change Password</a>
+								<script>
+									$(document).ready(function() {
+										$("#editProfile").click(function(){
+											$("#editForm").css("display", "block");
+										});
+									});
+								</script>
 							</div>
 						</div>
-						<div class="col-md-6 modal_body_right modal_body_right1" id="editForm" style="display: block">
+						<div class="col-md-6 modal_body_right modal_body_right1" id="editForm" style="display: none">
 							<form action="{{url('/update')}}" method="post">
 								{!! csrf_field() !!}
 							  <div class="form-group">

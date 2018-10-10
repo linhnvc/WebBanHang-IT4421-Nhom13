@@ -36,7 +36,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
-<!-- //end-smooth-scrolling -->
 
 </head>
 	
@@ -48,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$('#myModal88').modal('show');
 		</script>
 	@endif
-	@if(session('update'))
+	@if(!empty($success))
 		<script>
 		$('#myModal88').modal('show');
 		</script>
@@ -1170,4 +1169,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	@include('layouts.footer')
 <!-- //footer -->
 </body>
+
 </html>

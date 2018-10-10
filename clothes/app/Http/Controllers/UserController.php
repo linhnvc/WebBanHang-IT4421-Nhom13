@@ -51,8 +51,8 @@ class UserController extends Controller
             $new_user->email = $email;
             $new_user->save();
 
-            $mes_success = "Account Created, Let's Login";
-            return view('index')->with('mes_success', $mes_success);
+            $success = ['mes_success' => 'Account Created, Lets Login'];
+            return view('index')->with('success', $success);
 
         }
     }
@@ -114,9 +114,9 @@ class UserController extends Controller
         $name = $request->input('name');
 
 
-        $user_before = User::where('email', $email)->first();
+        $user_before = User::where('email', $email)->get();
 
-        if (!empty($user_before)) {
+        if (count($user_before) > 1) {
             $message = 'your email have been already registered';
             return view('index')->with('message', $message);
         } else {
@@ -131,8 +131,11 @@ class UserController extends Controller
             session(['email' => $updated_user->email]);
             session(['password' => $updated_user->password]);
 
-            $mes_success = "Account Updated";
-            return view('index')->with('mes_success', $mes_success);
+            $success = [
+                'mes_success' => 'Account Updated',
+                'update' => 1
+            ];
+            return view('index')->with('success', $success);
 
         }
     }
