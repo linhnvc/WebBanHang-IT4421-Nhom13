@@ -200,14 +200,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
 							<div class="agile_ecommerce_tab_left dresses_grid">
 								<div class="hs-wrapper hs-wrapper2">
-									<img src="images/37.jpg" alt=" " class="img-responsive" />
-									<img src="images/30.jpg" alt=" " class="img-responsive" />
-									<img src="images/36.jpg" alt=" " class="img-responsive" />
-									<img src="images/38.jpg" alt=" " class="img-responsive" />
-									<img src="images/37.jpg" alt=" " class="img-responsive" />
-									<img src="images/30.jpg" alt=" " class="img-responsive" />
-									<img src="images/36.jpg" alt=" " class="img-responsive" />
-									<img src="images/38.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/61_1.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/61_2.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/61_3.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/61_4.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/61_5.jpg" alt=" " class="img-responsive" />
 									<div class="w3_hs_bottom w3_hs_bottom_sub1">
 										<ul>
 											<li>
@@ -229,14 +226,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
 							<div class="agile_ecommerce_tab_left dresses_grid">
 								<div class="hs-wrapper hs-wrapper2">
-									<img src="images/30.jpg" alt=" " class="img-responsive" />
-									<img src="images/37.jpg" alt=" " class="img-responsive" />
-									<img src="images/36.jpg" alt=" " class="img-responsive" />
-									<img src="images/38.jpg" alt=" " class="img-responsive" />
-									<img src="images/37.jpg" alt=" " class="img-responsive" />
-									<img src="images/30.jpg" alt=" " class="img-responsive" />
-									<img src="images/36.jpg" alt=" " class="img-responsive" />
-									<img src="images/38.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/62_1.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/62_2.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/62_3.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/62_4.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/62_5.jpg" alt=" " class="img-responsive" />
 									<div class="w3_hs_bottom w3_hs_bottom_sub1">
 										<ul>
 											<li>
@@ -255,14 +249,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
 							<div class="agile_ecommerce_tab_left dresses_grid">
 								<div class="hs-wrapper hs-wrapper2">
-									<img src="images/36.jpg" alt=" " class="img-responsive" />
-									<img src="images/37.jpg" alt=" " class="img-responsive" />
-									<img src="images/30.jpg" alt=" " class="img-responsive" />
-									<img src="images/38.jpg" alt=" " class="img-responsive" />
-									<img src="images/37.jpg" alt=" " class="img-responsive" />
-									<img src="images/30.jpg" alt=" " class="img-responsive" />
-									<img src="images/36.jpg" alt=" " class="img-responsive" />
-									<img src="images/38.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/63_1.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/63_2.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/63_3.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/63_4.jpg" alt=" " class="img-responsive" />
+									<img src="images/Dresses/63_5.jpg" alt=" " class="img-responsive" />
 									<div class="w3_hs_bottom w3_hs_bottom_sub1">
 										<ul>
 											<li>
@@ -519,11 +510,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="w3l_related_products_grid">
 						<div class="agile_ecommerce_tab_left dresses_grid">
 							<div class="hs-wrapper hs-wrapper3">
-								<img src="images/31.jpg" alt=" " class="img-responsive">
+								<img src="images/Dresses/1_1.jpg" alt=" " class="img-responsive">
 								<img src="images/32.jpg" alt=" " class="img-responsive">
 								<img src="images/33.jpg" alt=" " class="img-responsive">
 								<img src="images/34.jpg" alt=" " class="img-responsive">
-								<img src="images/31.jpg" alt=" " class="img-responsive">
+								<img src="images/Dresses/1_1.jpg" alt=" " class="img-responsive">
 								<img src="images/32.jpg" alt=" " class="img-responsive">
 								<img src="images/33.jpg" alt=" " class="img-responsive">
 								<img src="images/34.jpg" alt=" " class="img-responsive">
@@ -546,10 +537,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="agile_ecommerce_tab_left dresses_grid">
 							<div class="hs-wrapper hs-wrapper3">
 								<img src="images/32.jpg" alt=" " class="img-responsive" />
-								<img src="images/31.jpg" alt=" " class="img-responsive" />
+								<img src="images/Dresses/1_1.jpg" alt=" " class="img-responsive" />
 								<img src="images/33.jpg" alt=" " class="img-responsive" />
 								<img src="images/34.jpg" alt=" " class="img-responsive" />
-								<img src="images/31.jpg" alt=" " class="img-responsive" />
+								<img src="images/Dresses/1_1.jpg" alt=" " class="img-responsive" />
 								<img src="images/32.jpg" alt=" " class="img-responsive" />
 								<img src="images/33.jpg" alt=" " class="img-responsive" />
 								<img src="images/34.jpg" alt=" " class="img-responsive" />
