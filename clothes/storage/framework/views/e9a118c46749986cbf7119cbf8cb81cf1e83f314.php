@@ -174,8 +174,6 @@
 									<?php $__currentLoopData = $images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									<img src="<?php echo e(asset("images/".$image->link)); ?>" alt=" " class="img-responsive" />
 									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-									
 									<div class="w3_hs_bottom w3_hs_bottom_sub1">
 										<ul>
 											<li>
