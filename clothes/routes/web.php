@@ -69,3 +69,10 @@ Route::get('/hrrls', function () {
 Route::get('/flats', function () {
     return view('sandals');
 });
+
+
+Route::get('/ad-index', function () {
+    return view('ad-index');
+});
+
+Route::get('/productlist/{kind}', 'ProductController@showproductlist');
