@@ -42,7 +42,6 @@
         <!-- Header-->
         @include('layouts.ad-header')
         <!-- Header-->
-        {{$product_list[0]->image[0]->link}}
         <div class="breadcrumbs">
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
