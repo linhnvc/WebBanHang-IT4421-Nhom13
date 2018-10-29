@@ -17,10 +17,10 @@
 			</div>
 		</div>
 		<div class="cart box_1">
-			<a href="checkout.html">
+			<a href="/checkout">
 				<div class="total">
 				<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-				<img src="images/bag.png" alt="" />
+				<img src="{{ asset('images/bag.png') }}" alt="" />
 			</a>
 			<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 			<div class="clearfix"> </div>

@@ -1,52 +1,15 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html>
-<head>
-<title>Women's Fashion a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Checkout :: w3layouts</title>
-<!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Women's Fashion Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
-<link href="{{asset('css/style.css"')}} rel="stylesheet" type="text/css" media="all" />
-<link href="{{asset('css/fasthover.css')}}" rel="stylesheet" type="text/css" media="all" />
-<!-- js -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<!-- //js -->
-<!-- cart -->
-<script src="{{asset('js/simpleCart.min.js')}}"></script>
-<!-- cart -->
-<!-- for bootstrap working -->
-<script type="text/javascript" src="{{asset('js/bootstrap-3.1.1.min.js')}}"></script>
-<!-- //for bootstrap working -->
-<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- start-smooth-scrolling -->
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
-</script>
-<!-- //end-smooth-scrolling -->
-</head>
-	
-<body>
+@extends('layouts.app')
 <!-- header -->
+@section('header')
 	@include('layouts.header')
+@endsection
+<!-- end_header -->
+@section('nav')
 	@include('layouts.nav')
-<!-- //header -->
+@endsection
+
+@section('content')
+	
 <!-- banner -->
 	<div class="banner10" id="home1">
 		<div class="container">
@@ -59,7 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="breadcrumb_dress">
 		<div class="container">
 			<ul>
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
 				<li>Checkout</li>
 			</ul>
 		</div>
@@ -100,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td class="invert">$5.00</td>
 						<td class="invert">$200.00</td>
 						<td class="invert">
-							<div class="rem">
+							<div class="rem ">
 								<div class="close1"> </div>
 							</div>
 							<script>$(document).ready(function(c) {
@@ -129,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td class="invert">$5.00</td>
 						<td class="invert">$270.00</td>
 						<td class="invert">
-							<div class="rem">
+							<div class="rem ">
 								<div class="close2"> </div>
 							</div>
 							<script>$(document).ready(function(c) {
@@ -188,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="checkout-left">	
 				<div class="checkout-left-basket">
-					<h4>Continue to basket</h4>
+					<h4>Your Order </h4>
 					<ul>
 						<li>Product1 <i>-</i> <span>$200.00 </span></li>
 						<li>Product2 <i>-</i> <span>$270.00 </span></li>
@@ -196,6 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li>Total Service Charges <i>-</i> <span>$15.00</span></li>
 						<li>Total <i>-</i> <span>$697.00</span></li>
 					</ul>
+					<a href="{{url('/')}}"> <h4>Check out</h4></a>
 				</div>
 				<div class="checkout-right-basket">
 					<a href="products.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
@@ -401,9 +365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-<!-- //checkout -->
-<!-- newsletter -->
+@endsection
+@section('footer')
 	@include('layouts.footer')
-<!-- //footer -->
-</body>
-</html>
+@endsection

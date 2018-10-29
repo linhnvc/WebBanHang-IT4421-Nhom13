@@ -38,13 +38,13 @@ Route::get('/mail', function () {
     return view('mail');
 });
 
-Route::get('/dresses', function () {
-    return view('dresses');
-});
-
-Route::get('/sweaters', function () {
-    return view('sweaters');
-});
+Route::get('products/{category_para}','ProductController@displayProductList');
+// Route::get('/products/{category}',function () {
+//     return view('dresses');
+// });
+// Route::get('/products/sweaters', function () {
+//     return view('sweaters');
+// });
 
 Route::get('/shorts_and_skirts', function () {
     return view('sweaters');
@@ -69,3 +69,7 @@ Route::get('/hrrls', function () {
 Route::get('/flats', function () {
     return view('sandals');
 });
+Route::get('/checkout', function() {
+    return view('checkout');
+});
+Route::resource('products','ProductController');

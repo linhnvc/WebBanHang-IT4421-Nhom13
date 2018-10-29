@@ -21,8 +21,8 @@
 								<div class="col-sm-3">
 									<ul class="multi-column-dropdown">
 										<h6>Clothing</h6>
-										<li><a href="{{url('/dresses')}}">Dresses<span>New</span></a></li>
-										<li><a href="{{url('/sweaters')}}">Sweaters</a></li>
+										<li><a href="/products/Dresses">Dresses<span>New</span></a></li>
+										<li><a href="/products/sweaters">Sweaters</a></li>
 										<li><a href="{{url('/shorts_and_skirts')}}">Shorts & Skirts</a></li>
 										<li><a href="{{url('/jeans')}}">Jeans</a></li>
 										<li><a href="{{url('/shirts_and_tops')}}">Shirts & Tops<span>New</span></a></li>
@@ -48,7 +48,7 @@
 								<div class="col-sm-4">
 									<div class="w3ls_products_pos">
 										<h4>50%<i>Off/-</i></h4>
-										<img src="images/1.jpg" alt=" " class="img-responsive" />
+									<img src="{{asset('images/1.jpg')}}" alt=" " class="img-responsive" />
 									</div>
 								</div>
 								<div class="clearfix"></div>
