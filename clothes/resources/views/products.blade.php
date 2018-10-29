@@ -167,11 +167,11 @@
 						<div class="w3ls_dresses_grid_right_grid2_right ">
 							<select name="select_item" class="select_item selectpicker">
 								<option selected="selected">Default sorting</option>
-								<option>Sort by popularity</option>
-								<option>Sort by average rating</option>
-								<option>Sort by newness</option>
-								<option>Sort by price: low to high</option>
-								<option>Sort by price: high to low</option>
+								{{-- <option >Sort by popularity</option>
+								<option >Sort by average rating</option>
+								<option >Sort by newness</option> --}}
+								<option >Sort by price: low to high</option>
+								<option >Sort by price: high to low</option>
 							</select>
 						</div>
 						<div class="clearfix"> </div>
@@ -202,9 +202,9 @@
 								<h5><a href="#">{{$product->name}}</a></h5>
 								<div class="simpleCart_shelfItem">
 									@if($product->salePrice!=$product->price)
-									<p><span>{{$product->salePrice}}VND</span> <i class="item_price" id = "price">{{$product->price}}VND</i></p>
+									<p><span>{{$product->salePrice}}VND</span> <i class="item_price" price ="{{$product->price}}">{{$product->price}}VND</i></p>
 									@else
-									<p><i class="item_price" id ="price">{{$product->price}}VND</i></p>
+									<p><i class="item_price" price ="{{$product->price}}">{{$product->price}}VND</i></p>
 									@endif
 									<p><a class="item_add" href="#">Add to cart</a></p>
 								</div>
