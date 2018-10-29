@@ -42,9 +42,9 @@ Route::get('products/{category_para}','ProductController@displayProductList');
 // Route::get('/products/{category}',function () {
 //     return view('dresses');
 // });
-// Route::get('/products/sweaters', function () {
-//     return view('sweaters');
-// });
+Route::get('/sweaters', function () {
+    return view('products');
+});
 
 Route::get('/shorts_and_skirts', function () {
     return view('sweaters');

@@ -19,13 +19,18 @@ class ProductController extends Controller
     public function displayProductList($category_para)
     {
        $category = Category::where('name',$category_para)->first();
-       $products = $category->product;
+       $products = $category->product()->paginate(9);
        foreach($products as $product){
             $product->firm;
             $product->image;
             $product->category;
        }
-        return view('dresses', ['products'=>$products]);
+       $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+        return view('products', ['products'=>$products, 'dressGroup'=>$dressGroup, 
+        'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>$category_para]);
+        // return $products;
     }
 
     /**

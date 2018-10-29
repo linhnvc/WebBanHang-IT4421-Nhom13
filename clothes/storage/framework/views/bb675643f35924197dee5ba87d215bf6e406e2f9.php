@@ -13,48 +13,9 @@
 			<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="<?php echo e(url('/')); ?>" class="act">Home</a></li>	
+					<li><a href="/products/Dresses">Products</a></li>
 					<!-- Mega Menu -->
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-						<ul class="dropdown-menu multi-column columns-3">
-							<div class="row">
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>Clothing</h6>
-										<li><a href="/products/Dresses">Dresses<span>New</span></a></li>
-										<li><a href="/products/sweaters">Sweaters</a></li>
-										<li><a href="<?php echo e(url('/shorts_and_skirts')); ?>">Shorts & Skirts</a></li>
-										<li><a href="<?php echo e(url('/jeans')); ?>">Jeans</a></li>
-										<li><a href="<?php echo e(url('/shirts_and_tops')); ?>">Shirts & Tops<span>New</span></a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>Ethnic Wear</h6>
-										<li><a href="<?php echo e(url('/salwars')); ?>">Salwars</a></li>
-										<li><a href="<?php echo e(url('/sarees')); ?>">Sarees<span>New</span></a></li>
-										<li><a href="<?php echo e(url('/summer_store')); ?>"><i>Summer Store</i></a></li>
-									</ul>
-								</div>
-								<div class="col-sm-2">
-									<ul class="multi-column-dropdown">
-										<h6>Foot Wear</h6>
-										<li><a href="<?php echo e(url('/flats')); ?>">Flats</a></li>
-										<li><a href="<?php echo e(url('/sandals')); ?>">Sandals</a></li>
-										<li><a href="<?php echo e(url('/boots')); ?>">Boots</a></li>
-										<li><a href="<?php echo e(url('/heels')); ?>">Heels</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-4">
-									<div class="w3ls_products_pos">
-										<h4>50%<i>Off/-</i></h4>
-									<img src="<?php echo e(asset('images/1.jpg')); ?>" alt=" " class="img-responsive" />
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</ul>
-					</li>
+					
 					<li><a href="<?php echo e(url('/about')); ?>">About Us</a></li>
 					<li><a href="<?php echo e(url('/short_codes')); ?>">Short Codes</a></li>
 					<li><a href="<?php echo e(url('/mail')); ?>">Mail Us</a></li>
