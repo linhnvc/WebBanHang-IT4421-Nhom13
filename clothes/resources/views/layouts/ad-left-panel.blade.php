@@ -10,7 +10,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Dress</a>
                     <ul class="sub-menu children dropdown-menu">                            
                         <li><i class="fa fa-puzzle-piece"></i><a href="{{url('/productlist/Dresses')}}">Dresses</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="{{url('/productlist/PartyDresses')}}">Party Dresses</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="{{url('/productlist/Party Dresses')}}">Party Dresses</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
