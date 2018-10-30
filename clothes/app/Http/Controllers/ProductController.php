@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -84,36 +85,18 @@ class ProductController extends Controller
     }
 
     public function showproductlist($kind){
-        if($kind == 'Dresses'){
-            $category_name = 'Dresses';
-        }
-
-        if($kind == 'PartyDresses'){
-            $category_name = 'Party Dresses';
-        }
-
-        if($kind == 'T-Shirts'){
-            $category_name = 'T-Shirts';
-        }
-
-        if($kind == 'Skirts'){
-            $category_name = 'Skirts';
-        }
-
-        if($kind == 'Shorts'){
-            $category_name = 'Shorts';
-        }
-
-        if($kind == 'Swimwear'){
-            $category_name = 'Swimwear';
-        }
-
-        if($kind == 'Beachwear'){
-            $category_name = 'Beachwear';
-        }
+        $category_name = $kind;
 
         $product_list = Product::getProductByCategory($category_name);
 
         return view('ad-showproductlist')->with('product_list', $product_list);
+    }
+
+    public function showproductdetail($id){
+        $id_product = $id;
+
+        $product = Product::getProductById($id);
+
+        return view('ad-showproductdetail')->with('product', $product);
     }
 }

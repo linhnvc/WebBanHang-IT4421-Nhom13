@@ -56,9 +56,9 @@
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="#">Dashboard</a></li>
-                                    <li><a href="#">Table</a></li>
-                                    <li class="active">Data table</li>
+                                    <li><a href="{{url('/ad-index')}}">Dashboard</a></li>
+                                    <li>{{$product_list[0]->category->group}}</li>
+                                    <li class="active">{{$product_list[0]->category->name}}</li>
                                 </ol>
                             </div>
                         </div>
@@ -86,19 +86,31 @@
                                             <th>Firm</th>
                                             <th>Price</th>
                                             <th>Image</th>
+                                            <th>Options</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($product_list as $product)
-                                        <tr>
-                                            <td>{{$product->name}}</td>
-                                            <td>{{$product->color}}</td>
-                                            <td>{{$product->category->name}}</td>
-                                            <td>{{$product->firm->name}}</td>
-                                            <td>{{$product->price}}</td>
-                                            <td><img src="{{asset($product->image[0]->link)}}"></td>
-                                        </tr>
-                                    @endforeach
+                                    @if(!empty($product_list))
+                                        @foreach($product_list as $product)
+                                            <tr>
+                                                <td>{{$product->name}}</td>
+                                                <td>{{$product->color}}</td>
+                                                <td>{{$product->category->name}}</td>
+                                                <td>{{$product->firm->name}}</td>
+                                                <td>{{$product->price}}</td>
+                                                <td><img src="{{asset($product->image[0]->link)}}"></td>
+                                                <td>
+                                                    <div>
+                                                        <a href="{{asset('/detailproduct/'.$product->productId)}}" class="btn btn-primary btn-md">Detail</a>
+                                                    </div>
+                                                    <div>
+                                                        <a href="{{url('/productupdate/$product->productId')}}" class="btn btn-warning btn-md">Update</a>
+                                                    </div>
+                                                    <div><a href="{{url('/detailproduct/$product->productId')}}" class="btn btn-danger btn-md">Delete</a></div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
