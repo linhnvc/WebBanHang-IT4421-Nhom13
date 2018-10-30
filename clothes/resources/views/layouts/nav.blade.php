@@ -21,7 +21,7 @@
 								<div class="col-sm-3">
 									<ul class="multi-column-dropdown">
 										<h6>Clothing</h6>
-										<li><a href="{{url('/dresses')}}">Dresses<span>New</span></a></li>
+										<li><a href="{{url('products/Dresses')}}">Dresses<span>New</span></a></li>
 										<li><a href="{{url('/sweaters')}}">Sweaters</a></li>
 										<li><a href="{{url('/shorts_and_skirts')}}">Shorts & Skirts</a></li>
 										<li><a href="{{url('/jeans')}}">Jeans</a></li>

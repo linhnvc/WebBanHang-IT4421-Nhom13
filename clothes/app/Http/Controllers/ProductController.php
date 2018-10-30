@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use App\Product;
+use App\Category;
+use App\Image;
+use App\Firm;
 
 class ProductController extends Controller
 {
@@ -12,9 +16,8 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category_para)
     {
-<<<<<<< HEAD
        $category = Category::where('name',$category_para)->first();
        $products = $category->product()->paginate(9);
        foreach($products as $product){
@@ -43,10 +46,7 @@ class ProductController extends Controller
         return view('products', ['products'=>$products, 'dressGroup'=>$dressGroup, 
         'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>$category_para,
          'products_related'=>$random_products_related]);
-        // return  $collection;
-=======
-        //
->>>>>>> ae73710098b4a3d085221b017db6a720e0e05998
+        // return  $products;
     }
 
     /**
