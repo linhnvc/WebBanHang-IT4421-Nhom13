@@ -82,3 +82,6 @@ Route::get('/detailproduct/{id}', 'ProductController@showproductdetail');
 Route::get('/ad-index', function(){
     return view('ad-index');
 });
+
+Route::get('/products/{category_para}', 'ProductController@index');
+
