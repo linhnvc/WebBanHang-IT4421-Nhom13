@@ -206,7 +206,7 @@
 									@else
 									<p><i class="item_price" price ="{{$product->price}}">{{$product->price}}VND</i></p>
 									@endif
-									<p><a class="item_add" href="#">Add to cart</a></p>
+									<p><a class="item_add " href="#">Add to cart</a></p>
 								</div>
 								{{-- <div class="dresses_grid_pos">
 									<h6>New</h6>
@@ -310,13 +310,13 @@
 								</div>
 							</div>
 							<h5><a href="#">{{$pro_relate->name}}</a></h5>
-							<div class="simpleCart_shelfItem">
+							<div class="simpleCart_shelfItem" >
 									@if($pro_relate->salePrice!=$product->price)
 									<p><span>{{$pro_relate->salePrice}}VND</span> <i class="item_price">{{$pro_relate->price}}VND</i></p>
 									@else
 									<p><i class="item_price">{{$pro_relate->price}}VND</i></p>
 									@endif
-									<p><a class="item_add" href="#">Add to cart</a></p>
+									<p><a class="item_add " href="#">Add to cart</a></p>
 							</div>
 						</div>
 						
