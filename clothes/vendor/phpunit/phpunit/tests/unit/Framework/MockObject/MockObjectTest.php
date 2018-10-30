@@ -217,7 +217,7 @@ class MockObjectTest extends TestCase
     {
         $map = [
             ['a', 'b', 'c', 'd'],
-            ['e', 'f', 'g', 'h'],
+            ['e', 'f', 'g', 'h']
         ];
 
         $mock = $this->getMockBuilder(AnInterface::class)
@@ -435,6 +435,7 @@ class MockObjectTest extends TestCase
 
     public function testGetMockWithFixedClassNameCanProduceTheSameMockTwice(): void
     {
+        $mock = $this->getMockBuilder(stdClass::class)->setMockClassName('FixedName')->getMock();
         $mock = $this->getMockBuilder(stdClass::class)->setMockClassName('FixedName')->getMock();
         $this->assertInstanceOf(stdClass::class, $mock);
     }
@@ -945,7 +946,7 @@ class MockObjectTest extends TestCase
      * @ticket   2573
      * @requires extension soap
      */
-    public function testCreateMockOfWsdlFileWithSpecialChars(): void
+    public function testCreateMockOfWsdlFileWithSpecialChars()
     {
         $mock = $this->getMockFromWsdl(__DIR__ . '/_fixture/Go ogle-Sea.rch.wsdl');
 
@@ -1013,7 +1014,7 @@ class MockObjectTest extends TestCase
         $this->assertSame('foo', (string) $mock);
     }
 
-    public function traversableProvider(): array
+    public function traversableProvider()
     {
         return [
             ['Traversable'],
@@ -1021,7 +1022,7 @@ class MockObjectTest extends TestCase
             ['TraversableMockTestInterface'],
             [['Traversable']],
             [['Iterator', 'Traversable']],
-            [['\Iterator', '\Traversable']],
+            [['\Iterator', '\Traversable']]
         ];
     }
 

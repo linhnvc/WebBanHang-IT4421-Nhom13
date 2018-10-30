@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use App\Product;
-use App\Category;
-use App\Image;
-use App\Firm;
 
 class ProductController extends Controller
 {
@@ -16,8 +12,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function displayProductList($category_para)
+    public function index()
     {
+<<<<<<< HEAD
        $category = Category::where('name',$category_para)->first();
        $products = $category->product()->paginate(9);
        foreach($products as $product){
@@ -47,6 +44,9 @@ class ProductController extends Controller
         'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>$category_para,
          'products_related'=>$random_products_related]);
         // return  $collection;
+=======
+        //
+>>>>>>> ae73710098b4a3d085221b017db6a720e0e05998
     }
 
     /**
@@ -113,5 +113,39 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showproductlist($kind){
+        if($kind == 'Dresses'){
+            $category_name = 'Dresses';
+        }
+
+        if($kind == 'PartyDresses'){
+            $category_name = 'Party Dresses';
+        }
+
+        if($kind == 'T-Shirts'){
+            $category_name = 'T-Shirts';
+        }
+
+        if($kind == 'Skirts'){
+            $category_name = 'Skirts';
+        }
+
+        if($kind == 'Shorts'){
+            $category_name = 'Shorts';
+        }
+
+        if($kind == 'Swimwear'){
+            $category_name = 'Swimwear';
+        }
+
+        if($kind == 'Beachwear'){
+            $category_name = 'Beachwear';
+        }
+
+        $product_list = Product::getProductByCategory($category_name);
+
+        return view('ad-showproductlist')->with('product_list', $product_list);
     }
 }

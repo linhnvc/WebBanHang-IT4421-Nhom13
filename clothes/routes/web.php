@@ -38,12 +38,12 @@ Route::get('/mail', function () {
     return view('mail');
 });
 
-Route::get('products/{category_para}','ProductController@displayProductList');
-// Route::get('/products/{category}',function () {
-//     return view('dresses');
-// });
+Route::get('/dresses', function () {
+    return view('dresses');
+});
+
 Route::get('/sweaters', function () {
-    return view('products');
+    return view('sweaters');
 });
 
 Route::get('/shorts_and_skirts', function () {
@@ -69,7 +69,10 @@ Route::get('/hrrls', function () {
 Route::get('/flats', function () {
     return view('sandals');
 });
-Route::get('/checkout', function() {
-    return view('checkout');
+
+
+Route::get('/ad-index', function () {
+    return view('ad-index');
 });
-Route::resource('products','ProductController');
+
+Route::get('/productlist/{kind}', 'ProductController@showproductlist');

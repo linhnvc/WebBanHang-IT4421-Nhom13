@@ -8,7 +8,6 @@
  * file that was distributed with this source code.
  */
 
-use PHPUnit\Framework\MockObject\Stub\MatcherCollection;
 use PHPUnit\Framework\TestCase;
 
 class InvocationMockerTest extends TestCase
@@ -71,19 +70,5 @@ class InvocationMockerTest extends TestCase
         $this->assertSame('foo', $mock->foo());
         $value = 'bar';
         $this->assertSame('bar', $mock->foo());
-    }
-
-    public function testWillFailWhenTryingToPerformExpectationUnconfigurableMethod(): void
-    {
-        /** @var MatcherCollection|\PHPUnit\Framework\MockObject\MockObject $matcherCollection */
-        $matcherCollection = $this->createMock(MatcherCollection::class);
-        $invocationMocker  = new \PHPUnit\Framework\MockObject\Builder\InvocationMocker(
-            $matcherCollection,
-            $this->any(),
-            []
-        );
-
-        $this->expectException(RuntimeException::class);
-        $invocationMocker->method('someMethod');
     }
 }
