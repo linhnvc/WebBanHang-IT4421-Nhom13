@@ -107,14 +107,14 @@
 					<div class="w3ls_dresses_grid_left_grid">
 						<h3>Color</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
-							<div class="ecommerce_color">
-								<ul>
-									<li><a href="#"><i></i> Red(5)</a></li>
-									<li><a href="#"><i></i> Brown(2)</a></li>
-									<li><a href="#"><i></i> Yellow(3)</a></li>
-									<li><a href="#"><i></i> Violet(6)</a></li>
-									<li><a href="#"><i></i> Orange(2)</a></li>
-									<li><a href="#"><i></i> Blue(1)</a></li>
+							<div class="ecommerce_color " >
+								<ul class="select_color">
+									<li><a href="#" id="Red"><i></i>Red(5)</a></li>
+									<li><a href="#" id = "Brown"><i></i> Brown(2)</a></li>
+									<li><a href="#" id = "Yellow"><i></i> Yellow(3)</a></li>
+									<li><a href="#" id = "Violet"><i></i> Violet(6)</a></li>
+									<li><a href="#" id = "Orange"><i></i> Orange(2)</a></li>
+									<li><a href="#" id = "Blue"><i></i> Blue(1)</a></li>
 								</ul>
 							</div>
 						</div>
@@ -122,12 +122,12 @@
 					<div class="w3ls_dresses_grid_left_grid">
 						<h3>Size</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
-							<div class="ecommerce_color ecommerce_size">
-								<ul>
-									<li><a href="#">Medium</a></li>
-									<li><a href="#">Large</a></li>
-									<li><a href="#">Extra Large</a></li>
-									<li><a href="#">Small</a></li>
+							<div class="ecommerce_color ecommerce_size ">
+								<ul class="select_size">
+									<li><a href="#" id = "Medium">Medium</a></li>
+									<li><a href="#" id = "Large">Large</a></li>
+									<li><a href="#" id = "Extra Large">Extra Large</a></li>
+									<li><a href="#" id = "Small">Small</a></li>
 								</ul>
 							</div>
 						</div>
@@ -291,33 +291,38 @@
 	<div class="w3l_related_products">
 		<div class="container">
 			<h3>Related Products</h3>
-			<ul id="flexiselDemo2">			
+			<ul id="flexiselDemo2">	
+				@foreach($products_related as $pro_relate)
+				@php
+					$images = $pro_relate->image;
+				@endphp	
 				<li>
 					<div class="w3l_related_products_grid">
 						<div class="agile_ecommerce_tab_left dresses_grid">
 							<div class="hs-wrapper hs-wrapper3">
-							<img src="{{ asset('images/31.jpg')}}" alt=" " class="img-responsive">
-								<img src="{{asset('images/32.jpg')}}" alt=" " class="img-responsive">
-								<img src="{{asset('images/33.jpg')}}" alt=" " class="img-responsive">
-								<img src="{{asset('images/34.jpg')}}" alt=" " class="img-responsive">
-								<img src="{{asset('images/31.jpg')}}" alt=" " class="img-responsive">
-								<img src="{{asset('images/32.jpg')}}" alt=" " class="img-responsive">
-								<img src="{{asset('images/33.jpg')}}" alt=" " class="img-responsive">
-								<img src="{{asset('images/34.jpg')}}" alt=" " class="img-responsive">
+									@foreach($images as $image)
+									<img src="{{ asset("images/".$image->link) }}" alt=" " class="img-responsive" />
+									@endforeach
 								<div class="w3_hs_bottom">
 									<div class="flex_ecommerce">
 										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 									</div>
 								</div>
 							</div>
-							<h5><a href="single.html">Sweater</a></h5>
+							<h5><a href="#">{{$pro_relate->name}}</a></h5>
 							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">$212</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
+									@if($pro_relate->salePrice!=$product->price)
+									<p><span>{{$pro_relate->salePrice}}VND</span> <i class="item_price">{{$pro_relate->price}}VND</i></p>
+									@else
+									<p><i class="item_price">{{$pro_relate->price}}VND</i></p>
+									@endif
+									<p><a class="item_add" href="#">Add to cart</a></p>
 							</div>
 						</div>
+						
 					</div>
 				</li>
+				@endforeach
 			</ul>
 				<script type="text/javascript">
 					$(window).load(function() {

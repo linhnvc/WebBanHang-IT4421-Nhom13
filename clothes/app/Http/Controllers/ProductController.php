@@ -25,12 +25,28 @@ class ProductController extends Controller
             $product->image;
             $product->category;
        }
+
        $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
+
+       $groupCategory = $category->group;
+       $categories = Category::where('group', $groupCategory)->get();
+       $collection = collect([]);
+       foreach($categories as $categ){
+           $products_related = $categ->product;
+           foreach($products_related as $pro_relate){
+            $pro_relate->firm;
+            $pro_relate->image;
+            $pro_relate->category;
+           }
+        $collection = $collection->concat($products_related);
+       }
+       $random_products_related = $collection->random(12);
         return view('products', ['products'=>$products, 'dressGroup'=>$dressGroup, 
-        'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>$category_para]);
-        // return $products;
+        'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>$category_para,
+         'products_related'=>$random_products_related]);
+        // return  $collection;
     }
 
     /**

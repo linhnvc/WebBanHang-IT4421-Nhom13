@@ -24,5 +24,13 @@ $(document).ready(function(){
             $wrapper.append(this);
         });
     });
+    $("#red").click(function(){
+        alert($this.val());
+    });
+
+
+    $("ul .select_color").click(function(){
+        alert($this.val());
+    });
 
 });
