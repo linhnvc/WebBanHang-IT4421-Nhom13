@@ -41,12 +41,12 @@
 							  <div class="panel panel-default">
 								<div class="panel-heading" role="tab" id="headingOne">
 								  <h4 class="panel-title asd">
-									<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+									<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 									  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Dresses
 									</a>
 								  </h4>
 								</div>
-								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+								<div id="collapseOne" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne">
 								  <div class="panel-body panel_text">
 									<ul >
 										@foreach($dressGroup as $group)
@@ -65,7 +65,7 @@
 									</a>
 								  </h4>
 								</div>
-								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<div id="collapseTwo" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingTwo">
 								   <div class="panel-body panel_text">
 									<ul>
 											@foreach($commonGroup as $group)
@@ -84,7 +84,7 @@
 									</a>
 								  </h4>
 								</div>
-								<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+								<div id="collapseThree" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingThree">
 								   <div class="panel-body panel_text">
 									<ul>
 											@foreach($beachGroup as $group)
@@ -108,13 +108,13 @@
 						<h3>Color</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color " >
-								<ul class="select_color">
-									<li><a href="#" id="Red"><i></i>Red(5)</a></li>
-									<li><a href="#" id = "Brown"><i></i> Brown(2)</a></li>
-									<li><a href="#" id = "Yellow"><i></i> Yellow(3)</a></li>
-									<li><a href="#" id = "Violet"><i></i> Violet(6)</a></li>
-									<li><a href="#" id = "Orange"><i></i> Orange(2)</a></li>
-									<li><a href="#" id = "Blue"><i></i> Blue(1)</a></li>
+								<ul id="select_color">
+									<li><a href="javascript:void(0)" id="Red"><i></i>Red(5)</a></li>
+									<li><a href="javascript:void(0)" id = "Brown"><i></i> Brown(2)</a></li>
+									<li><a href="javascript:void(0)" id = "Yellow"><i></i> Yellow(3)</a></li>
+									<li><a href="javascript:void(0)" id = "Violet"><i></i> Violet(6)</a></li>
+									<li><a href="javascript:void(0)" id = "Orange"><i></i> Orange(2)</a></li>
+									<li><a href="javascript:void(0)" id = "Blue"><i></i> Blue(1)</a></li>
 								</ul>
 							</div>
 						</div>
@@ -123,11 +123,11 @@
 						<h3>Size</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color ecommerce_size ">
-								<ul class="select_size">
-									<li><a href="#" id = "Medium">Medium</a></li>
-									<li><a href="#" id = "Large">Large</a></li>
-									<li><a href="#" id = "Extra Large">Extra Large</a></li>
-									<li><a href="#" id = "Small">Small</a></li>
+								<ul id="select_size">
+									<li><a href="javascript:void(0)" id = "Medium">Medium(8)</a></li>
+									<li><a href="javascript:void(0)" id = "Large">Large(8)</a></li>
+									<li><a href="javascript:void(0)" id = "Extra Large">Extra Large(8)</a></li>
+									<li><a href="javascript:void(0)" id = "Small">Small(8)</a></li>
 								</ul>
 							</div>
 						</div>
@@ -205,16 +205,16 @@
 										</ul>
 									</div>
 								</div>
-								<h5><a href="#">{{$product->name}}</a></h5>
+								<h5><a href="{{asset("products/".$product->category->name."/".$product->productId)}}">{{$product->name}}</a></h5>
 								<div class="simpleCart_shelfItem">
 									@if($product->salePrice < $product->price)
-									<p><span>{{$product->price}}VND</span> <i class="item_price" price ="{{$product->salePrice}}"
+									<p ><span>{{$product->price}}VND</span> <i  class="item_price" price ="{{$product->salePrice}}"
 										color ="{{$product->color}}" size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@else
-									<p><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
+									<p ><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
 										size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@endif
-									<p><a class="item_add" href="#">Add to cart</a></p>
+									<p ><a  class="item_add" href="#">Add to cart</a></p>
 								</div>
 								{{-- <div class="dresses_grid_pos">
 									<h6>New</h6>
@@ -224,7 +224,7 @@
 						@endforeach
 						<div class="clearfix"> </div>
 					</div>
-					<div class="d-flex justify-content-center">
+					<div style = "text-align: center;">
 							{{ $products->onEachSide(5)->links() }}
 					</div>
 					
@@ -318,15 +318,18 @@
 									</div>
 								</div>
 							</div>
+							
 							<h5><a href="#">{{$pro_relate->name}}</a></h5>
-							<div class="simpleCart_shelfItem">
-									@if($pro_relate->salePrice < $product->price)
-									<p><span>{{$pro_relate->price}}VND</span> <i class="item_price">{{$pro_relate->salePrice}}VND</i></p>
+								<div class="simpleCart_shelfItem">
+									@if($pro_relate->salePrice < $pro_relate->price)
+									<p><span>{{$pro_relate->price}}VND</span> <i class="item_price" price ="{{$product->salePrice}}"
+										color ="{{$product->color}}" size = "{{$product->size}}">{{$pro_relate->salePrice}}VND</i></p>
 									@else
-									<p><i class="item_price">{{$pro_relate->salePrice}}VND</i></p>
+									<p><i class="item_price" price ="{{$pro_relate->salePrice}}" color ="{{$pro_relate->color}}" 
+										size = "{{$pro_relate->size}}">{{$pro_relate->salePrice}}VND</i></p>
 									@endif
 									<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
+								</div>
 						</div>
 						
 					</div>

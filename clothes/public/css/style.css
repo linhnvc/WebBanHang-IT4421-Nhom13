@@ -533,9 +533,10 @@ ul.multi-column-dropdown h6 {
 .simpleCart_shelfItem p{
 	font-size: 1.2em;
     color: #212121;
-    margin: 0.5em 0 1em;
+    margin: 1.5em 0 1em;
     font-weight: 600;
 }
+
 .simpleCart_shelfItem p span{
 	color: #999;
     font-size: .8em;
