@@ -8,6 +8,7 @@ use App\Category;
 class Product extends Model
 {
     protected $table = 'product';
+    public $primaryKey = "productId";
     public $timestamps = false;
 
     public function firm(){

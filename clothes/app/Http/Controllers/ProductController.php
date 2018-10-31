@@ -16,6 +16,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function homePage(){
+       $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+       return view('index', ['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup]);
+    }
     public function index($category_para)
     {
        $category = Category::where('name',$category_para)->first();
@@ -76,9 +82,33 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($category_para, $id)
+
     {
-        //
+       $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+
+
+        $product = Product::find($id);
+        $product->firm;
+        $product->image;
+        $product->category;
+        // return $product;
+        $category = Category::where('name',$category_para)->first();
+        $products_related = $category->product()->take(12)->get();
+        foreach($products_related as $pro){
+            $pro->firm;
+            $pro->image;
+            $pro->category;
+        }
+
+       $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+
+        return view('single', ['category'=>$category_para, "product"=>$product, "products_related"=>$products_related,
+        'dressGroup'=>$dressGroup, 'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup,]);
     }
 
     /**

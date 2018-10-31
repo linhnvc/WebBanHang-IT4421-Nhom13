@@ -20,35 +20,32 @@
 							<div class="row">
 								<div class="col-sm-3">
 									<ul class="multi-column-dropdown">
-										<h6>Clothing</h6>
-										<li><a href="{{url('products/Dresses')}}">Dresses<span>New</span></a></li>
-										<li><a href="{{url('/sweaters')}}">Sweaters</a></li>
-										<li><a href="{{url('/shorts_and_skirts')}}">Shorts & Skirts</a></li>
-										<li><a href="{{url('/jeans')}}">Jeans</a></li>
-										<li><a href="{{url('/shirts_and_tops')}}">Shirts & Tops<span>New</span></a></li>
+										<h6>Dress</h6>
+										@foreach($dressGroup as $group)
+									    <li><a href="/products/{{$group->name}}">{{$group->name}}</a></li>
+										@endforeach
 									</ul>
 								</div>
 								<div class="col-sm-3">
 									<ul class="multi-column-dropdown">
-										<h6>Ethnic Wear</h6>
-										<li><a href="{{url('/salwars')}}">Salwars</a></li>
-										<li><a href="{{url('/sarees')}}">Sarees<span>New</span></a></li>
-										<li><a href="{{url('/summer_store')}}"><i>Summer Store</i></a></li>
+										<h6>Common</h6>
+										@foreach($commonGroup as $group)
+											<li><a href="/products/{{$group->name}}">{{$group->name}}</a></li>
+										@endforeach
 									</ul>
 								</div>
 								<div class="col-sm-2">
 									<ul class="multi-column-dropdown">
-										<h6>Foot Wear</h6>
-										<li><a href="{{url('/flats')}}">Flats</a></li>
-										<li><a href="{{url('/sandals')}}">Sandals</a></li>
-										<li><a href="{{url('/boots')}}">Boots</a></li>
-										<li><a href="{{url('/heels')}}">Heels</a></li>
+										<h6>Beach</h6>
+										@foreach($beachGroup as $group)
+											<li><a href="/products/{{$group->name}}">{{$group->name}}</a></li>
+										@endforeach
 									</ul>
 								</div>
 								<div class="col-sm-4">
 									<div class="w3ls_products_pos">
 										<h4>50%<i>Off/-</i></h4>
-										<img src="images/1.jpg" alt=" " class="img-responsive" />
+									<img src="{{asset('images_admin/1.jpg')}}" alt=" " class="img-responsive" />
 									</div>
 								</div>
 								<div class="clearfix"></div>

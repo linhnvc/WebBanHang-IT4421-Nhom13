@@ -48,7 +48,7 @@
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 								  <div class="panel-body panel_text">
-									<ul>
+									<ul >
 										@foreach($dressGroup as $group)
 									    <li><a href="/products/{{$group->name}}">{{$group->name}}</a></li>
 										@endforeach
@@ -134,7 +134,7 @@
 					</div>
 					<div class="w3ls_dresses_grid_left_grid">
 						<div class="dresses_img_hover">
-						<img src="{{asset('images/47.jpg')}}" alt=" " class="img-responsive" />
+						<img src="{{asset('images_admin/47.jpg')}}" alt=" " class="img-responsive" />
 							<div class="dresses_img_hover_pos">
 								<h4>For Kids <span>20%</span><i>Discount</i></h4>
 							</div>
@@ -144,7 +144,7 @@
 				<div class="col-md-8 w3ls_dresses_grid_right">
 					<div class="col-md-6 w3ls_dresses_grid_right_left">
 						<div class="w3ls_dresses_grid_right_grid1">
-						<img src="{{asset('images/48.jpg')}}" alt=" " class="img-responsive" />
+						<img src="{{asset('images_admin/48.jpg')}}" alt=" " class="img-responsive" />
 							<div class="w3ls_dresses_grid_right_grid1_pos">
 								<h3>Printed <span>Cotton</span> Top</h3>
 							</div>
@@ -152,7 +152,7 @@
 					</div>
 					<div class="col-md-6 w3ls_dresses_grid_right_left">
 						<div class="w3ls_dresses_grid_right_grid1">
-						<img src="{{asset('images/49.jpg')}}" alt=" " class="img-responsive" />
+						<img src="{{asset('images_admin/49.jpg')}}" alt=" " class="img-responsive" />
 							<div class="w3ls_dresses_grid_right_grid1_pos1">
 								<h3>Printed Blue <span>Cotton</span> Jeans</h3>
 							</div>
@@ -193,18 +193,26 @@
 									@endforeach
 									<div class="w3_hs_bottom w3_hs_bottom_sub1">
 										<ul>
-											<li>
+											{{-- <li>
 												<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+											</li> --}}
+											<li>
+												<a href="{{asset("products/".$product->category->name."/".$product->productId)}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 											</li>
+											{{-- <li>
+											<a href="{{asset("products/".$category."/".$product->id)}}"></a>
+											</li> --}}
 										</ul>
 									</div>
 								</div>
 								<h5><a href="#">{{$product->name}}</a></h5>
 								<div class="simpleCart_shelfItem">
-									@if($product->salePrice!=$product->price)
-									<p><span>{{$product->salePrice}}VND</span> <i class="item_price" price ="{{$product->price}}">{{$product->price}}VND</i></p>
+									@if($product->salePrice < $product->price)
+									<p><span>{{$product->price}}VND</span> <i class="item_price" price ="{{$product->salePrice}}"
+										color ="{{$product->color}}" size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@else
-									<p><i class="item_price" price ="{{$product->price}}">{{$product->price}}VND</i></p>
+									<p><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
+										size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@endif
 									<p><a class="item_add" href="#">Add to cart</a></p>
 								</div>
@@ -225,7 +233,7 @@
 
 
 
-					<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
+					{{-- <div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -234,7 +242,7 @@
 								<section>
 									<div class="modal-body">
 										<div class="col-md-5 modal_body_left">
-										<img src="{{asset('images/39.jpg')}}" alt=" " class="img-responsive" />
+										<img src="{{asset('images_admin/39.jpg')}}" alt=" " class="img-responsive" />
 										</div>
 										<div class="col-md-7 modal_body_right">
 											<h4>a good look women's Long Skirt</h4>
@@ -247,19 +255,19 @@
 												deserunt mollit anim id est laborum.</p>
 											<div class="rating">
 												<div class="rating-left">
-												<img src="{{asset('images/star-.png')}}" alt=" " class="img-responsive" />
+												<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive" />
 												</div>
 												<div class="rating-left">
-													<img src="{{asset('images/star-.png')}}" alt=" " class="img-responsive" />
+													<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive" />
 												</div>
 												<div class="rating-left">
-													<img src="{{asset('images/star-.png')}}" alt=" " class="img-responsive" />
+													<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive" />
 												</div>
 												<div class="rating-left">
-													<img src="{{asset('images/star.png')}}" alt=" " class="img-responsive" />
+													<img src="{{asset('images_admin/star.png')}}" alt=" " class="img-responsive" />
 												</div>
 												<div class="rating-left">
-													<img src="{{asset('images/star.png')}}" alt=" " class="img-responsive" />
+													<img src="{{asset('images_admin/star.png')}}" alt=" " class="img-responsive" />
 												</div>
 												<div class="clearfix"> </div>
 											</div>
@@ -282,7 +290,7 @@
 								</section>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -305,16 +313,17 @@
 									@endforeach
 								<div class="w3_hs_bottom">
 									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+											<a href="{{asset("products/".$pro_relate->category->name."/".$pro_relate->productId)}}">
+												<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 									</div>
 								</div>
 							</div>
 							<h5><a href="#">{{$pro_relate->name}}</a></h5>
 							<div class="simpleCart_shelfItem">
-									@if($pro_relate->salePrice!=$product->price)
-									<p><span>{{$pro_relate->salePrice}}VND</span> <i class="item_price">{{$pro_relate->price}}VND</i></p>
+									@if($pro_relate->salePrice < $product->price)
+									<p><span>{{$pro_relate->price}}VND</span> <i class="item_price">{{$pro_relate->salePrice}}VND</i></p>
 									@else
-									<p><i class="item_price">{{$pro_relate->price}}VND</i></p>
+									<p><i class="item_price">{{$pro_relate->salePrice}}VND</i></p>
 									@endif
 									<p><a class="item_add" href="#">Add to cart</a></p>
 							</div>

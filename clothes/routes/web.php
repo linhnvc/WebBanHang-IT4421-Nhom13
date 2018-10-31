@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('home');
+Route::get('/','ProductController@homePage')->name('home');
 
 Route::post('checklogin', 'UserController@checklogin');
 
@@ -47,11 +48,11 @@ Route::get('/sweaters', function () {
 });
 
 Route::get('/shorts_and_skirts', function () {
-    return view('sweaters');
+    return view('skirts');
 });
 
 Route::get('/salwars', function () {
-    return view('salwars');
+    return view('single');
 });
 
 Route::get('/sandals', function () {
@@ -59,7 +60,7 @@ Route::get('/sandals', function () {
 });
 
 Route::get('/boots', function () {
-    return view('sandals');
+    return view('sarees');
 });
 
 Route::get('/hrrls', function () {
@@ -84,4 +85,5 @@ Route::get('/ad-index', function(){
 });
 
 Route::get('/products/{category_para}', 'ProductController@index');
+Route::get('/products/{category_para}/{id}', 'ProductController@show');
 
