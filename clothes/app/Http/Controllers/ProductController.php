@@ -55,6 +55,17 @@ class ProductController extends Controller
         // return  $products;
     }
 
+    public function search(Request $request){
+       $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+       $products_searched = [];
+       $p = "lalalal";
+       return $p;
+    //    return view('products', ['products'=>$products_searched, 'dressGroup'=>$dressGroup, 
+    //     'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>'Search']);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

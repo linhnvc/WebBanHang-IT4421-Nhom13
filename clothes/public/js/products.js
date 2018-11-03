@@ -25,13 +25,13 @@ $(document).ready(function(){
         });
     });
     $("#select_size li a").click(function(){
-    //    $(this).append('<li><a href="javascript:void(0)" id = "Medium">Medium</a></li>');
-    alert("heeloo12234");
+     var value = $(this).attr('id');
+     alert(value);
+
     });
 
 
     $("#select_color li a").click(function(){
-        // $(this).append('<li><a href="javascript:void(0)" id="Red"><i></i>Red(5)</a></li>');
         alert("heeloo1234");
     });
 

@@ -167,9 +167,6 @@
 						<div class="w3ls_dresses_grid_right_grid2_right ">
 							<select name="select_item" class="select_item selectpicker">
 								<option selected="selected">Default sorting</option>
-								{{-- <option >Sort by popularity</option>
-								<option >Sort by average rating</option>
-								<option >Sort by newness</option> --}}
 								<option >Sort by price: low to high</option>
 								<option >Sort by price: high to low</option>
 							</select>
@@ -193,15 +190,9 @@
 									@endforeach
 									<div class="w3_hs_bottom w3_hs_bottom_sub1">
 										<ul>
-											{{-- <li>
-												<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-											</li> --}}
 											<li>
 												<a href="{{asset("products/".$product->category->name."/".$product->productId)}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 											</li>
-											{{-- <li>
-											<a href="{{asset("products/".$category."/".$product->id)}}"></a>
-											</li> --}}
 										</ul>
 									</div>
 								</div>
@@ -216,9 +207,6 @@
 									@endif
 									<p ><a  class="item_add" href="#">Add to cart</a></p>
 								</div>
-								{{-- <div class="dresses_grid_pos">
-									<h6>New</h6>
-								</div> --}}
 							</div>
 						</div>
 						@endforeach
@@ -227,70 +215,6 @@
 					<div style = "text-align: center;">
 							{{ $products->onEachSide(5)->links() }}
 					</div>
-					
-					
-
-
-
-
-					{{-- <div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-								</div>
-								<section>
-									<div class="modal-body">
-										<div class="col-md-5 modal_body_left">
-										<img src="{{asset('images_admin/39.jpg')}}" alt=" " class="img-responsive" />
-										</div>
-										<div class="col-md-7 modal_body_right">
-											<h4>a good look women's Long Skirt</h4>
-											<p>Ut enim ad minim veniam, quis nostrud 
-												exercitation ullamco laboris nisi ut aliquip ex ea 
-												commodo consequat.Duis aute irure dolor in 
-												reprehenderit in voluptate velit esse cillum dolore 
-												eu fugiat nulla pariatur. Excepteur sint occaecat 
-												cupidatat non proident, sunt in culpa qui officia 
-												deserunt mollit anim id est laborum.</p>
-											<div class="rating">
-												<div class="rating-left">
-												<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive" />
-												</div>
-												<div class="rating-left">
-													<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive" />
-												</div>
-												<div class="rating-left">
-													<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive" />
-												</div>
-												<div class="rating-left">
-													<img src="{{asset('images_admin/star.png')}}" alt=" " class="img-responsive" />
-												</div>
-												<div class="rating-left">
-													<img src="{{asset('images_admin/star.png')}}" alt=" " class="img-responsive" />
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-											<div class="modal_body_right_cart simpleCart_shelfItem">
-												<p><span>$320</span> <i class="item_price">$250</i></p>
-												<p><a class="item_add" href="#">Add to cart</a></p>
-											</div>
-											<h5>Color</h5>
-											<div class="color-quality">
-												<ul>
-													<li><a href="#"><span></span>Red</a></li>
-													<li><a href="#" class="brown"><span></span>Yellow</a></li>
-													<li><a href="#" class="purple"><span></span>Purple</a></li>
-													<li><a href="#" class="gray"><span></span>Violet</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</section>
-							</div>
-						</div>
-					</div> --}}
 				</div>
 				<div class="clearfix"> </div>
 			</div>
