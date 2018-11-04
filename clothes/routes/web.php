@@ -86,5 +86,5 @@ Route::get('/ad-index', function(){
 
 Route::get('/products/{category_para}', 'ProductController@index');
 Route::get('/products/{category_para}/{id}', 'ProductController@show');
-Route::post('/products/search', 'ProductController@search');
+Route::get('/search', 'ProductController@search');
 

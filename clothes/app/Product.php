@@ -3,13 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use App\Category;
 
 class Product extends Model
 {
+    
     protected $table = 'product';
     public $primaryKey = "productId";
     public $timestamps = false;
+    use Searchable;
+    public function searchableAs()
+    {
+        return 'productId';
+    }
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+        $array["firm"]= $this->firm;
+        $array["category"]= $this->category;
+        return $array;
+    }
 
     public function firm(){
     	return $this->belongsTo('App\Firm', 'FirmId', 'firmId');

@@ -59,11 +59,19 @@ class ProductController extends Controller
        $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
-       $products_searched = [];
-       $p = "lalalal";
-       return $p;
-    //    return view('products', ['products'=>$products_searched, 'dressGroup'=>$dressGroup, 
-    //     'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>'Search']);
+
+      
+       $key_search =  $request->Search;
+       $products_searched = Product::search( $key_search)->paginate(9);
+       foreach($products_searched as $prod){
+        $prod->firm;
+        $prod->image;
+        $prod->category;
+   }
+    //    return Product::all()->first()->toSearchableArray();
+    //   return $products_searched;
+       return view('products', ['products'=>$products_searched, 'dressGroup'=>$dressGroup, 
+        'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>'Search', 'products_related'=>[]]);
     }
 
     /**

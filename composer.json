@@ -1,0 +1,6 @@
+{
+    "require": {
+        "laravel/scout": "^6.0",
+        "algolia/algoliasearch-client-php": "^1.27"
+    }
+}
