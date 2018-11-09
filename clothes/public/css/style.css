@@ -296,7 +296,7 @@ ul.multi-column-dropdown h6 {
 /*-- //navigation --*/
 /*-- banner --*/
 .banner{
-	background:url(../images/b1.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/b1.jpg) no-repeat 0px 0px;
 /*-- w3layouts --*/
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -306,7 +306,7 @@ ul.multi-column-dropdown h6 {
 	min-height:700px;
 }
 .banner10{
-	background:url(../images/b1.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/b1.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -324,7 +324,7 @@ ul.multi-column-dropdown h6 {
     padding: 2.5em 0 0;
 }
 .banner1{
-	background:url(../images/banner3.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner3.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -332,7 +332,7 @@ ul.multi-column-dropdown h6 {
 	-ms-background-size:cover;
 }
 .banner2{
-	background:url(../images/b3.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/b3.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -340,7 +340,7 @@ ul.multi-column-dropdown h6 {
 	-ms-background-size:cover;
 }
 .banner3{
-	background:url(../images/banner4.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner4.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -349,7 +349,7 @@ ul.multi-column-dropdown h6 {
 }
 /*-- agileits --*/
 .banner4{
-	background:url(../images/banner2.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner2.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -357,7 +357,7 @@ ul.multi-column-dropdown h6 {
 	-ms-background-size:cover;
 }
 .banner5{
-	background:url(../images/banner5.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner5.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -365,7 +365,7 @@ ul.multi-column-dropdown h6 {
 	-ms-background-size:cover;
 }
 .banner6{
-	background:url(../images/banner6.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner6.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -373,7 +373,7 @@ ul.multi-column-dropdown h6 {
 	-ms-background-size:cover;
 }
 .banner7{
-	background:url(../images/banner7.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner7.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -381,7 +381,7 @@ ul.multi-column-dropdown h6 {
 	-ms-background-size:cover;
 }
 .banner8{
-	background:url(../images/banner8.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner8.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -389,7 +389,7 @@ ul.multi-column-dropdown h6 {
 	-ms-background-size:cover;
 }
 .banner9{
-	background:url(../images/banner9.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/banner9.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -436,7 +436,7 @@ ul.multi-column-dropdown h6 {
     border: none;
 }
 .video-img {
-    background: url(../images/2.jpg)no-repeat center;
+    background: url(../images_admin/2.jpg)no-repeat center;
     -webkit-background-size: cover;
     background-size: cover;
     -moz-background-size: cover;
@@ -691,7 +691,7 @@ ul.multi-column-dropdown h6 {
 
 .starRating:not(old) > label {
     float: right;
-    background: url(../images/star.png);
+    background: url(../images_admin/star.png);
     background-size: contain;
     margin-right: 2px;
 }
@@ -701,7 +701,7 @@ ul.multi-column-dropdown h6 {
   display         : block;
   width           : 18px;
   height          : 18px;
-  background      : url(../images/star-.png);
+  background      : url(../images_admin/star-.png);
   background-size : contain;
   opacity         : 0;
   transition      : opacity 0.2s linear;
@@ -950,7 +950,7 @@ ul.wmuSliderPagination {
 /*-- //new-products --*/
 /*-- banner-bottom1 --*/
 .agileinfo_banner_bottom1_grid_left{
-	background:url(../images/44.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/44.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -987,15 +987,15 @@ ul.wmuSliderPagination {
     font-size: 1em;
     letter-spacing: 2px;
     color: #ff9b05;
-    background: url(../images/img-sp.png) no-repeat 112px -4px;
+    background: url(../images_admin/img-sp.png) no-repeat 112px -4px;
     padding: 0 45px 0 0;
 }
 .agileinfo_banner_bottom1_grid_left a:hover,.team-bottom a:hover{
 	color:#212121;
-	background:url(../images/img-sp.png) no-repeat 112px -38px;
+	background:url(../images_admin/img-sp.png) no-repeat 112px -38px;
 }
 .agileinfo_banner_bottom1_grid_right{
-	background:url(../images/45.jpg) no-repeat 0px 0px;
+	background:url(../images_admin/45.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1108,11 +1108,11 @@ ul.wmuSliderPagination {
 	outline: none;
     padding: 10px 0;
     width: 15%;
-    background: url(../images/img-sp.png) no-repeat 26px -65px #ff9b05;
+    background: url(../images_admin/img-sp.png) no-repeat 26px -65px #ff9b05;
     border: none;
 }
 .w3agile_newsletter_right input[type="submit"]:hover{
-    background: url(../images/img-sp.png) no-repeat 26px -65px #212121;
+    background: url(../images_admin/img-sp.png) no-repeat 26px -65px #212121;
 }
 /*-- //newsletter --*/
 /*-- footer --*/
@@ -1167,7 +1167,7 @@ ul.wmuSliderPagination {
 }
 .w3_footer_grid ul.info li a {
     padding-left: 3em;
-    background: url(../images/img-sp.png) no-repeat -6px -98px;
+    background: url(../images_admin/img-sp.png) no-repeat -6px -98px;
 }
 .w3_footer_grid h4{
 	margin:2em 0 1em;
@@ -1180,43 +1180,43 @@ ul.wmuSliderPagination {
 	margin: 0 !important;
 }
 .agileits_social_button ul li a.facebook{
-	background: url(../images/img-sp.png) no-repeat -1px -130px #414141;
+	background: url(../images_admin/img-sp.png) no-repeat -1px -130px #414141;
     display: block;
     width: 35px;
     height: 35px;
 }
 .agileits_social_button ul li a.facebook:hover{
-	background:url(../images/img-sp.png) no-repeat -1px -130px #5E5E5E;
+	background:url(../images_admin/img-sp.png) no-repeat -1px -130px #5E5E5E;
     display: block;
 }
 .agileits_social_button ul li a.twitter{
-	background: url(../images/img-sp.png) no-repeat -41px -130px #414141;
+	background: url(../images_admin/img-sp.png) no-repeat -41px -130px #414141;
     display: block;
     width: 35px;
     height: 35px;
 }
 .agileits_social_button ul li a.twitter:hover{
-	background: url(../images/img-sp.png) no-repeat -41px -130px #5E5E5E;
+	background: url(../images_admin/img-sp.png) no-repeat -41px -130px #5E5E5E;
     display: block;
 }
 .agileits_social_button ul li a.google{
-	background: url(../images/img-sp.png) no-repeat -80px -130px #414141;
+	background: url(../images_admin/img-sp.png) no-repeat -80px -130px #414141;
     display: block;
     width: 35px;
     height: 35px;
 }
 .agileits_social_button ul li a.google:hover{
-	background: url(../images/img-sp.png) no-repeat -80px -130px #5E5E5E;
+	background: url(../images_admin/img-sp.png) no-repeat -80px -130px #5E5E5E;
     display: block;
 }
 .agileits_social_button ul li a.pinterest{
-	background:url(../images/img-sp.png) no-repeat -123px -130px #414141;
+	background:url(../images_admin/img-sp.png) no-repeat -123px -130px #414141;
     display: block;
     width: 35px;
     height: 35px;
 }
 .agileits_social_button ul li a.pinterest:hover{
-	background:url(../images/img-sp.png) no-repeat -123px -130px #5E5E5E;
+	background:url(../images_admin/img-sp.png) no-repeat -123px -130px #5E5E5E;
     display: block;
 }
 .footer-copy1{
@@ -1418,7 +1418,7 @@ h3.other-nw {
 }
 .entypo-facebook:before {
     content: " ";
-    background: url(../images/img-sp.png) no-repeat 7px -125px;
+    background: url(../images_admin/img-sp.png) no-repeat 7px -125px;
     display: block;
     width: 3em;
     height: 3em;
@@ -1430,7 +1430,7 @@ h3.other-nw {
 }
 .entypo-twitter:before {
     content: " ";
-    background:url(../images/img-sp.png) no-repeat -35px -125px;
+    background:url(../images_admin/img-sp.png) no-repeat -35px -125px;
     display: block;
     width: 3em;
     height: 3em;
@@ -1442,7 +1442,7 @@ h3.other-nw {
 }
 .entypo-dribbble:before {
     content: " ";
-    background:url(../images/img-sp.png) no-repeat -74px -125px;
+    background:url(../images_admin/img-sp.png) no-repeat -74px -125px;
     display: block;
     width: 3em;
     height: 3em;
@@ -1454,7 +1454,7 @@ h3.other-nw {
 }
 .entypo-behance:before {
     content: " ";
-    background:url(../images/img-sp.png) no-repeat -117px -125px;
+    background:url(../images_admin/img-sp.png) no-repeat -117px -125px;
     display: block;
     width: 3em;
     height: 3em;
@@ -1567,7 +1567,7 @@ h3.other-nw {
 	list-style-type: none;
     margin-bottom: 1em;
     padding-left: 1.5em;
-    background: url(../images/img-sp.png) no-repeat -13px -172px;
+    background: url(../images_admin/img-sp.png) no-repeat -13px -172px;
 }
 .panel-body ul li a{
     font-size: 14px;
@@ -1798,12 +1798,12 @@ select.select_item {
 .nbs-flexisel-nav-left {
 	left:-5%;
 	top:38% !important;
-	background:url(../images/left-arrow.png) no-repeat 0px 0px;
+	background:url(../images_admin/left-arrow.png) no-repeat 0px 0px;
 }
 .nbs-flexisel-nav-right {
 	right:-5%;
 	top:38% !important;
-	background:url(../images/right-arrow.png) no-repeat 0px 0px;
+	background:url(../images_admin/right-arrow.png) no-repeat 0px 0px;
 }
 /*--//flexisel--*/
 .w3l_related_products_grid{
@@ -2327,7 +2327,7 @@ h2.typoh2{
 }
 .checkbox input + i:after {
     content: '';
-    background: url("../images/check.png") no-repeat 1px 2px;
+    background: url(../images_admin/check.png) no-repeat 1px 2px;
     top: 0px;
     left: 2px;
     width: 16px;
@@ -2540,7 +2540,7 @@ td.invert-image a img {
 	position:relative;
 }
 .close1,.close2,.close3 {
-    background: url('../images/close.png') no-repeat 0px 0px;
+    background: url(../images_admin/close.png) no-repeat 0px 0px;
     cursor: pointer;
     width: 32px;
     height: 32px;
@@ -3303,22 +3303,22 @@ td.invert-image a img {
 		width: 2em;
 	}
 	.entypo-facebook:before {
-		background: url(../images/img-sp.png) no-repeat -1px -131px;
+		background: url(../images_admin/img-sp.png) no-repeat -1px -131px;
 		width: 2em;
 		height: 2em;
 	}
 	.entypo-dribbble:before {
-		background: url(../images/img-sp.png) no-repeat -82px -131px;
+		background: url(../images_admin/img-sp.png) no-repeat -82px -131px;
 		width: 2em;
 		height: 2em;
 	}
 	.entypo-twitter:before {
-		background: url(../images/img-sp.png) no-repeat -42px -131px;
+		background: url(../images_admin/img-sp.png) no-repeat -42px -131px;
 		width: 2em;
 		height: 2em;
 	}
 	.entypo-behance:before {
-		background: url(../images/img-sp.png) no-repeat -124px -131px;
+		background: url(../images_admin/img-sp.png) no-repeat -124px -131px;
 		width: 2em;
 		height: 2em;
 	}
@@ -3931,10 +3931,10 @@ td.invert-image a img {
 		left: 1%;
 	}
 	.w3agile_newsletter_right input[type="submit"] {
-		background: url(../images/img-sp.png) no-repeat 14px -65px #ff9b05;
+		background: url(../images_admin/img-sp.png) no-repeat 14px -65px #ff9b05;
 	}
 	.w3agile_newsletter_right input[type="submit"]:hover {
-		background: url(../images/img-sp.png) no-repeat 14px -65px #212121;
+		background: url(../images_admin/img-sp.png) no-repeat 14px -65px #212121;
 	}
 	.w3ls_dresses_grid_left_grid_sub {
 		width: 80%;
@@ -4210,19 +4210,19 @@ td.invert-image a img {
 	}
 	.agileinfo_banner_bottom1_grid_left a, .team-bottom a {
 		font-size: 14px;
-		background: url(../images/img-sp.png) no-repeat 93px -5px;
+		background: url(../images_admin/img-sp.png) no-repeat 93px -5px;
 	}
 	.agileinfo_banner_bottom1_grid_left a:hover, .team-bottom a:hover {
-		background:url(../images/img-sp.png) no-repeat 93px -39px;
+		background:url(../images_admin/img-sp.png) no-repeat 93px -39px;
 	}
 	.top-brands img {
 		width: 60%;
 	}
 	.w3agile_newsletter_right input[type="submit"] {
-		background: url(../images/img-sp.png) no-repeat 9px -65px #ff9b05;
+		background: url(../images_admin/img-sp.png) no-repeat 9px -65px #ff9b05;
 	}
 	.w3agile_newsletter_right input[type="submit"]:hover {
-		background: url(../images/img-sp.png) no-repeat 9px -65px #212121;
+		background: url(../images_admin/img-sp.png) no-repeat 9px -65px #212121;
 	}
 	.w3_footer_grid ul li,.contact-left ul li,.contact-left input[type="text"], .contact-left input[type="email"],.contact-left textarea,.occasional label,.review_grids input[type="text"], .review_grids input[type="email"], .review_grids textarea,.breadcrumb_dress ul li,.panel-body ul li a,.ecommerce_color ul li a,select.select_item,.color-quality ul li a {
 		font-size: 13px;

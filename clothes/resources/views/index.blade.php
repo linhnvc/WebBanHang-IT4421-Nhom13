@@ -1,60 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Women's Fashion a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
-<!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Women's Fashion Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
-<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
-<link href="{{asset('css/fasthover.css')}}" rel="stylesheet" type="text/css" media="all" />
-<!-- js -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<!-- //js -->
-<!-- countdown -->
-<link rel="stylesheet" href="{{asset('css/jquery.countdown.css')}}" />
-<!-- //countdown -->
-<!-- cart -->
-<script src="{{asset('js/simpleCart.min.js')}}"></script>
-<!-- cart -->
-<!-- for bootstrap working -->
-<script type="text/javascript" src="{{asset('js/bootstrap-3.1.1.min.js')}}"></script>
-<!-- //for bootstrap working -->
-<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- start-smooth-scrolling -->
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
-</script>
-
-</head>
-	
-<body>
+@extends('layouts.app')
 <!-- header -->
-	@include('layouts.login')
-	{{-- @if(!session('user_id'))
-		<script>
-		$('#myModal88').modal('show');
-		</script>
-	@endif --}}
-	{{-- @if(!empty($success))
-		<script>
-		$('#myModal88').modal('show');
-		</script>
-	@endif --}}
+@section('header')
+  @include("layouts.login")
 	@include('layouts.header')
 	@include('layouts.nav')
-<!-- //header -->
+@endsection
+@section('content')
 <!-- banner -->
 	<div class="banner" id="home1">
 		<div class="container">
@@ -918,8 +869,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="timer_wrap">
 					<div id="counter"> </div>
 				</div>
-				<script src="js/jquery.countdown.js"></script>
-				<script src="js/script.js"></script>
+				<script src="{{asset("js/jquery.countdown.js")}}"></script>
+				<script src="{{asset("js/script.js")}}"></script>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -933,7 +884,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3agile_special_deals_grids">
 				<div class="col-md-7 w3agile_special_deals_grid_left">
 					<div class="w3agile_special_deals_grid_left_grid">
-						<img src="images/26.jpg" alt=" " class="img-responsive" />
+						<img src="images_admin/26.jpg" alt=" " class="img-responsive" />
 						<div class="w3agile_special_deals_grid_left_grid_pos1">
 							<h5>30%<span>Off/-</span></h5>
 						</div>
@@ -946,7 +897,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<article style="position: absolute; width: 100%; opacity: 0;"> 
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
-										<img src="images/1.png" alt=" " class="img-responsive" />
+										<img src="images_admin/1.png" alt=" " class="img-responsive" />
 										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
 											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
 											eum fugiat quo voluptas nulla pariatur</p>
@@ -957,7 +908,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<article style="position: absolute; width: 100%; opacity: 0;"> 
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
-										<img src="images/2.png" alt=" " class="img-responsive" />
+										<img src="images_admin/2.png" alt=" " class="img-responsive" />
 										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
 											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
 											eum fugiat quo voluptas nulla pariatur</p>
@@ -968,7 +919,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<article style="position: absolute; width: 100%; opacity: 0;"> 
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
-										<img src="images/3.png" alt=" " class="img-responsive" />
+										<img src="images_admin/3.png" alt=" " class="img-responsive" />
 										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
 											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
 											eum fugiat quo voluptas nulla pariatur</p>
@@ -978,13 +929,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</article>
 						</div>
 					</div>
-						<script src="js/jquery.wmuSlider.js"></script> 
+						<script src="{{asset("js/jquery.wmuSlider.js")}}"></script> 
 						<script>
 							$('.example1').wmuSlider();         
 						</script> 
 				</div>
 				<div class="col-md-5 w3agile_special_deals_grid_right">
-					<img src="images/25.jpg" alt=" " class="img-responsive" />
+					<img src="images_admin/25.jpg" alt=" " class="img-responsive" />
 					<div class="w3agile_special_deals_grid_right_pos">
 						<h4>Women's <span>Special</span></h4>
 						<h5>save up <span>to</span> 30%</h5>
@@ -998,114 +949,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- new-products -->
 	<div class="new-products">
 		<div class="container">
+			@if(count($products_new)!=0)
 			<h3>New Products</h3>
 			<div class="agileinfo_new_products_grids">
+					@foreach ($products_new as $product)
+					@php
+						$images = $product->image;
+					@endphp
 				<div class="col-md-3 agileinfo_new_products_grid">
 					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/27.jpg" alt=" " class="img-responsive" />
-							<img src="images/28.jpg" alt=" " class="img-responsive" />
-							<img src="images/29.jpg" alt=" " class="img-responsive" />
-							<img src="images/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/27.jpg" alt=" " class="img-responsive" />
-							<img src="images/28.jpg" alt=" " class="img-responsive" />
-							<img src="images/29.jpg" alt=" " class="img-responsive" />
-							<img src="images/30.jpg" alt=" " class="img-responsive" />
+						<div class="hs-wrapper hs-wrapper1" style="width: 200px; height: 200px;">
+								@foreach($images as $image)
+								<img src="{{ asset($image->link) }}" alt=" " class="img-responsive" />
+								@endforeach
 							<div class="w3_hs_bottom w3_hs_bottom_sub">
 								<ul>
 									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+										<a href="{{asset("products/".$product->category->name."/".$product->productId)}}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 									</li>
 								</ul>
 							</div>
 						</div>
-						<h5><a href="single.html">Skirts</a></h5>
+						<h5><a href="{{asset("products/".$product->category->name."/".$product->productId)}}">{{$product->name}}</a></h5>
 						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
+								@if($product->salePrice < $product->price)
+								<p ><span>{{$product->price}}VND</span> <i  class="item_price" price ="{{$product->salePrice}}"
+									color ="{{$product->color}}" size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
+								@else
+								<p ><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
+									size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
+								@endif
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/31.jpg" alt=" " class="img-responsive" />
-							<img src="images/32.jpg" alt=" " class="img-responsive" />
-							<img src="images/33.jpg" alt=" " class="img-responsive" />
-							<img src="images/34.jpg" alt=" " class="img-responsive" />
-							<img src="images/31.jpg" alt=" " class="img-responsive" />
-							<img src="images/32.jpg" alt=" " class="img-responsive" />
-							<img src="images/33.jpg" alt=" " class="img-responsive" />
-							<img src="images/34.jpg" alt=" " class="img-responsive" />
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Jackets</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/37.jpg" alt=" " class="img-responsive" />
-							<img src="images/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/36.jpg" alt=" " class="img-responsive" />
-							<img src="images/38.jpg" alt=" " class="img-responsive" />
-							<img src="images/37.jpg" alt=" " class="img-responsive" />
-							<img src="images/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/36.jpg" alt=" " class="img-responsive" />
-							<img src="images/38.jpg" alt=" " class="img-responsive" />
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Dresses</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/40.jpg" alt=" " class="img-responsive" />
-							<img src="images/41.jpg" alt=" " class="img-responsive" />
-							<img src="images/42.jpg" alt=" " class="img-responsive" />
-							<img src="images/43.jpg" alt=" " class="img-responsive" />
-							<img src="images/40.jpg" alt=" " class="img-responsive" />
-							<img src="images/41.jpg" alt=" " class="img-responsive" />
-							<img src="images/42.jpg" alt=" " class="img-responsive" />
-							<img src="images/43.jpg" alt=" " class="img-responsive" />
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Jeans</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-					</div>
-				</div>
+				@endforeach
 				<div class="clearfix"> </div>
 			</div>
+			@endif
 		</div>
 	</div>
 <!-- //new-products -->
@@ -1116,19 +996,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="sliderfig">
 				<ul id="flexiselDemo1">			
 					<li>
-						<img src="images/4.png" alt=" " class="img-responsive" />
+						<img src="images_admin/4.png" alt=" " class="img-responsive" />
 					</li>
 					<li>
-						<img src="images/5.png" alt=" " class="img-responsive" />
+						<img src="images_admin/5.png" alt=" " class="img-responsive" />
 					</li>
 					<li>
-						<img src="images/6.png" alt=" " class="img-responsive" />
+						<img src="images_admin/6.png" alt=" " class="img-responsive" />
 					</li>
 					<li>
-						<img src="images/7.png" alt=" " class="img-responsive" />
+						<img src="images_admin/7.png" alt=" " class="img-responsive" />
 					</li>
 					<li>
-						<img src="images/46.jpg" alt=" " class="img-responsive" />
+						<img src="images_admin/46.jpg" alt=" " class="img-responsive" />
 					</li>
 				</ul>
 			</div>
@@ -1162,12 +1042,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 		</div>
 	</div>
-<!-- //top-brands -->
-<!-- newsletter -->
-<!-- //newsletter -->
-<!-- footer -->
-	@include('layouts.footer')
-<!-- //footer -->
-</body>
-
-</html>
+	@endsection
+	@section('footer')
+		@include('layouts.footer')
+	@endsection

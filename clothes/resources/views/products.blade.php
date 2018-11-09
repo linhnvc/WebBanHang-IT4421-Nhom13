@@ -1,10 +1,8 @@
 @extends('layouts.app')
 <!-- header -->
 @section('header')
+  @include("layouts.login")
 	@include('layouts.header')
-@endsection
-<!-- end_header -->
-@section('nav')
 	@include('layouts.nav')
 @endsection
 @section('content')
@@ -162,6 +160,7 @@
 
 					<div class="w3ls_dresses_grid_right_grid2">
 						<div class="w3ls_dresses_grid_right_grid2_left">
+						@if(count($products)!=0)
 						<h3>Showing Results: {{$products->firstItem()}}-{{$products->lastItem()}}</h3>
 						</div>
 						<div class="w3ls_dresses_grid_right_grid2_right ">
@@ -220,6 +219,7 @@
 			</div>
 		</div>
 	</div>
+	@endif
 	<div class="w3l_related_products">
 		<div class="container">
 			<h3>Related Products</h3>

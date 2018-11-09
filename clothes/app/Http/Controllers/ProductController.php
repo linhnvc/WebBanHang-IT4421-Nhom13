@@ -20,7 +20,15 @@ class ProductController extends Controller
        $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
-       return view('index', ['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup]);
+       $products_new= Product::orderBy('productId', 'desc')->limit(4)->get();
+       foreach($products_new as $prod){
+        $prod->firm;
+        $prod->image;
+        $prod->category;
+       }
+
+       return view('index', ['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup,
+       'products_new'=>$products_new]);
     }
     public function index($category_para)
     {
