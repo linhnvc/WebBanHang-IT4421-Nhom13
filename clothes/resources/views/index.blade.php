@@ -42,16 +42,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!-- header -->
 	@include('layouts.login')
-	@if(!session('user_id'))
+	{{-- @if(!session('user_id'))
 		<script>
 		$('#myModal88').modal('show');
 		</script>
-	@endif
-	@if(!empty($success))
+	@endif --}}
+	{{-- @if(!empty($success))
 		<script>
 		$('#myModal88').modal('show');
 		</script>
-	@endif
+	@endif --}}
 	@include('layouts.header')
 	@include('layouts.nav')
 <!-- //header -->

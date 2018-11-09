@@ -19,12 +19,13 @@ class UserController extends Controller
 
         $user = User::Where([['email', $email], ['password', $password]])->first();
         if(!empty($user)){
-            session(['user_id' => $user->id]);
-            session(['username' => $user->name]);
+            session(['user_id' => $user->userId]);
+            session(['username' => $user->userName]);
             session(['email' => $user->email]);
             session(['password' => $user->password]);
-
+            // $message =session('username');
             return redirect()->Route('home');
+            // return $message;
         } else {
             $message = "Username or password is wrong !";
             return view('index')->with('message', $message);
@@ -46,7 +47,7 @@ class UserController extends Controller
         } else {
             // create an account and save
             $new_user = new User;
-            $new_user->name = $name;
+            $new_user->userName = $name;
             $new_user->password = $password;
             $new_user->email = $email;
             $new_user->save();
