@@ -68,14 +68,6 @@
 							<div class="rem">
 								<div class="close1"> </div>
 							</div>
-							<script>$(document).ready(function(c) {
-								$('.close1').on('click', function(c){
-									$('.rem1').fadeOut('slow', function(c){
-										$('.rem1').remove();
-									});
-									});	  
-								});
-						   </script>
 						</td>
 					</tr>
 					@endforeach

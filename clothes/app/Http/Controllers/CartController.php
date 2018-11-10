@@ -69,4 +69,13 @@ class CartController extends Controller
     );
     return response()->json($response); 
    }
+   public function deleteProductCart(Request $request){
+       $id = $request->id;
+       session()->forget('cart.'.$id);
+       $response = array(
+        'msg' => $id,
+        // 'msg'=>$quantity
+    );
+    return response()->json($response); 
+   }
 }

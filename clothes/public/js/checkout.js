@@ -31,7 +31,33 @@ $(document).ready(function(){
                $total_prices = $total_prices + parseInt($(this).find(".prices").text());
         });
         $("#totalPrices").text($total_prices + 30000);
-
-
+   });
+   $(".close1").click(function(){
+    var $tr = $(this).closest("tr");
+    var $id =$tr.attr('id');
+    // alert($id);
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        /* the route pointing to the post function */
+        url: '/deleteProductCart',
+        type: 'POST',
+        /* send the csrf-token and the input to the controller */
+        data: {_token: CSRF_TOKEN, id:$id},
+        dataType: 'JSON',
+        /* remind that 'data' is the response of the AjaxController */
+        success: function (data) { 
+            
+            console.log(data.msg);
+            // alert(data.msg);
+        }
+    });
+    var $no = parseInt($tr.find('.no').text()) - 1;
+    $tr.remove();
+    var $total_prices = 0;
+    $(".rem1").each(function(){
+            $total_prices = $total_prices + parseInt($(this).find(".prices").text());
+    });
+    $("#totalPrices").text($total_prices + 30000);
+    $("#yours_cart").find('li')[$no].remove();
    });
 });

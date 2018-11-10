@@ -90,4 +90,5 @@ Route::get('/search', 'ProductController@search');
 Route::post('/addCart', 'CartController@addCart');
 Route::get("/displayCart", "CartController@displayCart");
 Route::post("/updateCart", "CartController@updatCart");
+Route::post("/deleteProductCart", "CartController@deleteProductCart");
 
