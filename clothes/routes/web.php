@@ -88,4 +88,5 @@ Route::get('/products/{category_para}', 'ProductController@index');
 Route::get('/products/{category_para}/{id}', 'ProductController@show');
 Route::get('/search', 'ProductController@search');
 Route::post('/addCart', 'CartController@addCart');
+Route::get("/displayCart", "CartController@displayCart");
 

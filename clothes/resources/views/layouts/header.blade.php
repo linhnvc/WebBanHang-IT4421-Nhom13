@@ -18,12 +18,17 @@
 			</div>
 		</div>
 		<div class="cart box_1">
-			<a href="checkout.html">
-				<div class="total">
-				<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+			<a href="{{asset("/displayCart")}}">
+				<div >
+				<span class="simpleCart_total"></span></div>
 				<img src="{{asset('images_admin/bag.png')}}" alt="" />
+				@if(!empty(session('cart')))
+				<sup id = 'quantity_cart'>({{count(session('cart'))}})</sup>
+				@else
+				<sup id = 'quantity_cart'>(0)</sup>
+				@endif
 			</a>
-			<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+			{{-- <p><a href="javascript:void(0)" class="simpleCart_empty">Empty Cart</a></p> --}}
 			<div class="clearfix"> </div>
 		</div>	
 		<div class="clearfix"> </div>
