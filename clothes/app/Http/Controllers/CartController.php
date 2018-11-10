@@ -58,4 +58,15 @@ class CartController extends Controller
     );
     return response()->json($response); 
    }
+   public function updatCart(Request $request){
+       $id = $request->id;
+       $quantity = $request->quantity;
+       session()->put("cart.".$id, $quantity);
+    //    $quantity = session('cart.'.$id);
+       $response = array(
+        'msg' => $quantity,
+        // 'msg'=>$quantity
+    );
+    return response()->json($response); 
+   }
 }

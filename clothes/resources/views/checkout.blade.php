@@ -31,7 +31,7 @@
 			@if(count($products)!=0)
 			<h3>Your shopping cart contains: <span>{{count($products)}} Products</span></h3>
 			<div class="checkout-right">
-				<table class="timetable_sub">
+				<table class="timetable_sub" id = "table_cart">
 					<thead>
 						<tr>
 							<th>SL No.</th>	
@@ -44,26 +44,26 @@
 						</tr>
 					</thead>
 					@foreach($products as $key=>$product)
-					<tr class="rem1">
-						<td class="invert"> {{$key + 1}}</td>
+					<tr class="rem1" id ={{$product->productId}}>
+						<td class="invert no"> {{$key + 1}}</td>
 						<td class="invert-image">
 							<a href="{{asset("products/".$product->category->name."/".$product->productId)}}">
-								<div style="width: 400px;">
+								<div style="width: 350px;">
 									<img src="{{asset( $product->image[0]->link)}}" alt=" " class="img-responsive" /></a>
 								</div>
 						</td>
 						<td class="invert">
 							 <div class="quantity"> 
 								<div class="quantity-select">                           
-									<div class="entry value-minus">&nbsp;</div>
-									<div class="entry value"><span>{{$product->quantity}}</span></div>
-									<div class="entry value-plus active">&nbsp;</div>
+									<div class="entry value-minus adjust">&nbsp;</div>
+									<div class="entry value "><span>{{$product->quantity}}</span></div>
+									<div class="entry value-plus active adjust">&nbsp;</div>
 								</div>
 							</div>
 						</td>
 						<td class="invert">{{$product->name}}</td>
-						<td class="invert">{{$product->salePrice}}</td>
-						<td class="invert">{{($product->salePrice)*($product->quantity)}}</td>
+						<td class="invert price_unit" >{{$product->salePrice}}</td>
+						<td class="invert prices">{{($product->salePrice)*($product->quantity)}}</td>
 						<td class="invert">
 							<div class="rem">
 								<div class="close1"> </div>
@@ -98,7 +98,7 @@
 			<div class="checkout-left">	
 				<div class="checkout-left-basket">
 					<h4>Yours Cart</h4>
-					<ul>
+					<ul id = "yours_cart">
 						@php
 							$totalPrice = 0;
 						@endphp
@@ -109,7 +109,7 @@
 						@endphp
 						@endforeach
 						<li>Total Service Charges <i>-</i> <span>30000</span></li>
-						<li>Total <i>-</i> <span>{{$totalPrice + 30000}}</span></li>
+						<li>Total <i>-</i> <span  id = "totalPrices">{{$totalPrice + 30000}}</span></li>
 					</ul>
 				</div>
 				<div class="checkout-right-basket">
@@ -122,7 +122,7 @@
 			<h3>Your shopping cart contains: <span>0 Products</span></h3>
             @endif
 		</div>
-		
+		<script type="text/javascript" src="{{asset('js/checkout.js')}}"></script>
 	</div>
 	@endsection
 	@section('footer')
