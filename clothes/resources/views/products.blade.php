@@ -172,10 +172,6 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-
-
-
-
 					<div class="w3ls_dresses_grid_right_grid3 wrapper">
 						@foreach ($products as $product)
 						@php
@@ -204,7 +200,7 @@
 									<p ><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
 										size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@endif
-									<p ><a  class="item_add" href="#">Add to cart</a></p>
+									<p ><a  class="item_add" id = "{{$product->productId}}" href ="javascript:void(0)" role="button">Add to cart</a></p>
 								</div>
 							</div>
 						</div>
@@ -253,7 +249,7 @@
 									<p><i class="item_price" price ="{{$pro_relate->salePrice}}" color ="{{$pro_relate->color}}" 
 										size = "{{$pro_relate->size}}">{{$pro_relate->salePrice}}VND</i></p>
 									@endif
-									<p><a class="item_add" href="#">Add to cart</a></p>
+									<p><a class="item_add" id = "{{$pro_relate->productId}}" href="javascript:void(0)">Add to cart</a></p>
 								</div>
 						</div>
 						
@@ -293,6 +289,25 @@
 		</div>
 		<script type="text/javascript" src="{{asset('js/products.js')}}"></script>
 	</div>
+	{{-- <div class="modal fade" id="myModal_info" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> --}}
 <!-- //dresses -->
 @endsection
 @section('footer')

@@ -31,7 +31,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/short_codes', function () {
+Route::get('/short_codes_2345', function () {
     return view('short-codes');
 });
 
@@ -87,4 +87,5 @@ Route::get('/ad-index', function(){
 Route::get('/products/{category_para}', 'ProductController@index');
 Route::get('/products/{category_para}/{id}', 'ProductController@show');
 Route::get('/search', 'ProductController@search');
+Route::post('/addCart', 'CartController@addCart');
 
