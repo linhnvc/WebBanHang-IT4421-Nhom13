@@ -47,14 +47,16 @@ $(document).ready(function(){
             dataType: 'JSON',
             /* remind that 'data' is the response of the AjaxController */
             success: function (data) { 
-                // alert(data.msg);
+                
                 console.log(data.msg);
                 if(data.msg == "true"){
                     // console.log(data.msg);
-                    $("#myModal_infor").show();
+                    // $("#myModal_infor").show();
+                    alert(data.msg);
 
                 }else{
-                    $("#myModal_infor").show(); 
+                    // $("#myModal_infor").show();
+                    alert(data.msg); 
                 }
             }
         }); 

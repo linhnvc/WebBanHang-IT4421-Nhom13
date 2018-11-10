@@ -143,7 +143,7 @@
 									<p><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
 										size = "{{$product->size}}">SalePrice: {{$product->salePrice}} VND</i></p>
 									@endif
-									<p><a class="item_add" href="#">Add to cart</a></p>
+									<p><a class="item_add" id = "{{$product->productId}}" href="javascript:void(0)">Add to cart</a></p>
 					</div>
 
 			</div>
@@ -297,7 +297,7 @@
 										@else
 										<p><i class="item_price">{{$pro_relate->salePrice}}VND</i></p>
 										@endif
-										<p><a class="item_add" href="#">Add to cart</a></p>
+										<p><a class="item_add" id = "{{$pro_relate->productId}}" href="javascript:void(0)">Add to cart</a></p>
 								</div>
 							</div>
 							
@@ -333,6 +333,7 @@
 					});
 				</script>
 				<script type="text/javascript" src="{{asset('js/jquery.flexisel.js')}}"></script>
+				<script type="text/javascript" src="{{asset('js/single.js')}}"></script>
 		</div>
 	</div>
 @endsection
