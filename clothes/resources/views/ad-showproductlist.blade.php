@@ -9,6 +9,7 @@
     <title>Ela Admin - HTML5 Admin Template</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{csrf_token()}}">
 
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
     <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
@@ -36,6 +37,7 @@
     <!-- Left Panel -->
 
     <!-- Right Panel -->
+
 
     <div id="right-panel" class="right-panel">
 
@@ -67,15 +69,22 @@
             </div>
         </div>
 
+        
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Dresses Table</strong>
+                                <strong class="card-title">{{$product_list[0]->category->name}} Table &emsp;</strong>
+                                <strong class="card-title"><a type="button" href="{{url('/ad-addproduct')}}" class="btn btn-info btn-lg">Add Item</a></strong>
+                                @if(!empty(Session::get('message')))
+                                    <div class="alert alert-success" role="alert">
+                                        {{Session::get('message')}}
+                                    </div>
+                                @endif
                             </div>
+                            <div class="alert" id="message" style="display: none"></div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                     <thead>
@@ -98,19 +107,17 @@
                                                 <td>{{$product->category->name}}</td>
                                                 <td>{{$product->firm->name}}</td>
                                                 <td>{{$product->price}}</td>
-                                                <td>
-                                                    <div style="width: 85px; height:85px;">
-                                                        <img src="{{asset($product->image[0]->link)}}">
-                                                    </div>
-                                                </td>
+                                                <td><img src="{{asset($product->image[0]->link)}}" style="height: 150px; width: 180px"></td>
                                                 <td>
                                                     <div>
-                                                        <a href="{{asset('/detailproduct/'.$product->productId)}}" class="btn btn-primary btn-md">Detail</a>
+                                                        <a href="{{asset('/detailproduct/'.$product->productId)}}" class="btn btn-success" style="width: 2cm">Detail</a>
                                                     </div>
                                                     <div>
-                                                        <a href="{{url('/productupdate/$product->productId')}}" class="btn btn-warning btn-md">Update</a>
+                                                        <a href="{{asset('/productupdate/'.$product->productId)}}" class="btn btn-secondary" style="width: 2cm">Update</a>
                                                     </div>
-                                                    <div><a href="{{url('/detailproduct/$product->productId')}}" class="btn btn-danger btn-md">Delete</a></div>
+                                                    <div>
+                                                        <a href="{{url('/deleteproduct/'.$product->productId)}}" class="btn btn-danger" style="width: 2cm">Delete</a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -146,6 +153,7 @@
 
     <!-- Right Panel -->
 
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
@@ -164,13 +172,6 @@
     <script src="{{asset('assets_admin/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{asset('assets_admin/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('assets_admin/js/init/datatables-init.js')}}"></script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-          $('#bootstrap-data-table-export').DataTable();
-      } );
-  </script>
 
 
 </body>

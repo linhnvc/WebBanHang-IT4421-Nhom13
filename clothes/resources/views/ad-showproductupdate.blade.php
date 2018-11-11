@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -25,6 +25,7 @@
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
+
 </head>
 <body>
     <!-- Left Panel -->
@@ -38,7 +39,6 @@
 
         <!-- Header-->
         @include('layouts.ad-header')
-        @include('dialogs.ad-verifydelete')
         <!-- Header-->
 
         <div class="breadcrumbs">
@@ -76,14 +76,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <strong class="card-title" v-if="headerText">Product Detail &emsp; </strong>
-                                    <strong class="card-title"><a class="btn btn-secondary" href="{{url('/productupdate/'.$product->productId)}}">Update</a></strong>
-                                    <strong class="card-title"><a class="btn btn-danger" href="{{url('deleteproduct/'.$product->productId)}}" data-toggle="modal" data-target="#myModal-delete">Delete </a></strong>
-                                    @if(!empty(Session::get('message')))
-                                    <div class="alert alert-success" role="alert">
-                                        {{Session::get('message')}}
-                                    </div>
-                                @endif
+                                    <strong class="card-title" v-if="headerText">Product Update &emsp; </strong>
                                 </div>
 
                                 <div class="card-body">
@@ -93,34 +86,94 @@
                                         <div class="card-header">
                                             <strong class="card-title">Product Information</strong>
                                         </div>
-                                        <ul class="list-group">
-                                            <li class="list-group-item list-group-item-info">
-                                                <b>Name</b> : {{$product->name}}
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Size</b> : {{$product->size}}
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Color</b> : {{$product->color}}
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Quantity</b> : {{$product->quantity}} items
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Description</b> : {{$product->description}}
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Price</b> : {{$product->price}} <i>vnd</i>   
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Category</b> : {{$product->category->name}}  
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Firm</b> : {{$product->firm->name}}  
-                                            </li>
-                                          </ul>
-                                  </ul>
-                              </div>
+										<form action="{{url('/update/'.$product->productId)}}" method="POST">
+											{{ csrf_field() }}
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Name </b>:</label>
+										    <div class="col-sm-9">
+										      <input type="text" name="product_name" class="form-control" value="{{$product->name}}">
+										    </div>
+										  </div>
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Size </b>:</label>
+										    <div class="col-sm-9">
+										      <select class="form-control" name="product_size">
+										      <?php 
+										      	$min_size = 9;
+										      	$max_size = 14;
+										      	$product_size = $product->size
+										       ?>
+										      @for($i = $min_size; $i < $max_size+1; $i++)
+										      	@if($i == $product_size)
+										      		<option selected>{{$i}}</option>
+										      	@else
+										      		<option>{{$i}}</option>
+										      	@endif
+										      @endfor
+										    </select>
+										    </div>
+										  </div>
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Color </b>:</label>
+										    <div class="col-sm-9">
+										      <input type="text" name="product_color" class="form-control" value="{{$product->color}}">
+										    </div>
+										  </div>
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Quantity </b>:</label>
+										    <div class="col-sm-9">
+										      <input type="number" name="product_quantity" class="form-control" value="{{$product->quantity}}">
+										    </div>
+										  </div>
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-4 col-form-label"><b>Description </b>:</label>
+										    <div class="col-sm-8">
+										      <textarea type="text" name="product_description" class="form-control">{{$product->description}}</textarea>
+										    </div>
+										  </div>
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Price </b>:</label>
+										    <div class="col-sm-9">
+										      <input type="number" name="product_price" class="form-control" value="{{$product->price}}">
+										    </div>
+										  </div>
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Category </b>:</label>
+										    <div class="col-sm-9">
+										      <select class="form-control" name="category_name">
+										      	<?php
+										      		$num_categories = count($category_name)
+										      	?>
+										      	@for($i = 0; $i < $num_categories; $i++)
+										      		@if($product->category->name == $category_name[$i]->name)
+										      			<option selected>{{$category_name[$i]->name}}</option>
+										      		@else
+										      			<option>{{$category_name[$i]->name}}</option>
+										      		@endif
+										      	@endfor
+										      </select>
+										    </div>
+										  </div>
+										  <div class="form-group row">
+										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Firm </b>:</label>
+										    <div class="col-sm-9">
+										     <select class="form-control" name="firm_name">
+										      	<?php
+										      		$num_firms = count($firm_name)
+										      	?>
+										      	@for($i = 0; $i < $num_firms; $i++)
+										      		@if($product->firm->name == $firm_name[$i]->name)
+										      			<option selected>{{$firm_name[$i]->name}}</option>
+										      		@else
+										      			<option>{{$firm_name[$i]->name}}</option>
+										      		@endif
+										      	@endfor
+										      </select>
+										    </div>
+										  </div>
+										  <input class="btn btn-secondary" type="submit" id="submit" value="Update">
+										</form>
+                              		</div>
                               <div class="col-md-6 text-left">
                                 <div>
                                   <div class="card-header">
@@ -175,15 +228,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <<div></div>>
-                            
-                        </div>
-                    </div>
-
-
-
                 </div>
             </div><!-- .animated -->
         </div>  
@@ -216,8 +260,10 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{asset('assets_admin/js/main.js')}}"></script>
 
 
 </body>
 </html>
+

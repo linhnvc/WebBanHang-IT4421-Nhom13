@@ -71,7 +71,7 @@ Route::get('/flats', function () {
     return view('sandals');
 });
 
-
+ ### ADMIN #####
 Route::get('/ad-index', function () {
     return view('ad-index');
 });
@@ -80,9 +80,19 @@ Route::get('/productlist/{kind}', 'ProductController@showproductlist');
 
 Route::get('/detailproduct/{id}', 'ProductController@showproductdetail');
 
-Route::get('/ad-index', function(){
-    return view('ad-index');
-});
+Route::get('/productupdate/{id}', 'ProductController@showproductupdate');
+
+Route::post('/update/{id}', 'ProductController@update');
+
+Route::get('/deleteproduct/{id}', 'ProductController@delete');
+
+Route::get('/ad-addproduct', 'ProductController@showaddform');
+
+Route::post('/addproduct', 'ProductController@addproduct');
+
+###############
+
+##### MAIN PAGE ##############
 
 Route::get('/products/{category_para}', 'ProductController@index');
 Route::get('/products/{category_para}/{id}', 'ProductController@show');
