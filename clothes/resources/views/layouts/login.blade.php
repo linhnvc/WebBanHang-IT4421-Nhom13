@@ -6,19 +6,28 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;</button>
-				@if(empty($message))
-					@if(empty($mes_success))
+				@if(empty(session('message')))
+					@if(empty(session('success_mess')) && empty(session('failure_mes')))
 						<h4 class="modal-title" id="myModalLabel">	
 							Don't Wait, Login now!
 						</h4>
-					@else
+					@endif
+					@if(!empty(session('success_mes')))
 						<div class="alert alert-success" id="myModalLabel">
-						{{$success('mes_success')}}
+						{{session('success_mes')}}
+						<?php session()->forget('sucess_mes'); ?>
 						</div>
+					@endif
+					@if(!empty(session('failure_mes')))
+					<div class="alert alert-danger" id="myModalLabel">
+						{{session('failure_mes')}}
+						<?php session()->forget('failure_mes'); ?>
+					</div>
 					@endif
 				@else
 					<div class="alert alert-danger" id="myModalLabel">
-						{{$message}}
+						{{session('message')}}
+						<?php session()->forget('message'); ?>
 					</div>
 				@endif
 			</div>

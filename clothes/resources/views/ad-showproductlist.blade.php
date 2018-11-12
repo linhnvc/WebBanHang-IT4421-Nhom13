@@ -107,7 +107,7 @@
                                                 <td>{{$product->category->name}}</td>
                                                 <td>{{$product->firm->name}}</td>
                                                 <td>{{$product->price}}</td>
-                                                <td><img src="{{asset($product->image[0]->link)}}" style="height: 150px; width: 180px"></td>
+                                                <td><img src="{{asset($product->image[0]->link)}}" style="height: 180px; width: 180px"></td>
                                                 <td>
                                                     <div>
                                                         <a href="{{asset('/detailproduct/'.$product->productId)}}" class="btn btn-success" style="width: 2cm">Detail</a>

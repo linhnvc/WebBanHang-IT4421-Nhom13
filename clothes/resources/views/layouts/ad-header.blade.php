@@ -1,3 +1,28 @@
+<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"><b>Admin Information</b></h4>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>Name: </b>{{session('admin_name')}}</li>
+                  <li class="list-group-item"><b>Email: </b>{{session('admin_email')}}</li>
+                  <li class="list-group-item"><b>Address: </b>{{session('admin_address')}}</li>
+                  <li class="list-group-item"><b>Phone Number: </b>{{session('admin_phonenumber')}}</li>
+                  <li class="list-group-item"><b>Facebook: </b>{{session('admin_facebook')}}</li>
+                  <li class="list-group-item"><b>Intagramm: </b>{{session('admin_instagram')}}</li>
+                  <li class="list-group-item"><b>Twitter: </b>{{session('admin_twitter')}}</li>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+    </div>
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
@@ -88,13 +113,9 @@
                 </a>
 
                 <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">My Profile</button>
 
-                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
-
-                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                    <a class="nav-link" href="/logoutadmin"><i class="fa fa-power -off"></i>Logout</a>
                 </div>
             </div>
 

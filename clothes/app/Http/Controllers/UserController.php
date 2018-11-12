@@ -27,8 +27,9 @@ class UserController extends Controller
             return redirect()->Route('home');
             // return $message;
         } else {
-            $message = "Username or password is wrong !";
-            return view('index')->with('message', $message);
+            session(['message' => "Username or password is wrong !"]);
+            $url = '/';
+            return redirect($url);
         }
     }
 
@@ -42,8 +43,9 @@ class UserController extends Controller
         $user_before = User::where('email', $email)->first();
 
         if (!empty($user_before)) {
-            $message = 'your email have been already registered';
-            return view('index')->with('message', $message);
+            session(['failure_mes' => 'your email have been already registered']);
+            $url = '/';
+            return redirect($url);
         } else {
             // create an account and save
             $new_user = new User;
@@ -52,8 +54,9 @@ class UserController extends Controller
             $new_user->email = $email;
             $new_user->save();
 
-            $success = ['mes_success' => 'Account Created, Lets Login'];
-            return view('index')->with('success', $success);
+            session(['success_mes' => 'Account Created, Lets Login']);
+            $url = '/';
+            return redirect($url);
 
         }
     }

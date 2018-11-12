@@ -16,6 +16,7 @@
 // })->name('home');
 Route::get('/','ProductController@homePage')->name('home');
 
+Route::get('/admin', 'AdminController@index');
 Route::post('checklogin', 'UserController@checklogin');
 
 Route::post('/register', 'UserController@register');
@@ -72,9 +73,9 @@ Route::get('/flats', function () {
 });
 
  ### ADMIN #####
-Route::get('/ad-index', function () {
-    return view('ad-index');
-});
+Route::get('/ad-index', 'AdminController@index');
+Route::post('/checkloginadmin', 'AdminController@checklogin');
+Route::get('/logoutadmin', 'AdminController@logout');
 
 Route::get('/productlist/{kind}', 'ProductController@showproductlist');
 
