@@ -91,6 +91,10 @@ Route::get('/ad-addproduct', 'ProductController@showaddform');
 
 Route::post('/addproduct', 'ProductController@addproduct');
 
+Route::get('/billlist', 'BillController@showbilllist');
+
+Route::get('/detailbill/{id}', 'BillController@showbilldetail');
+
 ###############
 
 ##### MAIN PAGE ##############
