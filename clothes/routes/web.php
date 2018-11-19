@@ -107,3 +107,5 @@ Route::get("/displayCart", "CartController@displayCart");
 Route::post("/updateCart", "CartController@updatCart");
 Route::post("/deleteProductCart", "CartController@deleteProductCart");
 
+Route::post('/checkout/sendrequest', 'CheckoutController@sendRequest');
+Route::get('/checkout/getresponse', 'CheckoutController@getResponse');

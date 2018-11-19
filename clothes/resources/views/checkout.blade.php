@@ -105,8 +105,27 @@
 					</ul>
 				</div>
 				<div class="checkout-right-basket">
-					<a href="/products/Dresses"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
-					<a href="/products/Dresses"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Checkout</a>
+					{{--<script type="text/javascript"src="http://202.9.84.88/documents/payment/logoscript.jsp?logos=v,m,a,j,u,at&lang=en"></script>--}}
+                <form action="{{url('/checkout/sendrequest')}}" method="post">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="Title" value="VPC 3-Party" />
+                    <input type="hidden" name="virtualPaymentClientURL" size="63" value="https://mtf.onepay.vn/onecomm-pay/vpc.op" maxlength="250" />
+                    <input type="hidden" name="vpc_Merchant" value="ONEPAY" size="20" maxlength="16" />
+                    <input type="hidden" name="vpc_AccessCode" value="D67342C2" size="20" maxlength="8" />
+                    <input type="hidden" name="vpc_MerchTxnRef" value="<?php echo date ( 'YmdHis' ) . rand (); ?>" size="40" maxlength="40" />
+                    <input type="hidden" name="vpc_OrderInfo" value="{{$billId}}" size="20" maxlength="34" />
+                    <input type="hidden" name="vpc_Amount" value="{{($totalPrice + 30000)*100}}" size="20" maxlength="10" />
+                    <input type="hidden" name="vpc_ReturnURL" size="60" value="{{url('/checkout/getresponse')}}" maxlength="300" />
+                    <input type="hidden" name="vpc_Version" value="2" size="20" maxlength="8" />
+                    <input type="hidden" name="vpc_Command" value="pay" size="20" maxlength="16" />
+                    <input type="hidden" name="vpc_Locale" value="vn" size="20" maxlength="5" />
+                    <input type="hidden" name="vpc_Currency" value="VND" size="20" maxlength="5" />
+                    <input type="hidden" name="vpc_TicketNo" maxlength="15" value="<?php echo $_SERVER ['REMOTE_ADDR']; ?>" />
+                    
+                    
+                    {{--<script type="text/javascript" src="http://202.9.84.88/documents/payment/logoscript.jsp?logos=v,m&lang=vn"></script>--}}
+                    <input type="submit" class="booknow margtop20 btnmarg"	value="Pay with Onepay" />
+                </form>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
