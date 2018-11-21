@@ -46,7 +46,7 @@ class BillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -83,9 +83,12 @@ class BillController extends Controller
         //
     }
 
-    public function delete($id)
+    public function update_checked($id)
     {   
-    
+        $bill = Bill::find($id);
+        $bill->checked = 'checked';
+        $bill->save();
+        return 'success';
     }
 
 
@@ -94,6 +97,7 @@ class BillController extends Controller
         $bill_list = Bill::getBills();
         return view('ad-showbilllist')->with('bill_list', $bill_list);
     }
+
 
     public function showbilldetail($id){
         $id_bill = $id;

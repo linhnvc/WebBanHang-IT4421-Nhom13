@@ -95,6 +95,8 @@ Route::get('/billlist', 'BillController@showbilllist');
 
 Route::get('/detailbill/{id}', 'BillController@showbilldetail');
 
+Route::get('/billlist/{id}', 'BillController@update_checked');
+
 ###############
 
 ##### MAIN PAGE ##############

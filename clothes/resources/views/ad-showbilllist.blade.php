@@ -9,11 +9,11 @@
     <title>Ela Admin - HTML5 Admin Template</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{csrf_token()}}">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
     <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
-
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
@@ -90,6 +90,8 @@
                                             <th>Bill ID</th>
                                             <th>Date</th>
                                             <th>User ID</th>
+                                            <th>Options</th>
+                                            <th>Checked</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -104,6 +106,19 @@
                                                         <a href="{{asset('/detailbill/'.$bill->billId)}}" class="btn btn-success" style="width: 2cm">Detail</a>
                                                     </div>
                                                 </td>
+                                                @if(!strcmp($bill->checked, 'checked'))
+                                                <td>
+                                                    <div class="checkbox disabled">
+                                                        <label><input type="checkbox" value="" checked disabled=""></label>
+                                                    </div>
+                                                </td>
+                                                @else
+                                                <td>
+                                                    <div class="checkbox">
+                                                        <label id="{{$bill->billId}}"><input class="check" type="checkbox" value="{{$bill->billId}}"></label>
+                                                    </div>
+                                                </td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                     @endif
@@ -117,6 +132,7 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
+        
 
 
         <div class="clearfix"></div>
@@ -140,6 +156,8 @@
 
 
     <!-- Scripts -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
@@ -157,7 +175,29 @@
     <script src="{{asset('assets_admin/js/lib/data-table/buttons.print.min.js')}}"></script>
     <script src="{{asset('assets_admin/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('assets_admin/js/init/datatables-init.js')}}"></script>
+    <script type="text/javascript">
+            $(document).ready(function(){
+         $('.check').change(function(e){
+            val = $(this).val();
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
 
+              });
+            id = val;
+            $.ajax({
+                type: 'GET',
+                url: 'billlist/'+id,    
+                  success: function(data){
+                    $(this).remove();
+                    $('#'+val).html('<input type="checkbox" value="" checked disabled="">')
+                     alert(data);
+                  }});
+               });
+            });
+        </script>
 
 </body>
 </html>

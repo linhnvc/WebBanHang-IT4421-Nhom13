@@ -102,10 +102,9 @@
 						@endforeach
 						<li>Total Service Charges <i>-</i> <span>30000</span></li>
 						<li>Total <i>-</i> <span  id = "totalPrices">{{$totalPrice + 30000}}</span></li>
+						<li>  </li>
 					</ul>
-				</div>
-				<div class="checkout-right-basket">
-					{{--<script type="text/javascript"src="http://202.9.84.88/documents/payment/logoscript.jsp?logos=v,m,a,j,u,at&lang=en"></script>--}}
+				{{--<script type="text/javascript"src="http://202.9.84.88/documents/payment/logoscript.jsp?logos=v,m,a,j,u,at&lang=en"></script>--}}
                 <form action="{{url('/checkout/sendrequest')}}" method="post">
                     {!! csrf_field() !!}
                     <input type="hidden" name="Title" value="VPC 3-Party" />
@@ -124,9 +123,12 @@
                     
                     
                     {{--<script type="text/javascript" src="http://202.9.84.88/documents/payment/logoscript.jsp?logos=v,m&lang=vn"></script>--}}
-                    <input type="submit" class="booknow margtop20 btnmarg"	value="Pay with Onepay" />
+                    <input type="submit" class="btn btn-primary btn-lg" value="Pay with Onepay" />
                 </form>
 				</div>
+				
+					
+				
 				<div class="clearfix"> </div>
 			</div>
 			@else
