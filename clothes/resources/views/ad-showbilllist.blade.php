@@ -90,6 +90,7 @@
                                             <th>Bill ID</th>
                                             <th>Date</th>
                                             <th>User ID</th>
+                                            <th>Total</th>
                                             <th>Options</th>
                                             <th>Checked</th>
                                         </tr>
@@ -101,6 +102,7 @@
                                                 <td>{{$bill->billId}}</td>
                                                 <td>{{$bill->date}}</td>
                                                 <td>{{$bill->userId}}</td>
+                                                <td>{{$bill->total}} VNĐ</td>
                                                 <td>
                                                     <div>
                                                         <a href="{{asset('/detailbill/'.$bill->billId)}}" class="btn btn-success" style="width: 2cm">Detail</a>
