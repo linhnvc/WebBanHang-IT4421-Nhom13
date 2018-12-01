@@ -91,6 +91,12 @@ Route::get('/ad-addproduct', 'ProductController@showaddform');
 
 Route::post('/addproduct', 'ProductController@addproduct');
 
+Route::get('/billlist', 'BillController@showbilllist');
+
+Route::get('/detailbill/{id}', 'BillController@showbilldetail');
+
+Route::get('/billlist/{id}', 'BillController@update_checked');
+
 ###############
 
 ##### MAIN PAGE ##############
@@ -103,3 +109,5 @@ Route::get("/displayCart", "CartController@displayCart");
 Route::post("/updateCart", "CartController@updatCart");
 Route::post("/deleteProductCart", "CartController@deleteProductCart");
 
+Route::post('/checkout/sendrequest', 'CheckoutController@sendRequest');
+Route::get('/checkout/getresponse', 'CheckoutController@getResponse');

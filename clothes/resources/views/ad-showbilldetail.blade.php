@@ -38,7 +38,7 @@
 
         <!-- Header-->
         @include('layouts.ad-header')
-        @include('dialogs.ad-verifydelete')
+        
         <!-- Header-->
 
         <div class="breadcrumbs">
@@ -56,8 +56,7 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="{{url('/ad-index')}}">Dashboard</a></li>
-                                    <li><a href="{{url('/productlist/'.$product->category->name)}}">{{$product->category->name}}</a></li>
-                                    <li class="active">{{$product->name}}</li>
+                                    <li class="active">Detail Bill</li>
                                 </ol>
                             </div>
                         </div>
@@ -76,108 +75,92 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <strong class="card-title" v-if="headerText">Product Detail &emsp; </strong>
-                                    <strong class="card-title"><a class="btn btn-secondary" href="{{url('/productupdate/'.$product->productId)}}">Update</a></strong>
-                                    <strong class="card-title"><a class="btn btn-danger" href="{{url('deleteproduct/'.$product->productId)}}" data-toggle="modal" data-target="#myModal-delete">Delete </a></strong>
+                                    <strong class="card-title" v-if="headerText">Bill Detail &emsp; </strong>
                                     @if(!empty(Session::get('message')))
                                     <div class="alert alert-success" role="alert">
                                         {{Session::get('message')}}
                                     </div>
                                 @endif
                                 </div>
-
+                                <?php
+                                    $end = Session::get('num_of_products_in_billdetail');
+                                    $len = Session::get('len_of_billdetail');
+                                    echo "<script>console.log( 'Debug Objects: " . $len . "' );</script>";
+                                    echo "<script>console.log( 'Debug Objects: " . $end . "' );</script>";
+                                 ?>
                                 <div class="card-body">
                                   <div class="vue-lists">
                                     <div class="row">
                                       <div class="col-md-6">
                                         <div class="card-header">
-                                            <strong class="card-title">Product Information</strong>
+                                            <strong class="card-title">Bill Information</strong>
                                         </div>
                                         <ul class="list-group">
                                             <li class="list-group-item list-group-item-info">
-                                                <b>Name</b> : {{$product->name}}
+                                                <b>UserID</b> : {{$bill_info[$len - 6]}}
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Size</b> : {{$product->size}}
+                                                <b>UserName</b> : {{$bill_info[$len - 7]}}
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Color</b> : {{$product->color}}
+                                                <b>Email</b> : {{$bill_info[$len - 3]}}
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Quantity</b> : {{$product->quantity}} items
+                                                <b>BillID</b> : {{$bill_info[$len - 5]}}
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Description</b> : {{$product->description}}
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Price</b> : {{$product->price}} <i>vnd</i>   
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Category</b> : {{$product->category->name}}  
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Firm</b> : {{$product->firm->name}}  
+                                                <b>Date</b> :{{$bill_info[$len - 4]}}
                                             </li>
                                           </ul>
                                   </ul>
                               </div>
-                            <div class="col-md-6 text-left">
-                                <div>
-                                  <div class="card-header">
-                                    <strong class="card-title">Category & Firm Information</strong>
+                        <div class="col-md-6 text-left">
+                                <div class="example">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="card-header">
+                                            <strong class="card-title">Product Information</strong>
+                                            </div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Num</th>
+                                                        <th>Name</th>
+                                                        <th>Quantity</th>
+                                                    </tr>
+                                                    <?php
+                                                    $st = 0;
+                                                    for($i = 0; $i < $end * 2; $i = $i+2){
+                                                        $st++;
+                                                        echo 
+                                                        '<tr>
+                                                            <th>'.$st.'</th>
+                                                            <th>'.$bill_info[$i].'</th>
+                                                            <th>'.$bill_info[$i + 1].'</th>
+                                                        </tr>';
+                                                    }
+                                                    
+                                                    ?>
+                                                    
+                                                </thead>
+                                                <tbody>
+                                                                                             
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>        
                                 </div>
-                                  <ul class="list-group">
-                                    <li class="list-group-item list-group-item-success">
-                                        <b>Category Name :</b> {{$product->category->name}}
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Category Group :</b> {{$product->category->group}}
-                                    </li>
-                                    <li class="list-group-item list-group-item-success  ">
-                                        <b>Firm Name :</b> {{$product->firm->name}}
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Firm Information :</b> {{$product->firm->information}}
-                                    </li>
-                                 </ul>
-                                </div>
-                            </div>
+                        </div>    
+                    </div>
                 </div>
             </div>
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
 
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Information Images</strong>
-                            </div>
-                            <div class="card-body">
-                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Image 1</th>
-                                            <th>Image 2</th>
-                                            <th>Image 3</th>
-                                            <th>Image 4</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><img src="{{asset($product->image[0]->link)}}"></td>
-                                            <td><img src="{{asset($product->image[1]->link)}}"></td>
-                                            <td><img src="{{asset($product->image[2]->link)}}"></td>
-                                            <td><img src="{{asset($product->image[3]->link)}}"></td>    
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
+                    
                     <div class="card">
-                        <<div></div>>
+                        <div></div>
                             
                         </div>
                     </div>
