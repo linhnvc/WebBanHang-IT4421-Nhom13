@@ -82,6 +82,11 @@ class UserController extends Controller
         //
     }
 
+    public function showuserslist(){
+        $users_list = User::getUsers();
+        return view('ad-showuserslist')->with('users_list', $users_list);
+    }
+
     /**
      * Display the specified resource.
      *

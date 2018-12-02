@@ -18,6 +18,17 @@ class Bill extends Model
     	return $bill_list;
     }
 
+    public static function getBillsOfUser($id_user){
+        $bills = DB::table('bill')->join('user', 'bill.userId', '=', 'user.userId')->select(
+            'bill.billId',
+            'bill.date',
+            'bill.total',
+            'bill.checked'
+        )
+        ->get();
+        return $bills;
+    }
+
     public static function getBillById($id){
         $bill_info = DB::table('bill')->join('billdetail', 'bill.billId', '=', 'billdetail.billId')
         ->select(

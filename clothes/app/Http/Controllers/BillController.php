@@ -8,6 +8,7 @@ use App\Bill;
 use App\Category;
 use App\Image;
 use App\Firm;
+use App\User;
 
 class BillController extends Controller
 {
@@ -98,6 +99,11 @@ class BillController extends Controller
         return view('ad-showbilllist')->with('bill_list', $bill_list);
     }
 
+    public function showOrders($id){
+        $bill_list = Bill::getBillsOfUser($id);
+        return view('myorders')->with('bill_list', $bill_list);
+    }
+
 
     public function showbilldetail($id){
         $id_bill = $id;
@@ -107,6 +113,16 @@ class BillController extends Controller
         session(['num_of_products_in_billdetail' => $end]);
         session(['len_of_billdetail' => count($infos)]);
         return view('ad-showbilldetail')->with('bill_info', $infos);
+    }
+
+    public function showbilldetailofcm($id){
+        $id_bill = $id;
+        $bill_info = Bill::getBillById($id);
+        $infos = explode(';', $bill_info);
+        $end = intval($infos[count($infos) - 2]);
+        session(['num_of_products_in_billdetail' => $end]);
+        session(['len_of_billdetail' => count($infos)]);
+        return $bill_info;
     }
 
 

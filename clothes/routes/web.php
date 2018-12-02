@@ -16,6 +16,8 @@
 // })->name('home');
 Route::get('/','ProductController@homePage')->name('home');
 
+Route::get('myorders/{id}', 'BillController@showOrders');
+Route::get('myorders/test/{id_bill}', 'BillController@showbilldetailofcm');
 Route::get('/admin', 'AdminController@index');
 Route::post('checklogin', 'UserController@checklogin');
 
@@ -92,6 +94,8 @@ Route::get('/ad-addproduct', 'ProductController@showaddform');
 Route::post('/addproduct', 'ProductController@addproduct');
 
 Route::get('/billlist', 'BillController@showbilllist');
+
+Route::get('/userslist', 'UserController@showuserslist');
 
 Route::get('/detailbill/{id}', 'BillController@showbilldetail');
 
