@@ -17,7 +17,7 @@ class UserController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        $user = User::Where([['email', $email], ['password', $password]])->first();
+        $user = User::findUserByInfor($email, $password);
         if(!empty($user)){
             session(['user_id' => $user->userId]);
             session(['username' => $user->userName]);
@@ -40,7 +40,7 @@ class UserController extends Controller
         $password = $request->input('password');
         $name = $request->input('name');
 
-        $user_before = User::where('email', $email)->first();
+        $user_before = User::findUserByEmail($email);
 
         if (!empty($user_before)) {
             session(['failure_mes' => 'your email have been already registered']);
@@ -48,12 +48,8 @@ class UserController extends Controller
             return redirect($url);
         } else {
             // create an account and save
-            $new_user = new User;
-            $new_user->userName = $name;
-            $new_user->password = $password;
-            $new_user->email = $email;
-            $new_user->save();
-
+            
+            User::registerUser($name, $password, $email);
             session(['success_mes' => 'Account Created, Lets Login']);
             $url = '/';
             return redirect($url);
@@ -116,32 +112,21 @@ class UserController extends Controller
         $id = session('user_id');
         $email = $request->input('email');
         $name = $request->input('name');
+        $password = $request->input('password');
 
+        // create an account and save
+        $updated_user = User::updateUser($id, $name, $email, $password);
 
-        $user_before = User::where('email', $email)->get();
+        session(['user_id' => $updated_user->userId]);
+        session(['username' => $updated_user->userName]);
+        session(['email' => $updated_user->email]);
+        session(['password' => $updated_user->password]);
 
-        if (count($user_before) > 1) {
-            $message = 'your email have been already registered';
-            return view('index')->with('message', $message);
-        } else {
-            // create an account and save
-            $updated_user = User::find($id);
-            $updated_user->name = $name;
-            $updated_user->email = $email;
-            $updated_user->save();
-
-            session(['user_id' => $updated_user->id]);
-            session(['username' => $updated_user->name]);
-            session(['email' => $updated_user->email]);
-            session(['password' => $updated_user->password]);
-
-            $success = [
-                'mes_success' => 'Account Updated',
-                'update' => 1
-            ];
-            return view('index')->with('success', $success);
-
-        }
+        $success = [
+            'mes_success' => 'Account Updated',
+            'update' => 1
+        ];
+        return redirect('/')->with('success', $success);
     }
 
     /**

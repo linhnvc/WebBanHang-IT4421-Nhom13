@@ -178,7 +178,10 @@
 							    <input type="text" name="name" class="form-control" value="{{session('username')}}" placeholder="Your Name" required="">
 							  </div>
 							  <div class="form-group">
-							    <input type="email" name="email" class="form-control" value="{{session('email')}}" placeholder="Your email" required="">
+							    <input type="email" name="email" class="form-control" value="{{session('email')}}" placeholder="Your email" required="" readonly>
+							  </div>
+							  <div class="form-group">
+							    <input type="text" name="password" class="form-control" value="{{session('password')}}" placeholder="Your email" required="" >
 							  </div>
 							  <button type="submit" class="btn btn-primary">Save Your Change</button>
 							</form>

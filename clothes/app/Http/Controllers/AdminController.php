@@ -26,7 +26,7 @@ class AdminController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        $admin = Admin::Where([['email', $email], ['password', $password]])->first();
+        $admin = Admin::findAdminByInfor($email, $password);
         if(!empty($admin)){
             session(['admin_id' => $admin->adminId]);
             session(['admin_name' => $admin->userName]);
