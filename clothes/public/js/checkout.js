@@ -16,10 +16,10 @@ $(document).ready(function(){
             success: function (data) { 
                 
                 console.log(data.msg);
-                // alert(data.msg);
+                // alert(data.msg);`
             }
         });
-        var $prices = parseInt($tr.find(".price_unit").text()) * parseInt($quantity);
+        var $prices = parseInt($tr.find("price_unit").text()) * parseInt($quantity);
         // console.log($prices);
         $tr.find(".prices").text($prices);
         var $no = parseInt($tr.find('.no').text()) - 1;
@@ -32,6 +32,10 @@ $(document).ready(function(){
         });
         $("#totalPrices").text($total_prices + 30000);
    });
+
+
+
+
    $(".close1").click(function(){
     var $tr = $(this).closest("tr");
     var $id =$tr.attr('id');

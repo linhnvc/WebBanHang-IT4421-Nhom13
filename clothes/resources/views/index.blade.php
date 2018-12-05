@@ -15,7 +15,7 @@
 <!-- //banner -->
 
 <!-- banner-bottom -->
-	<div class="banner-bottom">
+<!-- 	<div class="banner-bottom">
 		<div class="container">
 			<div class="col-md-5 wthree_banner_bottom_left">
 				<div class="video-img">
@@ -23,10 +23,10 @@
 						<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
 					</a>
 				</div>
-				<!-- pop-up-box -->    
+				 
 						<link href="css/popuo-box.css" rel="stylesheet" type="text/css" property="" media="all" />
 						<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-					<!--//pop-up-box -->
+					
 					<div id="small-dialog" class="mfp-hide">
 						<iframe src="https://player.vimeo.com/video/23259282?title=0&byline=0&portrait=0"></iframe>
 					</div>
@@ -444,7 +444,6 @@
 						</div>
 					</div>
 				</div>
-					<!--modal-video-->
 				<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -854,7 +853,7 @@
 			</div>
 			<div class="clearfix"> </div>
 		</div>
-	</div>
+	</div> -->
 <!-- //banner-bottom -->
 
 <!-- banner-bottom1 -->

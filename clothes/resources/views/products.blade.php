@@ -94,12 +94,12 @@
 							  </div>
 							  
 							</div>
-							<ul class="panel_bottom">
+							<!-- <ul class="panel_bottom">
 								<li><a href="products.html">Summer Store</a></li>
 								<li><a href="dresses.html">New In Clothing</a></li>
 								<li><a href="sandals.html">New In Shoes</a></li>
 								<li><a href="products.html">Latest Watches</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 					<div class="w3ls_dresses_grid_left_grid">

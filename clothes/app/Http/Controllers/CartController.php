@@ -58,6 +58,10 @@ class CartController extends Controller
     );
     return response()->json($response); 
    }
+
+
+
+   
    public function updatCart(Request $request){
        $id = $request->id;
        $quantity = $request->quantity;
