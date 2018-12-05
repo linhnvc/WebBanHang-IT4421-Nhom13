@@ -346,10 +346,6 @@ class ComposerStaticInit4148b42772e6aeab48df39ba28bac69a
 
     public static $classMap = array (
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
-<<<<<<< HEAD
-=======
-        'App\\Bill' => __DIR__ . '/../..' . '/app/Bill.php',
->>>>>>> trungtq
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
