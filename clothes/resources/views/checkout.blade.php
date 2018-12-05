@@ -95,7 +95,7 @@
 							$totalPrice = 0;
 						@endphp
 						@foreach($products as $key=>$product)
-						<li>Product{{$key + 1}} <i>-</i> <span>{{($product->salePrice)*($product->quantity)}} </span></li>
+						<li>Product{{$key + 1}} <i>-</i> <span no={{$key + 1}}>{{($product->salePrice)*($product->quantity)}} </span></li>
 						@php
 							$totalPrice = $totalPrice + ($product->salePrice)*($product->quantity);
 						@endphp

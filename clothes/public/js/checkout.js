@@ -19,13 +19,15 @@ $(document).ready(function(){
                 // alert(data.msg);`
             }
         });
-        var $prices = parseInt($tr.find("price_unit").text()) * parseInt($quantity);
-        // console.log($prices);
+        
+        var $prices = parseInt($tr.find(".price_unit").text()) * parseInt($quantity);
+        // console.log($tr.find("price_unit").text());
+        // console.log(parseInt($quantity));
         $tr.find(".prices").text($prices);
-        var $no = parseInt($tr.find('.no').text()) - 1;
+        var $no = parseInt($tr.find('.no').text());
         // console.log($no);
-         $("#yours_cart").find('span')[$no].innerHTML=$prices;
-        // console.log($spands.innerHTML);
+         $("#yours_cart").find('span[no='+$no+']')[0].innerHTML=$prices;
+        // console.log($("#yours_cart").find('span[no='+$no+']')[0].innerHTML);
         var $total_prices = 0;
         $(".rem1").each(function(){
                $total_prices = $total_prices + parseInt($(this).find(".prices").text());
@@ -55,13 +57,14 @@ $(document).ready(function(){
             // alert(data.msg);
         }
     });
-    var $no = parseInt($tr.find('.no').text()) - 1;
+    var $no = parseInt($tr.find('.no').text());
     $tr.remove();
     var $total_prices = 0;
     $(".rem1").each(function(){
             $total_prices = $total_prices + parseInt($(this).find(".prices").text());
     });
     $("#totalPrices").text($total_prices + 30000);
-    $("#yours_cart").find('li')[$no].remove();
+    var $pro =$("#yours_cart").find('span[no='+$no+']')[0]; 
+    $pro.closest('li').remove();
    });
 });
