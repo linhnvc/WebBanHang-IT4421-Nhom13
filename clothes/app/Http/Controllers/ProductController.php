@@ -176,7 +176,7 @@ class ProductController extends Controller
         // $firm = Firm::where('name', '=', $firm_name)->first();
         // $firm_id = $firm->firmId;
 
-        Product::updateproduct($product_id, $product_name, $product_size, $product_color, $product_quantity, $product_description, $product_price, $category_name, $firm_name);
+        Product::updateProduct($product_id, $product_name, $product_size, $product_color, $product_quantity, $product_description, $product_price, $category_name, $firm_name);
 
         // $product->name = $product_name;
         // $product->size = (int)$product_size;
@@ -257,93 +257,7 @@ class ProductController extends Controller
 
     public function addproduct(Request $request){
 
-        // $validation = $request->validate([
-        //     'image1' => 'required|image|mimes: jpeg,png,jpg,gif',
-        //     'image2' => 'required|image|mimes: jpeg,png,jpg,gif',
-        //     'image3' => 'required|image|mimes: jpeg,png,jpg,gif',
-        //     'image4' => 'required|image|mimes: jpeg,png,jpg,gif'
-        // ]);
-
-        // if($validation->passes()){
-
-        //     $product_name = $request->input('product_name');
-        //     $product_size = $request->input('product_size');
-        //     $product_color = $request->input('product_color');
-        //     $product_quantity = $request->input('product_quantity');
-        //     $product_description = $request->input('product_description');
-        //     $product_price = $request->input('product_price');
-        //     $category_name = $request->input('category_name');
-        //     $firm_name = $request->input('firm_name');
-
-        //     $category = Category::where('name', '=', $category_name);
-        //     $category_id = $category->id;
-
-        //     $firm = Firm::where('name', '=', $firm_name);
-        //     $firm_id = $firm->id;
-
-        //     $new_product = new Product();
-        //     $new_product->name = $product_name;
-        //     $new_product->size = (int)$product_size;
-        //     $new_product->color = strtoupper($product_color);
-        //     $new_product->quantity = (int)$product_quantity;
-        //     $new_product->desciption = $product_description;
-        //     $new_product->price = (int)$product_price;
-        //     $new_product->categoryId = $category_id;
-        //     $new_product->FirmId = $firm_id;
-        //     $new_product->save();
-            
-        //     $image1 = $request->file('image1');
-        //     $new_name1 = $name_img.'_1.'.$image1->getClientOriginalExtension();
-        //     $image1->move(public_path('Dresses'), $new_name1);
-
-        //     $image2 = $request->file('image1');
-        //     $new_name2 = $name_img.'_2.'.$image2->getClientOriginalExtension();
-        //     $image2->move(public_path('Dresses'), $new_name2);
-
-        //     $image3 = $request->file('image3');
-        //     $new_name3 = $name_img.'_3.'.$image3->getClientOriginalExtension();
-        //     $image3->move(public_path('Dresses'), $new_name3);
-
-        //     $image4 = $request->file('image4');
-        //     $new_name4 = $name_img.'_4.'.$image4->getClientOriginalExtension();
-        //     $image4->move(public_path('Dresses'), $new_name4);
-
-        //     $new_name1 = 'Dresses'.$new_name1;
-        //     $new_name2 = 'Dresses'.$new_name2;
-        //     $new_name3 = 'Dresses'.$new_name3;
-        //     $new_name4 = 'Dresses'.$new_name4;
-
-        //     $new_image1 = new Image();
-        //     $new_image1->productId = $id;
-        //     $new_image1->link = $new_name1;
-        //     $new_image1->save();
-
-        //     $new_image2 = new Image();
-        //     $new_image2->productId = $id;
-        //     $new_image2->link = $new_name2;
-        //     $new_image2->save();
-
-        //     $new_image3 = new Image();
-        //     $new_image3->productId = $id;
-        //     $new_image3->link = $new_name3;
-        //     $new_image3->save();
-
-
-        //     $new_image4 = new Image();
-        //     $new_image4->productId = $id;
-        //     $new_image4->link = $new_name4;
-        //     $new_image4->save();
-
-        //     $message = 'abcd';
-
-        //     return view('ad-showproductlist')->with('message', $message);
-
-
-        // } else {
-        //     $message = 'abcd';
-        //     return view('ad-addproduct')->with('message', $message);
-        // }
-
+        
         $accepted_kind = array('jpg', 'jepg', 'png');
 
          $image1 = $request->file('image1');
@@ -375,65 +289,12 @@ class ProductController extends Controller
             $firm = Firm::where('name', '=', $firm_name)->first();
             $firm_id = $firm->firmId;
 
-            $new_product = new Product();
-            $new_product->name = $product_name;
-            $new_product->size = (int)$product_size;
-            $new_product->color = strtoupper($product_color);
-            $new_product->quantity = (int)$product_quantity;
-            $new_product->description = $product_description;
-            $new_product->price = (int)$product_price;
-            $new_product->categoryId = $category_id;
-            $new_product->FirmId = $firm_id;
-            $new_product->save();
-
-
-            $max_id = Product::max('productId');
-            $id = $max_id;
-            $name_img = (string)$id;
-
-
-            
             $image1 = $request->file('image1');
-            $new_name1 = $name_img.'_1.'.$image1->getClientOriginalExtension();
-            $image1->move(public_path('Dresses'), $new_name1);
-
             $image2 = $request->file('image2');
-            $new_name2 = $name_img.'_2.'.$image2->getClientOriginalExtension();
-            $image2->move(public_path('Dresses'), $new_name2);
-
             $image3 = $request->file('image3');
-            $new_name3 = $name_img.'_3.'.$image3->getClientOriginalExtension();
-            $image3->move(public_path('Dresses'), $new_name3);
-
             $image4 = $request->file('image4');
-            $new_name4 = $name_img.'_4.'.$image4->getClientOriginalExtension();
-            $image4->move(public_path('Dresses'), $new_name4);
-
-            $new_name1 = 'Dresses/'.$new_name1;
-            $new_name2 = 'Dresses/'.$new_name2;
-            $new_name3 = 'Dresses/'.$new_name3;
-            $new_name4 = 'Dresses/'.$new_name4;
-
-            $new_image1 = new Image();
-            $new_image1->productId = $id;
-            $new_image1->link = $new_name1;
-            $new_image1->save();
-
-            $new_image2 = new Image();
-            $new_image2->productId = $id;
-            $new_image2->link = $new_name2;
-            $new_image2->save();
-
-            $new_image3 = new Image();
-            $new_image3->productId = $id;
-            $new_image3->link = $new_name3;
-            $new_image3->save();
-
-
-            $new_image4 = new Image();
-            $new_image4->productId = $id;
-            $new_image4->link = $new_name4;
-            $new_image4->save();
+            
+            Product::addProduct($product_name, $product_size, $product_color, $product_quantity, $product_description, $product_price, $category_id, $firm_id, $image1, $image2, $image3, $image4);
 
             $message = 'Product added successfully';
             $url = '/productlist/'.$category_name;

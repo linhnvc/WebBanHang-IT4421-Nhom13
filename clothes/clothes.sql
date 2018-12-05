@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2018 lúc 10:32 AM
--- Phiên bản máy phục vụ: 10.1.31-MariaDB
--- Phiên bản PHP: 7.2.3
+-- Thời gian đã tạo: Th10 21, 2018 lúc 11:02 AM
+-- Phiên bản máy phục vụ: 10.1.36-MariaDB
+-- Phiên bản PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -55,9 +55,20 @@ INSERT INTO `admin` (`adminId`, `userName`, `password`, `email`, `address`, `pho
 
 CREATE TABLE `bill` (
   `billId` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `userId` int(11) NOT NULL
+  `date` datetime NOT NULL,
+  `userId` int(11) NOT NULL,
+  `total` int(50) DEFAULT NULL,
+  `checked` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `bill`
+--
+
+INSERT INTO `bill` (`billId`, `date`, `userId`, `total`, `checked`) VALUES
+(1, '2018-11-21 09:52:12', 1, 83000000, NULL),
+(2, '2018-11-21 09:53:38', 1, 103000000, NULL),
+(3, '2018-11-21 09:55:01', 1, 63000000, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,6 +81,27 @@ CREATE TABLE `billdetail` (
   `productId` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `billdetail`
+--
+
+INSERT INTO `billdetail` (`billId`, `productId`, `quantity`) VALUES
+(1, 51, 1),
+(1, 52, 1),
+(1, 53, 1),
+(1, 55, 1),
+(2, 45, 1),
+(2, 46, 1),
+(2, 47, 1),
+(2, 48, 1),
+(2, 49, 1),
+(3, 35, 1),
+(3, 36, 1),
+(3, 37, 1),
+(3, 38, 1),
+(3, 40, 1),
+(3, 41, 1);
 
 -- --------------------------------------------------------
 
@@ -597,7 +629,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `billId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `billId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `category`

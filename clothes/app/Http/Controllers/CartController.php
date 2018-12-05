@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use App\Image;
 use App\Firm;
+use App\Bill;
 
 class CartController extends Controller
 {
@@ -16,6 +17,7 @@ class CartController extends Controller
         $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
+       $billId = count(Bill::all()) + 1;
        $products_cart = collect([]);
        $cart = 0;
        if(!empty(session('cart'))){
@@ -36,7 +38,7 @@ class CartController extends Controller
         // return $products_cart[0]->image[0]->link;
 
        return view('checkout', ['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup,
-       "products"=>$products_cart]);
+       "products"=>$products_cart, 'billId'=>$billId]);
     }
 
 
