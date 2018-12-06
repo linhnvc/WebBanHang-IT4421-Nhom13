@@ -12,9 +12,8 @@ use App\Bill;
 class CartController extends Controller
 {
 
-
     public function displayCart(){
-        $dressGroup = Category::where('group','Dress')->get();
+       $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
        $billId = count(Bill::all()) + 1;
@@ -54,9 +53,10 @@ class CartController extends Controller
             session()->put('cart.'.$id, 1);
         }
     }
-    // $message = session('cart');
+    $count= count(session('cart'));
     $response = array(
         'msg' => $message,
+        'count'=>$count,
     );
     return response()->json($response); 
    }
@@ -78,9 +78,10 @@ class CartController extends Controller
    public function deleteProductCart(Request $request){
        $id = $request->id;
        session()->forget('cart.'.$id);
+       $count= count(session('cart'));
        $response = array(
         'msg' => $id,
-        // 'msg'=>$quantity
+        'count'=>$count,
     );
     return response()->json($response); 
    }

@@ -18,6 +18,7 @@ $(document).ready(function(){
                     // console.log(data.msg);
                     // $("#myModal_infor").show();
                     alert(data.msg);
+                    $("#quantity_cart").text('('+data.count+')');
 
                 }else{
                     // $("#myModal_infor").show();

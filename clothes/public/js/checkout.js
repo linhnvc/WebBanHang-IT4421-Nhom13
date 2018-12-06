@@ -24,9 +24,9 @@ $(document).ready(function(){
         // console.log($tr.find("price_unit").text());
         // console.log(parseInt($quantity));
         $tr.find(".prices").text($prices);
-        var $no = parseInt($tr.find('.no').text());
+        // var $no = parseInt($tr.find('.no').text());
         // console.log($no);
-         $("#yours_cart").find('span[no='+$no+']')[0].innerHTML=$prices;
+        //  $("#yours_cart").find('span[no='+$no+']')[0].innerHTML=$prices;
         // console.log($("#yours_cart").find('span[no='+$no+']')[0].innerHTML);
         var $total_prices = 0;
         $(".rem1").each(function(){
@@ -54,6 +54,8 @@ $(document).ready(function(){
         success: function (data) { 
             
             console.log(data.msg);
+            $("#total_products_cart").text(data.count);
+            $("#quantity_cart").text('('+data.count+')');
             // alert(data.msg);
         }
     });
@@ -64,7 +66,8 @@ $(document).ready(function(){
             $total_prices = $total_prices + parseInt($(this).find(".prices").text());
     });
     $("#totalPrices").text($total_prices + 30000);
-    var $pro =$("#yours_cart").find('span[no='+$no+']')[0]; 
-    $pro.closest('li').remove();
+    // var $pro =$("#yours_cart").find('span[no='+$no+']')[0]; 
+    // $pro.closest('li').hide();
+    
    });
 });

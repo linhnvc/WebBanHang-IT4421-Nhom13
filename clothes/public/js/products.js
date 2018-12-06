@@ -51,12 +51,16 @@ $(document).ready(function(){
                 console.log(data.msg);
                 if(data.msg == "true"){
                     // console.log(data.msg);
+                    // $("#myModal88").addClass("in");
+                    // $("#myModal_infor").attr("aria-hidden", 'false');
                     // $("#myModal_infor").show();
-                    alert(data.msg);
+                    alert(data.msg+data.count);
+                    // alert($("#quantity_cart").text());
+                    $("#quantity_cart").text('('+data.count+')');
 
                 }else{
                     // $("#myModal_infor").show();
-                    alert(data.msg); 
+                    alert(data.msg+data.count); 
                 }
             }
         }); 

@@ -20,7 +20,7 @@
 		<div class="cart box_1">
 			<a href="{{asset("/displayCart")}}">
 				<div >
-				<span class="simpleCart_total"></span></div>
+				<span class="" id="">Yours Cart</span></div>
 				<img src="{{asset('images_admin/bag.png')}}" alt="" />
 				@if(!empty(session('cart')))
 				<sup id = 'quantity_cart'>({{count(session('cart'))}})</sup>
