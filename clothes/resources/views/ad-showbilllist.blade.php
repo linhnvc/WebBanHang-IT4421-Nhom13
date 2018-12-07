@@ -85,6 +85,7 @@
                             <div class="alert" id="message" style="display: none"></div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dialog1">Mở hộp thoại</button>
                                     <thead>
                                         <tr>
                                             <th>Bill ID</th>
@@ -156,6 +157,40 @@
 
     <!-- Right Panel -->
 
+    <div class="modal fade" id="dialog1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <h5 class="modal-title">Thống kê</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form action="{{url('/billlist/thong_ke')}}" method="GET">
+                    {!! csrf_field() !!}
+                    <div class="form-group row">
+                    <label for="example-date-input" class="col-2 col-form-label">From</label>
+                        <div class="col-10">
+                            <input class="form-control date-from" type="date" value="2018-08-19" name="date-from">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-date-input" class="col-2 col-form-label">To</label>
+                        <div class="col-10">
+                            <input class="form-control date-from" type="date" value="2018-08-19" name="date-to">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>              
+            </div>
+            
+        </div>
+    </div>
+</div>
+
 
     <!-- Scripts -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -178,7 +213,7 @@
     <script src="{{asset('assets_admin/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('assets_admin/js/init/datatables-init.js')}}"></script>
     <script type="text/javascript">
-            $(document).ready(function(){
+    $(document).ready(function(){
          $('.check').change(function(e){
             val = $(this).val();
                e.preventDefault();
@@ -191,7 +226,7 @@
             id = val;
             $.ajax({
                 type: 'GET',
-                url: 'billlist/'+id,    
+                url: 'billlist/update_checked?id='+id,    
                   success: function(data){
                     $(this).remove();
                     $('#'+val).html('<input type="checkbox" value="" checked disabled="">')
@@ -199,6 +234,7 @@
                   }});
                });
             });
+
         </script>
 
 </body>

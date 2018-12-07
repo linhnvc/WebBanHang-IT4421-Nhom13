@@ -20,6 +20,7 @@ Route::get('myorders/{id}', 'BillController@showOrders');
 Route::get('myorders/test/{id_bill}', 'BillController@showbilldetailofcm');
 Route::get('/admin', 'AdminController@index');
 Route::post('checklogin', 'UserController@checklogin');
+Route::get('/billlist/thong_ke', 'BillController@thong_ke');
 
 Route::post('/register', 'UserController@register');
 
@@ -99,7 +100,13 @@ Route::get('/userslist', 'UserController@showuserslist');
 
 Route::get('/detailbill/{id}', 'BillController@showbilldetail');
 
-Route::get('/billlist/{id}', 'BillController@update_checked');
+Route::get('/orderdetail/{id}', 'BillController@showorderdetail');
+
+Route::get('/billlist/update_checked', 'BillController@update_checked');
+
+Route::get('/products/{category_para}/{id}/update_rating', 'ProductController@update_rating');
+
+Route::get('/products/{category_para}/{id}/update_comment', 'ProductController@update_comment');
 
 ###############
 

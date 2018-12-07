@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
+use DateInterval;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Bill;
@@ -84,9 +86,9 @@ class BillController extends Controller
         //
     }
 
-    public function update_checked($id)
+    public function update_checked(Request $request)
     {   
-        $bill = Bill::find($id);
+        $bill = Bill::find($request->get('id'));
         $bill->checked = 'checked';
         $bill->save();
         return 'success';
@@ -115,6 +117,16 @@ class BillController extends Controller
         return view('ad-showbilldetail')->with('bill_info', $infos);
     }
 
+    public function showorderdetail($id){
+        $id_bill = $id;
+        $bill_info = Bill::getBillById($id);
+        $infos = explode(';', $bill_info);
+        $end = intval($infos[count($infos) - 2]);
+        session(['num_of_products_in_billdetail' => $end]);
+        session(['len_of_billdetail' => count($infos)]);
+        return view('orderdetail')->with('bill_info', $infos);
+    }
+
     public function showbilldetailofcm($id){
         $id_bill = $id;
         $bill_info = Bill::getBillById($id);
@@ -125,5 +137,12 @@ class BillController extends Controller
         return $bill_info;
     }
 
+    public function thong_ke(Request $request){
+        $from = $request->get('date-from');
+        $to = $request->get('date-to');
+        $bill_list = Bill::Where([['date', '<=', $to], ['date', '>=', $from]])->get();
+        echo "<script>console.log( 'Debug Objects: " . $bill_list . "' );</script>";
+        return view('ad-showbilllist')->with('bill_list', $bill_list);
+    }
 
 }
