@@ -13,6 +13,7 @@ class Feedback extends Model
     
    	public static function getCommentAndStarOfUsers($id_user, $id_product){
         $comment_star = DB::table('feedback')->join('user', 'feedback.userId', '=', 'user.userId')->where('productId', '=', $id_product)->select(
+            'user.userId',
             'user.userName',
             'feedback.comment',
             'feedback.date',

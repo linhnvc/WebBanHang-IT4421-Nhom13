@@ -216,14 +216,15 @@ label.star:before {
 							</div>
 							<div id="reviews" class="col-xs-10 additional_info_sub_grid_right">
 								@foreach($comment_star as $c_s)
-									<div class="additional_info_sub_grid_rightl rm{{session('user_id')}}">			<a>{{$c_s->userName}}</a>
+									<div class="additional_info_sub_grid_rightl rm{{$c_s->userId}}">
+										<a>{{$c_s->userName}}</a>
 										<h5>{{$c_s->date}}</h5>
 										<p>{{$c_s->comment}}.</p>
 									</div>
-									<div class="additional_info_sub_grid_rightr rm{{session('user_id')}}">
+									<div class="additional_info_sub_grid_rightr rm{{$c_s->userId}}">
 										<div class="rating">
 									@for($i=0; $i< $c_s->star; $i++)
-										<div class="rating-left rm{{session('user_id')}}">
+										<div class="rating-left rm{{$c_s->userId}}">
 											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
 										</div>							
 									@endfor
