@@ -94,6 +94,11 @@ class ProductController extends Controller
         //
     }
 
+    public function showfeedbackslist(){
+        $feedbacks_list = Feedback::getFeedbacks();
+        return view('ad-showfeedback')->with('feedbacks_list', $feedbacks_list);
+    }
+
     public function update_rating(Request $request)
     {   
         $feedback = DB::table('feedback')->where([['productId', '=', $request->get('id')], ['userId', '=', session('user_id')]])->first();

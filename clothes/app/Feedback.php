@@ -22,4 +22,17 @@ class Feedback extends Model
         ->get();
         return $comment_star;
     }
+
+    public static function getFeedbacks(){
+        $comment_star = DB::table('feedback')->join('user', 'feedback.userId', '=', 'user.userId')->join('product', 'product.productId', '=', 'feedback.productId')->select(
+            'user.userId',
+            'user.userName',
+            'product.name',
+            'feedback.comment',
+            'feedback.date',
+            'feedback.star'
+        )
+        ->get();
+        return $comment_star;
+    }
 }

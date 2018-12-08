@@ -42,16 +42,18 @@
                                                         <th>Num</th>
                                                         <th>Name</th>
                                                         <th>Quantity</th>
+                                                        <th>Price Unit</th>
                                                     </tr>
                                                     <?php
                                                     $st = 0;
-                                                    for($i = 0; $i < $end * 2; $i = $i+2){
+                                                    for($i = 0; $i < $end * 3; $i = $i+3){
                                                         $st++;
                                                         echo 
                                                         '<tr>
                                                             <th>'.$st.'</th>
                                                             <th>'.$bill_info[$i].'</th>
                                                             <th>'.$bill_info[$i + 1].'</th>
+                                                            <th>'.$bill_info[$i + 2].'</th>
                                                         </tr>';
                                                     }
                                                     
