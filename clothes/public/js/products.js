@@ -50,7 +50,7 @@ $(document).ready(function(){
                 
                 console.log(data.msg);
                 if(data.msg == "true"){
-                    // console.log(data.msg);
+                    console.log(data.msg);
                     // $("#myModal88").addClass("in");
                     // $("#myModal_infor").attr("aria-hidden", 'false');
                     // $("#myModal_infor").show();

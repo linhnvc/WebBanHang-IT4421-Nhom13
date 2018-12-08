@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use App\Product;
+use App\Feedback;
 use App\Category;
 use App\Image;
 use App\Firm;
@@ -92,6 +94,37 @@ class ProductController extends Controller
         //
     }
 
+    public function showfeedbackslist(){
+        $feedbacks_list = Feedback::getFeedbacks();
+        return view('ad-showfeedback')->with('feedbacks_list', $feedbacks_list);
+    }
+
+    public function update_rating(Request $request)
+    {   
+        $feedback = DB::table('feedback')->where([['productId', '=', $request->get('id')], ['userId', '=', session('user_id')]])->first();
+        if(!$feedback)
+        {
+            $feedback = new Feedback();
+            DB::table('feedback')->insert(['productId'=>$request->get('id'), 'userId'=>session('user_id')]);
+        }
+        DB::table('feedback')->where([['productId', '=', $request->get('id')], ['userId', '=', session('user_id')]])->update(['star'=>$request->get('rating'), 'date'=>$request->get('time')]);
+        return 'success';
+        
+    }
+
+    public function update_comment(Request $request)
+    {   
+        $feedback = DB::table('feedback')->where([['productId', '=', $request->get('id')], ['userId', '=', session('user_id')]])->first();
+        if(!$feedback)
+        {
+            $feedback = new Feedback();
+            DB::table('feedback')->insert(['productId'=>$request->get('id'), 'userId'=>session('user_id')]);
+        }
+        DB::table('feedback')->where([['productId', '=', $request->get('id')], ['userId', '=', session('user_id')]])->update(['comment'=>$request->get('comment'), 'date'=>$request->get('time')]);
+        return $feedback->star;
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -109,8 +142,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($category_para, $id)
-
+    public function show(Request $request, $category_para, $id)
     {
        $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
@@ -133,8 +165,9 @@ class ProductController extends Controller
        $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
+       $comment_star = Feedback::getCommentAndStarOfUsers(session('user_id'), $id);
 
-        return view('single', ['category'=>$category_para, "product"=>$product, "products_related"=>$products_related,
+        return view('single', ['comment_star'=>$comment_star ,'category'=>$category_para, "product"=>$product, "products_related"=>$products_related,
         'dressGroup'=>$dressGroup, 'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup,]);
     }
 
@@ -306,5 +339,7 @@ class ProductController extends Controller
             return redirect($url)->with('message', $message);
         }
     }
+
+
 
 }

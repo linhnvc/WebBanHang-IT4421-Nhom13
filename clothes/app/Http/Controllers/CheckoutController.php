@@ -237,9 +237,10 @@ class CheckoutController extends Controller
             $transStatus = "Giao dịch thành công";
             $bill = new Bill();
             $bill->billId = $input['vpc_OrderInfo'];
-            $bill->date = date ( 'YmdHis' );
+            $bill->date = date('Y-m-d H:i:s');
             $bill->userId = session('user_id');
             $bill->total = $input['vpc_Amount'];
+            $bill->checked = 'null';
             $bill->save();
             $bill_detail = new BillDetail();
             

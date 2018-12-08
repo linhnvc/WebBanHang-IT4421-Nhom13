@@ -162,6 +162,7 @@
 								<a class="btn btn-primary" href="/logout">Log out</a>
 								<button class="btn btn-primary" id="editProfile">Edit</button>
 								<a class="btn btn-primary" href="/change_password/{{session('user_id')}}">Change Password</a>
+								<a class="btn btn-primary" href="/myorders/{{session('user_id')}}">My Orders</a>
 								<script>
 									$(document).ready(function() {
 										$("#editProfile").click(function(){

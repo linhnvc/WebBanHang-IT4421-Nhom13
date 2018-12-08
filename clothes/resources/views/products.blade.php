@@ -197,7 +197,7 @@
 									<p ><span>{{$product->price}}VND</span> <i  class="item_price" price ="{{$product->salePrice}}"
 										color ="{{$product->color}}" size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@else
-									<p ><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
+									<p ><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}"
 										size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@endif
 									<p ><a  class="item_add" id = "{{$product->productId}}" href ="javascript:void(0)" role="button">Add to cart</a></p>
@@ -207,6 +207,7 @@
 						@endforeach
 						<div class="clearfix"> </div>
 					</div>
+					
 					<div style = "text-align: center;">
 							{{ $products->onEachSide(5)->links() }}
 					</div>
@@ -289,26 +290,6 @@
 		</div>
 		<script type="text/javascript" src="{{asset('js/products.js')}}"></script>
 	</div>
-	{{-- <div class="modal fade" id="myModal_info" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> --}}
-<!-- //dresses -->
 @endsection
 @section('footer')
 	@include('layouts.footer')

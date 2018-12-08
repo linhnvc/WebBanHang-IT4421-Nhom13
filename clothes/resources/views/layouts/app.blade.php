@@ -18,11 +18,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
+
 <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
 <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{asset('css/fasthover.css')}}" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <!-- //js -->
 <!-- cart -->
 <script src="{{asset('js/simpleCart.min.js')}}"></script>

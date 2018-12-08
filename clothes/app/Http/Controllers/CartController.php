@@ -44,6 +44,7 @@ class CartController extends Controller
     public function  addCart(Request $request){
     $id = $request->id;
     $message = 'false';
+    $count=0;
     if (!empty(session('user_id'))){
         $message = 'true';
         if(!empty(session('cart.'.$id))){
@@ -52,8 +53,9 @@ class CartController extends Controller
         }else{
             session()->put('cart.'.$id, 1);
         }
+        $count= count(session('cart'));
     }
-    $count= count(session('cart'));
+    
     $response = array(
         'msg' => $message,
         'count'=>$count,

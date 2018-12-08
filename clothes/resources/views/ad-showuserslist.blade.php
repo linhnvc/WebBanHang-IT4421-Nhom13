@@ -59,7 +59,7 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="{{url('/ad-index')}}">Dashboard</a></li>
-                                    <li>Bills Management</li>
+                                    <li>Users Management</li>
                                 </ol>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Bills Table &emsp;</strong>
+                                <strong class="card-title">Users Table &emsp;</strong>
                                 @if(!empty(Session::get('message')))
                                     <div class="alert alert-success" role="alert">
                                         {{Session::get('message')}}
@@ -85,45 +85,22 @@
                             <div class="alert" id="message" style="display: none"></div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dialog1">Statistic</button> &emsp;&emsp;&emsp;&emsp;Total income: {{$sum_bill}}
-
-                                <div>-</div>
                                     <thead>
                                         <tr>
-                                            <th>Bill ID</th>
-                                            <th>Date</th>
                                             <th>User ID</th>
-                                            <th>Total</th>
-                                            <th>Options</th>
-                                            <th>Checked</th>
+                                            <th>UserName</th>
+                                            <th>Password</th>
+                                            <th>Email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @if(!empty($bill_list))
-                                        @foreach($bill_list as $bill)
+                                    @if(!empty($users_list))
+                                        @foreach($users_list as $user)
                                             <tr>
-                                                <td>{{$bill->billId}}</td>
-                                                <td>{{$bill->date}}</td>
-                                                <td>{{$bill->userId}}</td>
-                                                <td class="total">{{$bill->total}} VNĐ</td>
-                                                <td>
-                                                    <div>
-                                                        <a href="{{asset('/detailbill/'.$bill->billId)}}" class="btn btn-success" style="width: 2cm">Detail</a>
-                                                    </div>
-                                                </td>
-                                                @if(!strcmp($bill->checked, 'checked'))
-                                                <td>
-                                                    <div class="checkbox disabled">
-                                                        <label><input type="checkbox" value="" checked disabled=""></label>
-                                                    </div>
-                                                </td>
-                                                @else
-                                                <td>
-                                                    <div class="checkbox">
-                                                        <label id="{{$bill->billId}}"><input class="check" type="checkbox" value="{{$bill->billId}}"></label>
-                                                    </div>
-                                                </td>
-                                                @endif
+                                                <td>{{$user->userId}}</td>
+                                                <td>{{$user->userName}}</td>
+                                                <td>{{$user->password}}</td>
+                                                <td>{{$user->email}}</td>
                                             </tr>
                                         @endforeach
                                     @endif
@@ -159,40 +136,6 @@
 
     <!-- Right Panel -->
 
-    <div class="modal fade" id="dialog1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-        
-            <div class="modal-header">
-                <h5 class="modal-title">Thống kê</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            
-            <div class="modal-body">
-                <form action="{{url('/billlist/thong_ke')}}" method="GET">
-                    {!! csrf_field() !!}
-                    <div class="form-group row">
-                    <label for="example-date-input" class="col-2 col-form-label">From</label>
-                        <div class="col-10">
-                            <input class="form-control date-from" type="date" value="2018-08-19" name="date-from">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="example-date-input" class="col-2 col-form-label">To</label>
-                        <div class="col-10">
-                            <input class="form-control date-from" type="date" value="2018-08-19" name="date-to">
-                        </div>
-                    </div>
-                    <button id="click-statistic" type="submit" class="btn btn-primary">Submit</button>
-                </form>              
-            </div>
-            
-        </div>
-    </div>
-</div>
-
 
     <!-- Scripts -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -215,7 +158,7 @@
     <script src="{{asset('assets_admin/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('assets_admin/js/init/datatables-init.js')}}"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
+            $(document).ready(function(){
          $('.check').change(function(e){
             val = $(this).val();
                e.preventDefault();
@@ -228,7 +171,7 @@
             id = val;
             $.ajax({
                 type: 'GET',
-                url: 'billlist/update_checked?id='+id,    
+                url: 'billlist/'+id,    
                   success: function(data){
                     $(this).remove();
                     $('#'+val).html('<input type="checkbox" value="" checked disabled="">')
@@ -236,7 +179,6 @@
                   }});
                });
             });
-
         </script>
 
 </body>

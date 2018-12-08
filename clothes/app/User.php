@@ -37,4 +37,8 @@ class User extends Model
 
         return $updated_user;
     }
+    public static function getUsers(){
+        $users_list = User::all();
+    	return $users_list;
+    }
 }

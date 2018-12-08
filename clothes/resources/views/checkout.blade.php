@@ -120,7 +120,13 @@
                     <input type="hidden" name="vpc_Locale" value="vn" size="20" maxlength="5" />
                     <input type="hidden" name="vpc_Currency" value="VND" size="20" maxlength="5" />
                     <input type="hidden" name="vpc_TicketNo" maxlength="15" value="<?php echo $_SERVER ['REMOTE_ADDR']; ?>" />
-                    
+                    <input type="hidden" name="vpc_SHIP_Street01" value="1" size="20" maxlength="500" />
+                    <input type="hidden" name="vpc_SHIP_Provice" value="2" size="20" maxlength="50" />
+                    <input type="hidden" name="vpc_SHIP_City" value="3" size="20" maxlength="50" />
+                    <input type="hidden" name="vpc_SHIP_Country" value="Viet Nam" size="20" maxlength="50" />
+                    <input type="hidden" name="vpc_Customer_Phone" value="5" size="20" maxlength="50" />
+                    <input type="hidden" name="vpc_Customer_Email" size="20" value="7" maxlength="50" />
+                    <input type="hidden" name="vpc_Customer_Id" value="{8" size="20" maxlength="50" />
                     
                     {{--<script type="text/javascript" src="http://202.9.84.88/documents/payment/logoscript.jsp?logos=v,m&lang=vn"></script>--}}
                     <input type="submit" class="btn btn-primary btn-lg" value="Pay with Onepay" />
