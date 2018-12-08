@@ -98,7 +98,13 @@ class BillController extends Controller
 
     public function showbilllist(){
         $bill_list = Bill::getBills();
-        return view('ad-showbilllist')->with('bill_list', $bill_list);
+        $sum_bill = 0;
+        foreach ($bill_list as $bill) {
+            if($bill->checked=='checked')
+                $sum_bill += $bill->total;
+        }
+
+        return view('ad-showbilllist', ['bill_list'=>$bill_list, 'sum_bill'=>$sum_bill]);
     }
 
     public function showOrders($id){
@@ -141,8 +147,13 @@ class BillController extends Controller
         $from = $request->get('date-from');
         $to = $request->get('date-to');
         $bill_list = Bill::Where([['date', '<=', $to], ['date', '>=', $from]])->get();
-        echo "<script>console.log( 'Debug Objects: " . $bill_list . "' );</script>";
-        return view('ad-showbilllist')->with('bill_list', $bill_list);
+        $sum_bill = 0;
+        foreach ($bill_list as $bill) {
+            if($bill->checked=='checked')
+                $sum_bill += $bill->total;
+        }
+
+        return view('ad-showbilllist', ['bill_list'=>$bill_list, 'sum_bill'=>$sum_bill]);
     }
 
 }

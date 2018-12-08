@@ -98,6 +98,8 @@ Route::get('/billlist', 'BillController@showbilllist');
 
 Route::get('/userslist', 'UserController@showuserslist');
 
+Route::get('/feedbackslist', 'ProductController@showfeedbackslist');
+
 Route::get('/detailbill/{id}', 'BillController@showbilldetail');
 
 Route::get('/orderdetail/{id}', 'BillController@showorderdetail');

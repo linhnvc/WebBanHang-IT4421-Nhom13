@@ -40,6 +40,11 @@
                 <li>
                     <a href="{{url('/userslist')}}"> <i class="menu-icon ti-email"></i>Users </a>
                 </li>
+                <li class="menu-title">Feedbacks Management</li><!-- /.menu-title -->
+
+                <li>
+                    <a href="{{url('/feedbackslist')}}"> <i class="menu-icon ti-email"></i>Feedbacks </a>
+                </li>
               
             </ul>
         </div><!-- /.navbar-collapse -->
