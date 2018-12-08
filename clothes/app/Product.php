@@ -88,13 +88,11 @@ class Product extends Model
     }
 
     public static function deleteproduct($id){
-        $images = Image::where('productId', '=', $id)->get();
+        
+        $product = Product::find($id);
+        $product->quantity = -1;
+        $product->save();
 
-        foreach ($images as $image) {
-            $image->delete();
-        }
-
-        Product::destroy($id);
     }
 
     public static function addProduct($product_name, $product_size, $product_color, $product_quantity, $product_description, $product_price, $category_id, $firm_id, $image1, $image2, $image3, $image4){

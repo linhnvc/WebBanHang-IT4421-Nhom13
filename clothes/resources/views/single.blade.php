@@ -6,6 +6,43 @@
 	@include('layouts.nav')
 @endsection
 @section('content')
+
+<style type="text/css">
+	div.stars {
+  width: 270px;
+  display: inline-block;
+}
+ 
+input.star { display: none; }
+ 
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+ 
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+ 
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+ 
+input.star-1:checked ~ label.star:before { color: #F62; }
+ 
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+ 
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+</style>
 <!-- banner -->
 	<div class="banner10" id="home1">
 		<div class="container">
@@ -61,20 +98,22 @@
 			</div>
 			<div class="col-md-8 single-right">
 				<h3>{{$product->name}}</h3>
-				<div class="rating1">
-					<span class="starRating">
-						<input id="rating5" type="radio" name="rating" value="5">
-						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" checked>
-						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
-						<label for="rating1">1</label>
-					</span>
-				</div>
+					<div class="stars">
+					  <form action="">
+					    <input class="star star-5 rating" id="star-5" type="radio" value="5" />
+					    <label class="star star-5 rating" for="star-5"></label>
+					    <input class="star star-4 rating" id="star-4" type="radio" value="4" />
+					    <label class="star star-4 rating" for="star-4"></label>
+					    <input class="star star-3 rating" id="star-3" type="radio" value="3" />
+					    <label class="star star-3 rating" for="star-3"></label>
+					    <input class="star star-2 rating" id="star-2" type="radio" value="2" />
+					    <label class="star star-2 rating" for="star-2"></label>
+					    <input class="star star-1 rating" id="star-1" type="radio" value="1" />
+					    <label class="star star-1 rating" for="star-1"></label>
+					    <input type="hidden" id="rate_star" value="" size="20" maxlength="10" />
+					  </form>
+					</div>
+				
 					<div class="description">
 						<h5><i>Description</i></h5>
 						<p>{{$product->description}}</p>
@@ -170,75 +209,29 @@
 					
 
 					<div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
-						<h4>(2) Reviews</h4>
+						<h4>Reviews</h4>
 						<div class="additional_info_sub_grids">
 							<div class="col-xs-2 additional_info_sub_grid_left">
 								<img src="{{asset('images_admin/1.png')}}" alt=" " class="img-responsive" />
 							</div>
-							<div class="col-xs-10 additional_info_sub_grid_right">
-								<div class="additional_info_sub_grid_rightl">
-									<a href="single.html">Laura</a>
-									<h5>April 03, 2016.</h5>
-									<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-										velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
-										quo voluptas nulla pariatur.</p>
-								</div>
-								<div class="additional_info_sub_grid_rightr">
-									<div class="rating">
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="clearfix"> </div>
+							<div id="reviews" class="col-xs-10 additional_info_sub_grid_right">
+								@foreach($comment_star as $c_s)
+									<div class="additional_info_sub_grid_rightl rm{{$c_s->userId}}">
+										<a>{{$c_s->userName}}</a>
+										<h5>{{$c_s->date}}</h5>
+										<p>{{$c_s->comment}}.</p>
 									</div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="additional_info_sub_grids">
-							<div class="col-xs-2 additional_info_sub_grid_left">
-								<img src="{{asset('images_admin/2.png')}}" alt=" " class="img-responsive" />
-							</div>
-							<div class="col-xs-10 additional_info_sub_grid_right">
-								<div class="additional_info_sub_grid_rightl">
-									<a href="single.html">Michael</a>
-									<h5>April 04, 2016.</h5>
-									<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-										velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
-										quo voluptas nulla pariatur.</p>
-								</div>
-								<div class="additional_info_sub_grid_rightr">
-									<div class="rating">
-										<div class="rating-left">
+									<div class="additional_info_sub_grid_rightr rm{{$c_s->userId}}">
+										<div class="rating">
+									@for($i=0; $i< $c_s->star; $i++)
+										<div class="rating-left rm{{$c_s->userId}}">
 											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
+										</div>							
+									@endfor
+									<div class="clearfix"> </div>
 										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="{{asset('images_admin/star-.png')}}" alt=" " class="img-responsive">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
+									</div>			
+								@endforeach																		
 								<div class="clearfix"> </div>
 							</div>
 							<div class="clearfix"> </div>
@@ -246,11 +239,8 @@
 						<div class="review_grids">
 							<h5>Add A Review</h5>
 							<form action="#" method="post">
-								<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-								<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-								<input type="text" name="Telephone" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-								<textarea name="Review" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Add Your Review';}" required="">Add Your Review</textarea>
-								<input type="submit" value="Submit" >
+								<textarea id="review" name="Review" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Add Your Review';}" required="">Add Your Review</textarea>
+								<input id="submit_review" type="submit" value="Submit" >
 							</form>
 						</div>
 					</div> 			        					            	      
@@ -334,8 +324,72 @@
 				</script>
 				<script type="text/javascript" src="{{asset('js/jquery.flexisel.js')}}"></script>
 				<script type="text/javascript" src="{{asset('js/single.js')}}"></script>
+				
+<script type="text/javascript">
+    $(document).ready(function(){
+         $('.rating').change(function(e){
+            val = $(this).val();
+            var currentdate = new Date(); 
+    		var datetime = currentdate.getFullYear() + "-"
+                + (currentdate.getMonth()+1)  + "-" 
+                + currentdate.getDate() + " "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+    				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+
+              });
+            $.ajax({
+                type: 'GET',
+                url: {{$product->productId}}+'/update_rating?rating=' + val + '&id='+{{$product->productId}}+'&time='+datetime,   
+                  success: function(data){
+                    alert(data);
+                  }});
+               });
+            });
+        </script>
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+         $('#submit_review').on('click', function(e){
+         	var currentdate = new Date(); 
+    		var datetime = currentdate.getFullYear() + "-"
+                + (currentdate.getMonth()+1)  + "-" 
+                + currentdate.getDate() + " "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+            val = $('#review').val();
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+    				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                 }
+
+              });
+            $.ajax({
+                type: 'GET',
+                url: {{$product->productId}}+'/update_comment?comment=' + val + '&id='+{{$product->productId}}+'&time='+datetime, 
+                  success: function(data){
+                  	if($('.'+'rm{{session('user_id')}}'))
+                  		$('.'+'rm{{session('user_id')}}').remove();
+                    $('#reviews').append('<div class="additional_info_sub_grid_rightl rm{{session('user_id')}}"><a>'+'{{session('username')}}'+'</a><h5>'+datetime+'</h5><p>'+val+'.</p></div><div class="additional_info_sub_grid_rightr rm{{session('user_id')}}"><div class="rating">');
+                    for (var i = 0; i < data ; i++) {
+                    	$('#reviews').append('<div class="rating-left rm{{session('user_id')}}"><img src="{{asset("images_admin/star-.png")}}" alt=" " class="img-responsive"></div>');
+                    }
+                    $('#reviews').append('<div class="clearfix"> </div></div></div>');   
+                  }});
+               });
+            });
+        </script>
 		</div>
 	</div>
+
+
 @endsection
 @section('footer')
 	@include('layouts.footer')

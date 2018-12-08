@@ -4,7 +4,7 @@
 			<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 		</div>
 		<div class="w3l_logo">
-			<h1><a href="index.html">Women's Fashion<span>For Fashion Lovers</span></a></h1>
+			<h1><a href="/">Women's Fashion<span>For Fashion Lovers</span></a></h1>
 		</div>
 		<div class="search">
 			<input class="search_box" type="checkbox" id="search_box">

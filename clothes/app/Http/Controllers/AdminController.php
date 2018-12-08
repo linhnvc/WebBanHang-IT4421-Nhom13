@@ -17,7 +17,8 @@ class AdminController extends Controller
         if (empty(session('admin_id'))) {
             return view('ad-page-login');
         } else {
-            return view('ad-index');
+            $today = date("Y/m/d");
+            return view('ad-index')->with('today', $today);
         }
     }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 21, 2018 lúc 11:02 AM
+-- Thời gian đã tạo: Th12 07, 2018 lúc 02:13 PM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.10
 
@@ -66,9 +66,10 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`billId`, `date`, `userId`, `total`, `checked`) VALUES
-(1, '2018-11-21 09:52:12', 1, 83000000, NULL),
-(2, '2018-11-21 09:53:38', 1, 103000000, NULL),
-(3, '2018-11-21 09:55:01', 1, 63000000, NULL);
+(1, '2018-11-21 09:52:12', 1, 83000000, 'checked'),
+(2, '2018-11-21 09:53:38', 1, 103000000, 'checked'),
+(3, '2018-11-21 09:55:01', 1, 63000000, 'checked'),
+(4, '2018-12-06 09:35:50', 1, 23000000, 'null');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,8 @@ INSERT INTO `billdetail` (`billId`, `productId`, `quantity`) VALUES
 (3, 37, 1),
 (3, 38, 1),
 (3, 40, 1),
-(3, 41, 1);
+(3, 41, 1),
+(4, 46, 1);
 
 -- --------------------------------------------------------
 
@@ -137,8 +139,18 @@ INSERT INTO `category` (`categoryId`, `name`, `group`) VALUES
 CREATE TABLE `feedback` (
   `userId` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
-  `star` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `star` int(11) DEFAULT NULL,
+  `comment` varchar(300) DEFAULT NULL,
+  `date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Đang đổ dữ liệu cho bảng `feedback`
+--
+
+INSERT INTO `feedback` (`userId`, `productId`, `star`, `comment`, `date`) VALUES
+(1, 40, 5, 'Test Test Test', '2018-12-07 17:32:21'),
+(1, 50, 3, 'Test TEst TEst teEEtstsetst es', '2018-12-07 19:45:39');
 
 -- --------------------------------------------------------
 
@@ -582,13 +594,6 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`categoryId`);
 
 --
--- Chỉ mục cho bảng `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`userId`,`productId`),
-  ADD KEY `FK_user_product1` (`productId`);
-
---
 -- Chỉ mục cho bảng `firm`
 --
 ALTER TABLE `firm`
@@ -629,7 +634,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `billId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `billId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -677,13 +682,6 @@ ALTER TABLE `bill`
 ALTER TABLE `billdetail`
   ADD CONSTRAINT `FK_bill_product` FOREIGN KEY (`billId`) REFERENCES `bill` (`billId`),
   ADD CONSTRAINT `FK_bill_product1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
-
---
--- Các ràng buộc cho bảng `feedback`
---
-ALTER TABLE `feedback`
-  ADD CONSTRAINT `FK_user_product` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
-  ADD CONSTRAINT `FK_user_product1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
 
 --
 -- Các ràng buộc cho bảng `image`

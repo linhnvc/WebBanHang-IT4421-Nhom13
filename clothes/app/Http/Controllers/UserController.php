@@ -23,6 +23,7 @@ class UserController extends Controller
             session(['username' => $user->userName]);
             session(['email' => $user->email]);
             session(['password' => $user->password]);
+            session(['address' => $user->address]);
             // $message =session('username');
             return redirect()->Route('home');
             // return $message;
@@ -39,6 +40,7 @@ class UserController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         $name = $request->input('name');
+        $address = $request->input('address');
 
         $user_before = User::findUserByEmail($email);
 
@@ -49,7 +51,7 @@ class UserController extends Controller
         } else {
             // create an account and save
             
-            User::registerUser($name, $password, $email);
+            User::registerUser($name, $password, $email, $address);
             session(['success_mes' => 'Account Created, Lets Login']);
             $url = '/';
             return redirect($url);
@@ -76,6 +78,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function showuserslist(){
+        $users_list = User::getUsers();
+        return view('ad-showuserslist')->with('users_list', $users_list);
     }
 
     /**
@@ -113,20 +120,19 @@ class UserController extends Controller
         $email = $request->input('email');
         $name = $request->input('name');
         $password = $request->input('password');
+        $address = $request->input('address');
 
         // create an account and save
-        $updated_user = User::updateUser($id, $name, $email, $password);
+        $updated_user = User::updateUser($id, $name, $email, $password, $address);
 
         session(['user_id' => $updated_user->userId]);
         session(['username' => $updated_user->userName]);
         session(['email' => $updated_user->email]);
         session(['password' => $updated_user->password]);
+        session(['address' => $updated_user->address]);
 
-        $success = [
-            'mes_success' => 'Account Updated',
-            'update' => 1
-        ];
-        return redirect('/')->with('success', $success);
+        $mes_success = 'Account updated successfully !';
+        return redirect('/')->with('mes_success', $mes_success);
     }
 
     /**
