@@ -31,10 +31,6 @@ Route::get('logout', ['as'=>'logout', function(){
 
 Route::post('/update', 'UserController@update');
 
-Route::get('/about', function () {
-    return view('about');
-});
-
 Route::get('/short_codes_2345', function () {
     return view('short-codes');
 });
@@ -124,3 +120,5 @@ Route::post("/deleteProductCart", "CartController@deleteProductCart");
 
 Route::post('/checkout/sendrequest', 'CheckoutController@sendRequest');
 Route::get('/checkout/getresponse', 'CheckoutController@getResponse');
+
+Route::get('/about', 'ProductController@aboutPage');

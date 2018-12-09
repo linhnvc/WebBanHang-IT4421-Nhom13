@@ -222,9 +222,10 @@
 	@endif
 	<div class="w3l_related_products">
 		<div class="container">
+			@if(count($products_related)!=0)
+				
 			<h3>Related Products</h3>
 			<ul id="flexiselDemo2">	
-				@if(count($products_related)!=0)
 				@foreach($products_related as $pro_relate)
 				@php
 					$images = $pro_relate->image;
@@ -260,8 +261,9 @@
 					</div>
 				</li>
 				@endforeach
-				@endif
+				
 			</ul>
+			@endif
 				<script type="text/javascript">
 					$(window).load(function() {
 						$("#flexiselDemo2").flexisel({

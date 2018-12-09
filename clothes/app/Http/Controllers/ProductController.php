@@ -32,6 +32,13 @@ class ProductController extends Controller
        return view('index', ['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup,
        'products_new'=>$products_new]);
     }
+    public function aboutPage(){
+       $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+
+       return view('about',['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup]);
+    }
     public function displayListProduct($category_para)
     {
        $category = Category::where('name',$category_para)->first();
