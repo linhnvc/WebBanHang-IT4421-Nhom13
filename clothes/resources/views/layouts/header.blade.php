@@ -11,7 +11,7 @@
 			<label class="icon-search" for="search_box"><span class="glyphicon" aria-hidden="true"></span></label>
 			<div class="search_form">
 				<form action="/search" method="get">
-					@csrf
+					{{-- @csrf --}}
 					<input type="text" name="Search" placeholder="Search...">
 					<input type="submit" value="Send">
 				</form>

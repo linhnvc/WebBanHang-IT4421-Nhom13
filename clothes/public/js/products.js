@@ -26,8 +26,6 @@ $(document).ready(function(){
     });
     $("#select_size li a").click(function(){
      var value = $(this).attr('id');
-    //  alert(value);
-    //  $(this).addClass("highlight");
     var $products = $('.product');
      if(value =='15'){
             $products.each(function(){
@@ -46,11 +44,6 @@ $(document).ready(function(){
      }
 
     });
-
-
-    // $("#select_color li a").click(function(){
-    //     alert("heeloo1234");
-    // });
     $(".item_add").click(function(){
         var id = $(this).attr("id");
         console.log(id);

@@ -46,6 +46,18 @@ class Product extends Model
 
     	return $product_list;
     }
+    public static function getProductByKey($key){
+        $products = Product::where([['name', 'like',"%".$key."%"],['quantity','>', -1]])->orwhere([['description','like',"%".$key."%"],['quantity',">", -1]])
+        ->orwhere([['color','like',"%".$key."%"],['quantity','>',-1]]);
+        if($products->count()>0){
+            foreach($products as $pro){
+                $pro->firm;
+                $pro->image;
+                $pro->category;
+            }
+        }
+        return $products;
+    }
 
     public static function getProductById($id){
         $product = Product::where("productId", "=", $id)
