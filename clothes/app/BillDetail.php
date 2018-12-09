@@ -11,4 +11,8 @@ class BillDetail extends Model
 {
     public $timestamps = false;
     protected $table = "billdetail";
+
+    public function bill(){
+    	return $this->beLongsto("App\Bill", "billId", "billId");
+    }
 }

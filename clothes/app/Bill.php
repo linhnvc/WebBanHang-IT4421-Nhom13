@@ -13,6 +13,14 @@ class Bill extends Model
     protected $table = "bill";
     protected $primaryKey = "billId";
 
+    public function billdetail(){
+        return $this->hasMany("App\BillDetail", "billId", "billId");
+    }
+
+    public function user(){
+        return $this->beLongsTo("App\User", "userId", "userId");
+    }
+
     public static function getBills(){
         $bill_list = Bill::all();
     	return $bill_list;

@@ -10,6 +10,10 @@ class User extends Model
     protected $table = "user";
     protected $primaryKey = "userId";
 
+    public function bill(){
+        return $this->hasMany("App\User", "userId", "userId");
+    }
+
     public static function findUserByEmail($email){
     	$user = User::where('email', $email)->first();
     	return $user;

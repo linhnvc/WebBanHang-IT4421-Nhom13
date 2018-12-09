@@ -3,7 +3,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    <a href="{{url('/admin')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
                 <li class="menu-title">Product Management</li><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">

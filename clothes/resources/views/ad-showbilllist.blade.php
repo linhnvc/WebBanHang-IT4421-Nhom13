@@ -85,7 +85,7 @@
                             <div class="alert" id="message" style="display: none"></div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dialog1">Statistic</button> &emsp;&emsp;&emsp;&emsp;Total income: {{$sum_bill}}
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dialog1">Statistic</button> &emsp;&emsp;&emsp;&emsp;Total income: {{number_format($sum_bill)}}
 
                                 <div>-</div>
                                     <thead>
