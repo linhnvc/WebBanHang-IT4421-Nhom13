@@ -114,8 +114,8 @@ Route::get('/products/{category_para}/{id}/update_comment', 'ProductController@u
 
 ##### MAIN PAGE ##############
 
-Route::get('/products/{category_para}', 'ProductController@index');
-Route::get('/products/{category_para}/{id}', 'ProductController@show');
+Route::get('/products/{category_para}', 'ProductController@displayListProduct');
+Route::get('/products/{category_para}/{id}', 'ProductController@showDetail');
 Route::get('/search', 'ProductController@search');
 Route::post('/addCart', 'CartController@addCart');
 Route::get("/displayCart", "CartController@displayCart");

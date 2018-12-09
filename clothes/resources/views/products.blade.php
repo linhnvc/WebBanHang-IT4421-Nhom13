@@ -102,7 +102,7 @@
 							</ul> -->
 						</div>
 					</div>
-					<div class="w3ls_dresses_grid_left_grid">
+					{{-- <div class="w3ls_dresses_grid_left_grid">
 						<h3>Color</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color " >
@@ -116,16 +116,19 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 					<div class="w3ls_dresses_grid_left_grid">
 						<h3>Size</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color ecommerce_size ">
 								<ul id="select_size">
-									<li><a href="javascript:void(0)" id = "Medium">Medium(8)</a></li>
-									<li><a href="javascript:void(0)" id = "Large">Large(8)</a></li>
-									<li><a href="javascript:void(0)" id = "Extra Large">Extra Large(8)</a></li>
-									<li><a href="javascript:void(0)" id = "Small">Small(8)</a></li>
+								  <li><a href="javascript:void(0)" id = "9">Small</a></li>
+									<li><a href="javascript:void(0)" id = "10">Extra Small</a></li>
+									<li><a href="javascript:void(0)" id = "11">Medium</a></li>
+									<li><a href="javascript:void(0)" id = "12">Extra Medium</a></li>
+									<li><a href="javascript:void(0)" id = "13">Large</a></li>
+									<li><a href="javascript:void(0)" id = "14">Extra Large</a></li>
+									<li><a href="javascript:void(0)" id = "15">All</a></li>
 								</ul>
 							</div>
 						</div>
