@@ -30,7 +30,7 @@ class Bill extends Model
     }
 
     public static function getBillById($id){
-        $bill_info = DB::table('bill')->join('billdetail', 'bill.billId', '=', 'billdetail.billId')
+        $bill_info = DB::table('bill')->join('billdetail', 'bill.billId', '=', 'billdetail.billId')->where('bill.billId', '=', $id)
         ->select(
             'bill.billId',
             'bill.date',
