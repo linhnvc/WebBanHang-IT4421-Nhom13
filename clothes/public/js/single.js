@@ -17,13 +17,13 @@ $(document).ready(function(){
                 if(data.msg == "true"){
                     // console.log(data.msg);
                     // $("#myModal_infor").show();
-                    alert(data.msg+data.count);
+                    alert("Success");
                     // alert($("#quantity_cart").text());
                     $("#quantity_cart").text('('+data.count+')');
 
                 }else{
                     // $("#myModal_infor").show();
-                    alert(data.msg); 
+                    alert("Fail"); 
                 }
             }
         }); 
