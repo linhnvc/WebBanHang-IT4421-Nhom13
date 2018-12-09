@@ -241,7 +241,7 @@
 								</div>
 							</div>
 							
-							<h5><a href="#">{{$pro_relate->name}}</a></h5>
+							<h5><a href="{{asset("products/".$pro_relate->category->name."/".$pro_relate->productId)}}">{{$pro_relate->name}}</a></h5>
 								<div class="simpleCart_shelfItem">
 									@if($pro_relate->salePrice < $pro_relate->price)
 									<p><span>{{$pro_relate->price}}VND</span> <i class="item_price" price ="{{$product->salePrice}}"

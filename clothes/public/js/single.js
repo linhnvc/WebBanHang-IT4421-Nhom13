@@ -17,7 +17,8 @@ $(document).ready(function(){
                 if(data.msg == "true"){
                     // console.log(data.msg);
                     // $("#myModal_infor").show();
-                    alert(data.msg);
+                    alert(data.msg+data.count);
+                    // alert($("#quantity_cart").text());
                     $("#quantity_cart").text('('+data.count+')');
 
                 }else{

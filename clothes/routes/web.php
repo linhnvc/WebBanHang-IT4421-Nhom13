@@ -119,7 +119,7 @@ Route::get('/products/{category_para}/{id}', 'ProductController@show');
 Route::get('/search', 'ProductController@search');
 Route::post('/addCart', 'CartController@addCart');
 Route::get("/displayCart", "CartController@displayCart");
-Route::post("/updateCart", "CartController@updatCart");
+Route::post("/updateCart", "CartController@updateCart");
 Route::post("/deleteProductCart", "CartController@deleteProductCart");
 
 Route::post('/checkout/sendrequest', 'CheckoutController@sendRequest');

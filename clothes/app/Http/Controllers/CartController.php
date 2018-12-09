@@ -66,7 +66,7 @@ class CartController extends Controller
 
 
    
-   public function updatCart(Request $request){
+   public function updateCart(Request $request){
        $id = $request->id;
        $quantity = $request->quantity;
        session()->put("cart.".$id, $quantity);
