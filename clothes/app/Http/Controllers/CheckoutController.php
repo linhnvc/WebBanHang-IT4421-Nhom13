@@ -239,7 +239,7 @@ class CheckoutController extends Controller
             $bill->billId = $input['vpc_OrderInfo'];
             $bill->date = date('Y-m-d H:i:s');
             $bill->userId = session('user_id');
-            $bill->total = $input['vpc_Amount'];
+            $bill->total = $input['vpc_Amount'] * 0.01;
             $bill->checked = 'null';
             $bill->save();
             $bill_detail = new BillDetail();
