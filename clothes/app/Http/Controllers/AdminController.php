@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Admin;
-
+use App\Bill;
+use App\User;
+use App\Product;
 class AdminController extends Controller
 {
     /**
@@ -17,7 +20,19 @@ class AdminController extends Controller
         if (empty(session('admin_id'))) {
             return view('ad-page-login');
         } else {
-            return view('ad-index');
+            $bill_list = Bill::whereMonth('date', '=', Carbon::now()->subMonth()->month);
+            $revenue = $bill_list->sum('total');
+            $bills = $bill_list->get();
+            $num_items = 0;
+            for ($i=0; $i < count($bills); $i++) { 
+                $num_items += count($bills[$i]->BillDetail);
+            }
+
+            $num_users = User::count();
+
+            $newest_items = Product::Where("quantity", ">", -1)->orderBy('productId', 'desc')->take(10)->get();
+            return view('ad-index')->with(['revenue'=>$revenue, 'bills'=>$bills, 'num_items'=>$num_items, 'num_users'=>$num_users, 'newest_items'=>$newest_items]) ;
+
         }
     }
 

@@ -74,6 +74,7 @@
 											<form action="{{url('/register')}}" method="post">
 											{!! csrf_field() !!}			
 												<input placeholder="Name" name="name" type="text" required="">
+												<input placeholder="Address" name="address" type="text" required="">
 												<input placeholder="Email Address" name="email" type="email" required="">	
 												<input placeholder="Password" name="password" type="password" required="">	
 												<input placeholder="Confirm Password" name="confirm_password" type="password" required="">
@@ -156,12 +157,12 @@
 							  <ul class="list-group list-group-flush">
 							    <li class="list-group-item">Your Name : {{session('username')}}</li>
 							    <li class="list-group-item">Your Email : {{session('email')}}</li>
+							    <li class="list-group-item">Your Address : {{session('address')}}</li>
 							  </ul>
 							</div>
 							<div>
 								<a class="btn btn-primary" href="/logout">Log out</a>
 								<button class="btn btn-primary" id="editProfile">Edit</button>
-								<a class="btn btn-primary" href="/change_password/{{session('user_id')}}">Change Password</a>
 								<a class="btn btn-primary" href="/myorders/{{session('user_id')}}">My Orders</a>
 								<script>
 									$(document).ready(function() {
@@ -183,6 +184,9 @@
 							  </div>
 							  <div class="form-group">
 							    <input type="text" name="password" class="form-control" value="{{session('password')}}" placeholder="Your email" required="" >
+							  </div>
+							  <div class="form-group">
+							    <input type="text" name="address" class="form-control" value="{{session('address')}}" placeholder="Your email" required="" >
 							  </div>
 							  <button type="submit" class="btn btn-primary">Save Your Change</button>
 							</form>

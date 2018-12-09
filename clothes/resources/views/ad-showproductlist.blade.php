@@ -101,13 +101,14 @@
                                     <tbody>
                                     @if(!empty($product_list))
                                         @foreach($product_list as $product)
+                                            @if($product->quantity > -1)
                                             <tr>
                                                 <td>{{$product->name}}</td>
                                                 <td>{{$product->color}}</td>
                                                 <td>{{$product->category->name}}</td>
                                                 <td>{{$product->firm->name}}</td>
                                                 <td>{{$product->price}}</td>
-                                                <td><img src="{{asset($product->image[0]->link)}}" style="height: 180px; width: 180px"></td>
+                                                <td><img src="{{asset($product->image[0]->link)}}" style="height: 100px; width: 100px"></td>
                                                 <td>
                                                     <div>
                                                         <a href="{{asset('/detailproduct/'.$product->productId)}}" class="btn btn-success" style="width: 2cm">Detail</a>
@@ -120,6 +121,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            @endif
                                         @endforeach
                                     @endif
                                     </tbody>

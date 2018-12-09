@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 07, 2018 lúc 02:13 PM
--- Phiên bản máy phục vụ: 10.1.36-MariaDB
--- Phiên bản PHP: 7.2.10
+-- Thời gian đã tạo: Th12 08, 2018 lúc 04:53 PM
+-- Phiên bản máy phục vụ: 10.1.31-MariaDB
+-- Phiên bản PHP: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,7 +69,7 @@ INSERT INTO `bill` (`billId`, `date`, `userId`, `total`, `checked`) VALUES
 (1, '2018-11-21 09:52:12', 1, 83000000, 'checked'),
 (2, '2018-11-21 09:53:38', 1, 103000000, 'checked'),
 (3, '2018-11-21 09:55:01', 1, 63000000, 'checked'),
-(4, '2018-12-06 09:35:50', 1, 23000000, 'null');
+(4, '2018-12-06 09:35:50', 1, 23000000, 'checked');
 
 -- --------------------------------------------------------
 
@@ -150,7 +150,8 @@ CREATE TABLE `feedback` (
 
 INSERT INTO `feedback` (`userId`, `productId`, `star`, `comment`, `date`) VALUES
 (1, 40, 5, 'Test Test Test', '2018-12-07 17:32:21'),
-(1, 50, 3, 'Test TEst TEst teEEtstsetst es', '2018-12-07 19:45:39');
+(1, 50, 3, 'Test TEst TEst teEEtstsetst es', '2018-12-07 19:45:39'),
+(1, 1, 4, 'abc abc', '2018-12-08 22:49:34');
 
 -- --------------------------------------------------------
 
@@ -451,7 +452,11 @@ INSERT INTO `image` (`imageId`, `link`, `productId`) VALUES
 (478, 'Dresses/65_1.jpg', 65),
 (479, 'Dresses/65_2.jpg', 65),
 (480, 'Dresses/65_3.jpg', 65),
-(481, 'Dresses/65_4.jpg', 65);
+(481, 'Dresses/65_4.jpg', 65),
+(482, 'Dresses/66_1.jpg', 66),
+(483, 'Dresses/66_2.jpg', 66),
+(484, 'Dresses/66_3.jpg', 66),
+(485, 'Dresses/66_4.jpg', 66);
 
 -- --------------------------------------------------------
 
@@ -467,7 +472,7 @@ CREATE TABLE `product` (
   `quantity` int(10) NOT NULL,
   `description` varchar(500) NOT NULL,
   `price` int(50) NOT NULL,
-  `salePrice` int(50) NOT NULL,
+  `salePrice` int(50) DEFAULT NULL,
   `categoryId` int(11) NOT NULL,
   `FirmId` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -541,7 +546,8 @@ INSERT INTO `product` (`productId`, `name`, `size`, `color`, `quantity`, `descri
 (62, 'Cycling Shorts', '10', 'BLACK', 100, '5% ELASTANE, 95% POLYESTER. MACHINE WASH ONLY. KEEP AWAY FROM FIRE. MODEL WEARS A SIZE 10', 100000, 100000, 12, 4),
 (63, 'Double Layer High Waist Cycling Shorts', '10', 'BLACK', 100, '5% ELASTANE, 95% POLYESTER. MACHINE WASH ONLY. KEEP AWAY FROM FIRE. MODEL WEARS A SIZE 10', 100000, 100000, 12, 4),
 (64, 'Slinky Longline Cycling Shorts', '10', 'STONE', 100, '5% ELASTANE, 95% POLYESTER. MACHINE WASH ONLY. KEEP AWAY FROM FIRE. MODEL WEARS A SIZE 10', 100000, 100000, 12, 4),
-(65, 'Slinky Cycling Short', '10', 'SAGE', 100, '5% ELASTANE, 95% POLYESTER. MACHINE WASH ONLY. KEEP AWAY FROM FIRE. MODEL WEARS A SIZE 10', 100000, 100000, 12, 4);
+(65, 'Slinky Cycling Short', '10', 'SAGE', 100, '5% ELASTANE, 95% POLYESTER. MACHINE WASH ONLY. KEEP AWAY FROM FIRE. MODEL WEARS A SIZE 10', 100000, 100000, 12, 4),
+(66, 'abc', '14', 'ABC', -1, '123', 123, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -553,15 +559,26 @@ CREATE TABLE `user` (
   `userId` int(11) NOT NULL,
   `userName` varchar(32) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `address` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`userId`, `userName`, `password`, `email`) VALUES
-(1, 'Trần Quang Trung', '123456', 'trungbka1997@gmail.com');
+INSERT INTO `user` (`userId`, `userName`, `password`, `email`, `address`) VALUES
+(1, 'Trần Quang Trung', '123456', 'trungbka1997@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(2, 'abc', '123456', 'abc@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(3, 'bcd', '123456', 'bcd@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(4, 'cde', '123456', 'cde@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(5, 'def', '123456', 'def@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(6, 'efg', '123456', 'efg@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(7, 'fgh', '123456', 'fgh@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(8, 'ghi', '123456', 'ghi@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(9, 'hik', '123456', 'hik@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(10, 'ikl', '123456', 'ikl@gmail.com', 'Số 176, Trương Định, Hoàng Mai, Hà Nội'),
+(11, 'Trần Quang Trung', '123456', 'trung@gmail.com', 'Số 176, đường Trương Định, quận Hoàng Mai, Hà Nội');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -652,19 +669,19 @@ ALTER TABLE `firm`
 -- AUTO_INCREMENT cho bảng `image`
 --
 ALTER TABLE `image`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=482;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=486;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
