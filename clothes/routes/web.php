@@ -31,10 +31,6 @@ Route::get('logout', ['as'=>'logout', function(){
 
 Route::post('/update', 'UserController@update');
 
-Route::get('/about', function () {
-    return view('about');
-});
-
 Route::get('/short_codes_2345', function () {
     return view('short-codes');
 });
@@ -114,13 +110,15 @@ Route::get('/products/{category_para}/{id}/update_comment', 'ProductController@u
 
 ##### MAIN PAGE ##############
 
-Route::get('/products/{category_para}', 'ProductController@index');
-Route::get('/products/{category_para}/{id}', 'ProductController@show');
+Route::get('/products/{category_para}', 'ProductController@displayListProduct');
+Route::get('/products/{category_para}/{id}', 'ProductController@showDetail');
 Route::get('/search', 'ProductController@search');
 Route::post('/addCart', 'CartController@addCart');
 Route::get("/displayCart", "CartController@displayCart");
-Route::post("/updateCart", "CartController@updatCart");
+Route::post("/updateCart", "CartController@updateCart");
 Route::post("/deleteProductCart", "CartController@deleteProductCart");
 
 Route::post('/checkout/sendrequest', 'CheckoutController@sendRequest');
 Route::get('/checkout/getresponse', 'CheckoutController@getResponse');
+
+Route::get('/about', 'ProductController@aboutPage');

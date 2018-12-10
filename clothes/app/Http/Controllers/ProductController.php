@@ -22,7 +22,7 @@ class ProductController extends Controller
        $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
-       $products_new= Product::orderBy('productId', 'desc')->limit(4)->get();
+       $products_new= Product::where([['quantity','>', -1]])->orderBy('productId', 'desc')->limit(4)->get();
        foreach($products_new as $prod){
         $prod->firm;
         $prod->image;
@@ -32,10 +32,17 @@ class ProductController extends Controller
        return view('index', ['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup,
        'products_new'=>$products_new]);
     }
-    public function index($category_para)
+    public function aboutPage(){
+       $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+
+       return view('about',['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup]);
+    }
+    public function displayListProduct($category_para)
     {
        $category = Category::where('name',$category_para)->first();
-       $products = $category->product()->paginate(9);
+       $products = $category->product()->where([['quantity','>', -1]])->paginate(9);
        foreach($products as $product){
             $product->firm;
             $product->image;
@@ -50,7 +57,9 @@ class ProductController extends Controller
        $categories = Category::where('group', $groupCategory)->get();
        $collection = collect([]);
        foreach($categories as $categ){
-           $products_related = $categ->product;
+           $products_related = $categ->product()->where([['quantity','>', -1]])->get();
+        //    break;
+        //    return $products_related;
            foreach($products_related as $pro_relate){
             $pro_relate->firm;
             $pro_relate->image;
@@ -62,17 +71,21 @@ class ProductController extends Controller
         return view('products', ['products'=>$products, 'dressGroup'=>$dressGroup, 
         'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>$category_para,
          'products_related'=>$random_products_related]);
-        // return  $products;
+        //   return $collection;
     }
 
     public function search(Request $request){
        $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
+       
 
       
        $key_search =  $request->Search;
-       $products_searched = Product::search( $key_search)->paginate(9);
+       $products_searched = Product::getProductByKey( $key_search)->paginate(9);
+    // $products_searched = Product::where([['name', 'like',"%".$key_search."%"],['quantity','>', -1]])->orwhere([['description','like',"%".$key_search."%"],['quantity',">", -1]])
+    //     ->orwhere([['color','like',"%".$key_search."%"],['quantity','>',-1]])->paginate(9);
+        $products_searched->appends(['Search' => $request->Search])->links();
        foreach($products_searched as $prod){
         $prod->firm;
         $prod->image;
@@ -82,6 +95,7 @@ class ProductController extends Controller
     //   return $products_searched;
        return view('products', ['products'=>$products_searched, 'dressGroup'=>$dressGroup, 
         'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup, 'category'=>'Search', 'products_related'=>[]]);
+    // return $products;
     }
 
     /**
@@ -142,20 +156,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $category_para, $id)
+    public function showDetail(Request $request, $category_para, $id)
     {
-       $dressGroup = Category::where('group','Dress')->get();
-       $commonGoup = Category::where('group','Common')->get();
-       $beachGroup = Category::where('group','Beach')->get();
-
-
         $product = Product::find($id);
         $product->firm;
         $product->image;
         $product->category;
         // return $product;
         $category = Category::where('name',$category_para)->first();
-        $products_related = $category->product()->take(12)->get();
+        $products_related = $category->product()->where([['quantity','>', -1]])->take(12)->get();
         foreach($products_related as $pro){
             $pro->firm;
             $pro->image;

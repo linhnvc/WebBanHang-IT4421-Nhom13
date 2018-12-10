@@ -18,31 +18,40 @@
 		<div class="w3_footer_grids">
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Contact</h3>
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+				<p>Please contact with us for more Information</p>
 				<ul class="address">
-					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-					<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>So 4A Thanh Luong <span>Hai Ba Trung, Ha Noi</span></li>
+					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="javascript:void(0)">Women'shop@gmail.com</a></li>
+					<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>0344960839</li>
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Information</h3>
 				<ul class="info"> 
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="mail.html">Contact Us</a></li>
-					<li><a href="short-codes.html">Short Codes</a></li>
+					<li><a href="{{url('/about')}}">About Us</a></li>
+					<li><a href="{{url('/')}}">Home</a></li>
+					{{-- <li><a href="short-codes.html">Shrt Codes</a></li>
 					<li><a href="faq.html">FAQ's</a></li>
-					<li><a href="products.html">Special Products</a></li>
+					<li><a href="products.html">Special Products</a></li> --}}
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Category</h3>
-				<ul class="info"> 
-					<li><a href="dresses.html">Dresses</a></li>
+				<ul class="info">
+						@foreach($dressGroup as $group)
+						<li><a href="/products/{{$group->name}}">{{$group->name}}</a></li>
+						@endforeach
+						@foreach($commonGroup as $group)
+						<li><a href="/products/{{$group->name}}">{{$group->name}}</a></li>
+						@endforeach
+						@foreach($beachGroup as $group)
+						<li><a href="/products/{{$group->name}}">{{$group->name}}</a></li>
+						@endforeach
+					{{-- <li><a href="dresses.html">Dresses</a></li>
 					<li><a href="sweaters.html">Sweaters</a></li>
 					<li><a href="shirts.html">Shirts</a></li>
 					<li><a href="sarees.html">Sarees</a></li>
-					<li><a href="skirts.html">Shorts & Skirts</a></li>
+					<li><a href="skirts.html">Shorts & Skirts</a></li> --}}
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
@@ -64,7 +73,7 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<div class="footer-copy">
+	{{-- <div class="footer-copy">
 		<div class="footer-copy1">
 			<div class="footer-copy-pos">
 				<a href="#home1" class="scroll"><img src="{{asset('images_admin/arrow.png')}}" alt=" " class="img-responsive" /></a>
@@ -73,5 +82,5 @@
 		<div class="container">
 			<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 		</div>
-	</div>
+	</div> --}}
 </div>

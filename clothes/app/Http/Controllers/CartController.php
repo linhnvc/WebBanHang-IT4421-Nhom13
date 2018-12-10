@@ -12,9 +12,8 @@ use App\Bill;
 class CartController extends Controller
 {
 
-
     public function displayCart(){
-        $dressGroup = Category::where('group','Dress')->get();
+       $dressGroup = Category::where('group','Dress')->get();
        $commonGoup = Category::where('group','Common')->get();
        $beachGroup = Category::where('group','Beach')->get();
        $billId = count(Bill::all()) + 1;
@@ -45,6 +44,7 @@ class CartController extends Controller
     public function  addCart(Request $request){
     $id = $request->id;
     $message = 'false';
+    $count=0;
     if (!empty(session('user_id'))){
         $message = 'true';
         if(!empty(session('cart.'.$id))){
@@ -53,14 +53,20 @@ class CartController extends Controller
         }else{
             session()->put('cart.'.$id, 1);
         }
+        $count= count(session('cart'));
     }
-    // $message = session('cart');
+    
     $response = array(
         'msg' => $message,
+        'count'=>$count,
     );
     return response()->json($response); 
    }
-   public function updatCart(Request $request){
+
+
+
+   
+   public function updateCart(Request $request){
        $id = $request->id;
        $quantity = $request->quantity;
        session()->put("cart.".$id, $quantity);
@@ -74,9 +80,10 @@ class CartController extends Controller
    public function deleteProductCart(Request $request){
        $id = $request->id;
        session()->forget('cart.'.$id);
+       $count= count(session('cart'));
        $response = array(
         'msg' => $id,
-        // 'msg'=>$quantity
+        'count'=>$count,
     );
     return response()->json($response); 
    }

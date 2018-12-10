@@ -94,15 +94,15 @@
 							  </div>
 							  
 							</div>
-							<ul class="panel_bottom">
+							<!-- <ul class="panel_bottom">
 								<li><a href="products.html">Summer Store</a></li>
 								<li><a href="dresses.html">New In Clothing</a></li>
 								<li><a href="sandals.html">New In Shoes</a></li>
 								<li><a href="products.html">Latest Watches</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
-					<div class="w3ls_dresses_grid_left_grid">
+					{{-- <div class="w3ls_dresses_grid_left_grid">
 						<h3>Color</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color " >
@@ -116,16 +116,19 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 					<div class="w3ls_dresses_grid_left_grid">
 						<h3>Size</h3>
 						<div class="w3ls_dresses_grid_left_grid_sub">
 							<div class="ecommerce_color ecommerce_size ">
 								<ul id="select_size">
-									<li><a href="javascript:void(0)" id = "Medium">Medium(8)</a></li>
-									<li><a href="javascript:void(0)" id = "Large">Large(8)</a></li>
-									<li><a href="javascript:void(0)" id = "Extra Large">Extra Large(8)</a></li>
-									<li><a href="javascript:void(0)" id = "Small">Small(8)</a></li>
+								  <li><a href="javascript:void(0)" id = "9">Small</a></li>
+									<li><a href="javascript:void(0)" id = "10">Extra Small</a></li>
+									<li><a href="javascript:void(0)" id = "11">Medium</a></li>
+									<li><a href="javascript:void(0)" id = "12">Extra Medium</a></li>
+									<li><a href="javascript:void(0)" id = "13">Large</a></li>
+									<li><a href="javascript:void(0)" id = "14">Extra Large</a></li>
+									<li><a href="javascript:void(0)" id = "15">All</a></li>
 								</ul>
 							</div>
 						</div>
@@ -197,7 +200,7 @@
 									<p ><span>{{$product->price}}VND</span> <i  class="item_price" price ="{{$product->salePrice}}"
 										color ="{{$product->color}}" size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@else
-									<p ><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}" 
+									<p ><i class="item_price" price ="{{$product->salePrice}}" color ="{{$product->color}}"
 										size = "{{$product->size}}">{{$product->salePrice}}VND</i></p>
 									@endif
 									<p ><a  class="item_add" id = "{{$product->productId}}" href ="javascript:void(0)" role="button">Add to cart</a></p>
@@ -207,6 +210,7 @@
 						@endforeach
 						<div class="clearfix"> </div>
 					</div>
+					
 					<div style = "text-align: center;">
 							{{ $products->onEachSide(5)->links() }}
 					</div>
@@ -218,9 +222,10 @@
 	@endif
 	<div class="w3l_related_products">
 		<div class="container">
+			@if(count($products_related)!=0)
+				
 			<h3>Related Products</h3>
 			<ul id="flexiselDemo2">	
-				@if(count($products_related)!=0)
 				@foreach($products_related as $pro_relate)
 				@php
 					$images = $pro_relate->image;
@@ -240,7 +245,7 @@
 								</div>
 							</div>
 							
-							<h5><a href="#">{{$pro_relate->name}}</a></h5>
+							<h5><a href="{{asset("products/".$pro_relate->category->name."/".$pro_relate->productId)}}">{{$pro_relate->name}}</a></h5>
 								<div class="simpleCart_shelfItem">
 									@if($pro_relate->salePrice < $pro_relate->price)
 									<p><span>{{$pro_relate->price}}VND</span> <i class="item_price" price ="{{$product->salePrice}}"
@@ -256,8 +261,9 @@
 					</div>
 				</li>
 				@endforeach
-				@endif
+				
 			</ul>
+			@endif
 				<script type="text/javascript">
 					$(window).load(function() {
 						$("#flexiselDemo2").flexisel({
@@ -289,26 +295,6 @@
 		</div>
 		<script type="text/javascript" src="{{asset('js/products.js')}}"></script>
 	</div>
-	{{-- <div class="modal fade" id="myModal_info" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> --}}
-<!-- //dresses -->
 @endsection
 @section('footer')
 	@include('layouts.footer')

@@ -26,13 +26,23 @@ $(document).ready(function(){
     });
     $("#select_size li a").click(function(){
      var value = $(this).attr('id');
-     alert(value);
+    var $products = $('.product');
+     if(value =='15'){
+            $products.each(function(){
+                  $(this).show();
+            });
+     }else{
+        
+        $products.each(function(){
+            if($(this).find("i").attr('size') == value){
+                //   console.log($(this).find("i").attr("price"));
+                $(this).show();
+            }else{
+                $(this).hide();
+            }
+        });
+     }
 
-    });
-
-
-    $("#select_color li a").click(function(){
-        alert("heeloo1234");
     });
     $(".item_add").click(function(){
         var id = $(this).attr("id");
@@ -50,13 +60,17 @@ $(document).ready(function(){
                 
                 console.log(data.msg);
                 if(data.msg == "true"){
-                    // console.log(data.msg);
+                    console.log(data.msg);
+                    // $("#myModal88").addClass("in");
+                    // $("#myModal_infor").attr("aria-hidden", 'false');
                     // $("#myModal_infor").show();
-                    alert(data.msg);
+                    alert("Success");
+                    // alert($("#quantity_cart").text());
+                    $("#quantity_cart").text('('+data.count+')');
 
                 }else{
                     // $("#myModal_infor").show();
-                    alert(data.msg); 
+                    alert("Fail"); 
                 }
             }
         }); 

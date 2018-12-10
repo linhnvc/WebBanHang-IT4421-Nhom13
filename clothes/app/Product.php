@@ -14,18 +14,18 @@ class Product extends Model
     protected $table = 'product';
     public $primaryKey = "productId";
     public $timestamps = false;
-    use Searchable;
-    public function searchableAs()
-    {
-        return 'productId';
-    }
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-        $array["firm"]= $this->firm;
-        $array["category"]= $this->category;
-        return $array;
-    }
+    // use Searchable;
+    // public function searchableAs()
+    // {
+    //     return 'productId';
+    // }
+    // public function toSearchableArray()
+    // {
+    //     $array = $this->toArray();
+    //     $array["firm"]= $this->firm;
+    //     $array["category"]= $this->category;
+    //     return $array;
+    // }
 
     public function firm(){
     	return $this->belongsTo('App\Firm', 'FirmId', 'firmId');
@@ -45,6 +45,18 @@ class Product extends Model
         })->get();
 
     	return $product_list;
+    }
+    public static function getProductByKey($key){
+        $products = Product::where([['name', 'like',"%".$key."%"],['quantity','>', -1]])->orwhere([['description','like',"%".$key."%"],['quantity',">", -1]])
+        ->orwhere([['color','like',"%".$key."%"],['quantity','>',-1]]);
+        if($products->count()>0){
+            foreach($products as $pro){
+                $pro->firm;
+                $pro->image;
+                $pro->category;
+            }
+        }
+        return $products;
     }
 
     public static function getProductById($id){

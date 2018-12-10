@@ -29,7 +29,7 @@
 	<div class="checkout">
 		<div class="container">
 			@if(count($products)!=0)
-			<h3>Your shopping cart contains: <span>{{count($products)}} Products</span></h3>
+			<h3>Your shopping cart contains: <span id="total_products_cart">{{count($products)}}</span> Products</h3>
 			<div class="checkout-right">
 				<table class="timetable_sub" id = "table_cart">
 					<thead>
@@ -95,7 +95,7 @@
 							$totalPrice = 0;
 						@endphp
 						@foreach($products as $key=>$product)
-						<li>Product{{$key + 1}} <i>-</i> <span>{{($product->salePrice)*($product->quantity)}} </span></li>
+						{{-- <li>Product{{$key + 1}} <i>-</i> <span no={{$key + 1}}>{{($product->salePrice)*($product->quantity)}} </span></li> --}}
 						@php
 							$totalPrice = $totalPrice + ($product->salePrice)*($product->quantity);
 						@endphp
@@ -138,7 +138,7 @@
 				<div class="clearfix"> </div>
 			</div>
 			@else
-			<h3>Your shopping cart contains: <span>0 Products</span></h3>
+			<h3>Your shopping cart contains: <span>0 </span> Products</h3>
             @endif
 		</div>
 		<script type="text/javascript" src="{{asset('js/checkout.js')}}"></script>

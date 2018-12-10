@@ -55,7 +55,7 @@ label.star:before {
 	<div class="breadcrumb_dress">
 		<div class="container">
 			<ul>
-				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home/</a> <i>/</i></li>
+				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
 			<li><a href="/products/{{$category}}">{{$category}}</a><i>/</i></li>
 			    <li>{{$product->name}}</li>
 			</ul>
@@ -280,7 +280,7 @@ label.star:before {
 										</div>
 									</div>
 								</div>
-								<h5><a href="#">{{$pro_relate->name}}</a></h5>
+								<h5><a href="{{asset("products/".$pro_relate->category->name."/".$pro_relate->productId)}}">{{$pro_relate->name}}</a></h5>
 								<div class="simpleCart_shelfItem">
 										@if($pro_relate->salePrice < $product->price)
 										<p><span>{{$pro_relate->price}}VND</span> <i class="item_price">{{$pro_relate->salePrice}}VND</i></p>
