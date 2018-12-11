@@ -246,11 +246,14 @@ class CheckoutController extends Controller
             
             $cart = session('cart');
             foreach($cart as $productId => $quantity){
-              $bill_detail = new BillDetail();
-              $bill_detail->billId = $input['vpc_OrderInfo'];
-              $bill_detail->productId = $productId;
-              $bill_detail->quantity = $quantity;
-              $bill_detail->save();
+            	$product = Product::find($productId);
+                $product->quantity = $product->quantity - $quantity;
+                $product->save();
+              	$bill_detail = new BillDetail();
+              	$bill_detail->billId = $input['vpc_OrderInfo'];
+              	$bill_detail->productId = $productId;
+              	$bill_detail->quantity = $quantity;
+              	$bill_detail->save();
            }
             
         }elseif ($hashValidated=="INVALID HASH" && $txnResponseCode=="0"){
