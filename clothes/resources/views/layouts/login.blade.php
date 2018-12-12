@@ -11,6 +11,9 @@
 						<h4 class="modal-title" id="myModalLabel">	
 							Don't Wait, Login now!
 						</h4>
+						<h4 class="modal-title">
+							<a href="{{url('/admin')}}" class="btn btn-default">Are you Admin ?</a>
+						</h4>
 					@endif
 					@if(!empty(session('success_mes')))
 						<div class="alert alert-success" id="myModalLabel">

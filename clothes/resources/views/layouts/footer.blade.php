@@ -1,4 +1,4 @@
-<div class="newsletter">
+{{-- <div class="newsletter">
 	<div class="container">
 		<div class="col-md-6 w3agile_newsletter_left">
 			<h3>Newsletter</h3>
@@ -12,7 +12,7 @@
 		</div>
 		<div class="clearfix"> </div>
 	</div>
-</div>
+</div> --}}
 <div class="footer">
 	<div class="container">
 		<div class="w3_footer_grids">

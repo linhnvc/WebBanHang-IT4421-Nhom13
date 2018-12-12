@@ -108,8 +108,12 @@ class BillController extends Controller
     }
 
     public function showOrders($id){
+        $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
         $bill_list = Bill::getBillsOfUser($id);
-        return view('myorders')->with('bill_list', $bill_list);
+
+        return view('myorders',['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup])->with('bill_list', $bill_list);
     }
 
 
@@ -130,7 +134,13 @@ class BillController extends Controller
         $end = intval($infos[count($infos) - 2]);
         session(['num_of_products_in_billdetail' => $end]);
         session(['len_of_billdetail' => count($infos)]);
-        return view('orderdetail')->with('bill_info', $infos);
+
+        $dressGroup = Category::where('group','Dress')->get();
+       $commonGoup = Category::where('group','Common')->get();
+       $beachGroup = Category::where('group','Beach')->get();
+
+
+        return view('orderdetail', ['dressGroup'=>$dressGroup,'commonGroup'=>$commonGoup, 'beachGroup'=>$beachGroup])->with('bill_info', $infos);
     }
 
     public function showbilldetailofcm($id){

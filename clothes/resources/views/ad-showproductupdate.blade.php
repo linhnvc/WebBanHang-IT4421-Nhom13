@@ -91,7 +91,7 @@
 										  <div class="form-group row">
 										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Name </b>:</label>
 										    <div class="col-sm-9">
-										      <input type="text" name="product_name" class="form-control" value="{{$product->name}}">
+										      <input type="text" name="product_name" class="form-control" value="{{$product->name}}" required>
 										    </div>
 										  </div>
 										  <div class="form-group row">
@@ -116,13 +116,13 @@
 										  <div class="form-group row">
 										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Color </b>:</label>
 										    <div class="col-sm-9">
-										      <input type="text" name="product_color" class="form-control" value="{{$product->color}}">
+										      <input type="text" name="product_color" class="form-control" value="{{$product->color}}" required>
 										    </div>
 										  </div>
 										  <div class="form-group row">
 										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Quantity </b>:</label>
 										    <div class="col-sm-9">
-										      <input type="number" name="product_quantity" class="form-control" value="{{$product->quantity}}">
+										      <input type="number" name="product_quantity" class="form-control" value="{{$product->quantity}}" required>
 										    </div>
 										  </div>
 										  <div class="form-group row">
@@ -134,7 +134,7 @@
 										  <div class="form-group row">
 										    <label for="staticEmail" class="col-sm-3 col-form-label"><b>Price </b>:</label>
 										    <div class="col-sm-9">
-										      <input type="number" name="product_price" class="form-control" value="{{$product->price}}">
+										      <input type="number" name="product_price" class="form-control" value="{{$product->price}}" required>
 										    </div>
 										  </div>
 										  <div class="form-group row">

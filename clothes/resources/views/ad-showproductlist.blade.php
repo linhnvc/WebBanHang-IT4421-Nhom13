@@ -116,9 +116,6 @@
                                                     <div>
                                                         <a href="{{asset('/productupdate/'.$product->productId)}}" class="btn btn-secondary" style="width: 2cm">Update</a>
                                                     </div>
-                                                    <div>
-                                                        <a href="{{url('/deleteproduct/'.$product->productId)}}" class="btn btn-danger" style="width: 2cm">Delete</a>
-                                                    </div>
                                                 </td>
                                             </tr>
                                             @endif

@@ -3,6 +3,7 @@
 @section('header')
   @include("layouts.login")
 	@include('layouts.header')
+      @include('layouts.nav')
 @endsection
 @section('content')
 
