@@ -65,4 +65,19 @@ class Bill extends Model
         return $bill_infos;
 
     }
+
+    public static function createBill($billId, $date, $userId, $total, $checked){
+        $bill = new Bill();
+        $bill->billId = $billId;
+        $bill->date = $date;
+        $bill->userId = $userId;
+        $bill->total = $total * 0.01;
+        $bill->checked = 'null';
+        $bill->save();
+    }
+
+    public static function getBillsFromTo($from, $to){
+        $bill_list = Bill::Where([['date', '<=', $to], ['date', '>=', $from]])->get();
+        return $bill_list;
+    }
 }

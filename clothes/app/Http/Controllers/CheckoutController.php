@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Bill;
 use App\BillDetail;
+use App\Product;
 
 class CheckoutController extends Controller
 {
@@ -235,25 +236,13 @@ class CheckoutController extends Controller
         $transStatus = "";
         if($hashValidated=="CORRECT" && $txnResponseCode=="0"){
             $transStatus = "Giao dịch thành công";
-            $bill = new Bill();
-            $bill->billId = $input['vpc_OrderInfo'];
-            $bill->date = date('Y-m-d H:i:s');
-            $bill->userId = session('user_id');
-            $bill->total = $input['vpc_Amount'] * 0.01;
-            $bill->checked = 'null';
-            $bill->save();
-            $bill_detail = new BillDetail();
-            
+            Bill::createBill($input['vpc_OrderInfo'], date('Y-m-d H:i:s'), session('user_id'), $input['vpc_Amount'], 'null');   
             $cart = session('cart');
             foreach($cart as $productId => $quantity){
-            	$product = Product::find($productId);
+                $product = Product::find($productId);
                 $product->quantity = $product->quantity - $quantity;
                 $product->save();
-              	$bill_detail = new BillDetail();
-              	$bill_detail->billId = $input['vpc_OrderInfo'];
-              	$bill_detail->productId = $productId;
-              	$bill_detail->quantity = $quantity;
-              	$bill_detail->save();
+                BillDetail::createBillDetail($input['vpc_OrderInfo'], $productId, $quantity);
            }
             
         }elseif ($hashValidated=="INVALID HASH" && $txnResponseCode=="0"){

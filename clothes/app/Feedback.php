@@ -35,4 +35,25 @@ class Feedback extends Model
         ->get();
         return $comment_star;
     }
+
+    public static function update_feedback_star($userId, $productId, $star, $time){
+        $feedback = DB::table('feedback')->where([['productId', '=', $productId], ['userId', '=', $userId]])->first();
+        if(!$feedback)
+        {
+            $feedback = new Feedback();
+            DB::table('feedback')->insert(['productId'=>$productId, 'userId'=>$userId]);
+        }
+        DB::table('feedback')->where([['productId', '=', $productId], ['userId', '=', $userId]])->update(['star'=>$star, 'date'=>$time]);
+    }
+
+    public static function update_feedback_comment($userId, $productId, $comment, $time){
+               $feedback = DB::table('feedback')->where([['productId', '=', $productId], ['userId', '=', $userId]])->first();
+        if(!$feedback)
+        {
+            $feedback = new Feedback();
+            DB::table('feedback')->insert(['productId'=>$productId, 'userId'=>$userId]);
+        }
+        DB::table('feedback')->where([['productId', '=', $productId], ['userId', '=', $userId]])->update(['comment'=>$comment, 'date'=>$time]);
+        return $feedback->star;
+    }
 }
