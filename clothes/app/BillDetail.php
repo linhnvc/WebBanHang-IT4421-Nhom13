@@ -15,4 +15,13 @@ class BillDetail extends Model
     public function bill(){
     	return $this->beLongsto("App\Bill", "billId", "billId");
     }
+
+    
+    public static function createBillDetail($billId, $productId, $quantity){
+    	$bill_detail = new BillDetail();
+    	$bill_detail->billId = $billId;
+        $bill_detail->productId = $productId;
+        $bill_detail->quantity = $quantity;
+        $bill_detail->save();
+    }
 }

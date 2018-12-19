@@ -156,13 +156,12 @@ class BillController extends Controller
     public function thong_ke(Request $request){
         $from = $request->get('date-from');
         $to = $request->get('date-to');
-        $bill_list = Bill::Where([['date', '<=', $to], ['date', '>=', $from]])->get();
+        $bill_list = Bill::getBillsFromTo($from, $to);
         $sum_bill = 0;
         foreach ($bill_list as $bill) {
             if($bill->checked=='checked')
                 $sum_bill += $bill->total;
         }
-
         return view('ad-showbilllist', ['bill_list'=>$bill_list, 'sum_bill'=>$sum_bill]);
     }
 
